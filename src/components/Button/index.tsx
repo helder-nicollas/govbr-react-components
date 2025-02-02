@@ -1,35 +1,23 @@
 import { VariantProps, tv } from 'tailwind-variants';
 import { ComponentProps, forwardRef } from 'react';
+import '@govbr-ds/core/dist/components/button/button.min.css';
 
 type Ref = HTMLButtonElement;
 
 const buttonVariants = tv({
-    base: '!font-bold',
+    base: 'br-button',
     variants: {
-        color: {
-            primary: 'br-button primary',
-            secondary: 'br-button !bg-gov-gray-1',
-            outline: 'br-button secondary',
-            transparent: 'br-button',
-        },
-        rounded: {
-            full: '!rounded-full',
-            md: '!rounded-md',
-            circle: 'circle',
-        },
-        size: {
-            lg: 'large',
-            md: '',
-            sm: 'small',
+        variant: {
+            primary: 'primary',
+            outline: 'secondary',
+            transparent: '',
         },
         loading: {
             true: 'loading',
         },
     },
     defaultVariants: {
-        color: 'primary',
-        rounded: 'md',
-        size: 'md',
+        variant: 'primary',
     },
 });
 
@@ -42,9 +30,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
         type = 'button',
         className,
         children,
-        color,
-        rounded,
-        size,
+        variant,
         loading,
         ...rest
     } = props;
@@ -53,9 +39,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
         <button
             ref={ref}
             className={buttonVariants({
-                color,
-                rounded,
-                size,
+                variant,
                 loading,
                 className,
             })}
