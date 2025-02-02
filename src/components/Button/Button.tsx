@@ -19,12 +19,12 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
     return (
         <button
             ref={ref}
+            type={type}
             className={buttonVariants({
                 variant,
                 loading,
                 className,
             })}
-            type={type}
             {...rest}
         >
             {children}
