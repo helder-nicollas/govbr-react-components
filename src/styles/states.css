@@ -1,0 +1,20 @@
+a {
+    --focus-offset: var(--spacing-scale-half);
+    color: var(--interactive);
+    text-decoration: none;
+  }
+  a:focus {
+    outline: none;
+  }
+  a.focus-visible, a:focus-visible {
+    outline-color: var(--focus);
+    outline-offset: var(--focus-offset);
+    outline-style: var(--focus-style);
+    outline-width: var(--focus-width);
+  }
+  a:not(:disabled):hover {
+    background-image: linear-gradient(rgba(var(--interactive-rgb), var(--hover)), rgba(var(--interactive-rgb), var(--hover)));
+  }
+  a:not(:disabled):active {
+    background-image: linear-gradient(rgba(var(--interactive-rgb), var(--pressed)), rgba(var(--interactive-rgb), var(--pressed)));
+  }

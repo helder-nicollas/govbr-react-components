@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button';
+import { Button, ButtonLink } from '@/components';
 
 export default function Home() {
     return (
@@ -7,7 +7,9 @@ export default function Home() {
             <div>
                 <h2 className="mb-4">Button</h2>
                 <div className="flex gap-4">
-                    <Button variant="primary">Primary</Button>
+                    <ButtonLink href="/" variant="primary">
+                        Primary
+                    </ButtonLink>
                     <Button variant="outline">Outline</Button>
                     <Button variant="transparent">Transparent</Button>
                 </div>
