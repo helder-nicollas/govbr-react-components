@@ -1,4 +1,5 @@
 import { Button, ButtonLink } from '@/components';
+import { SingleSelect } from '@/components/Select/SingleSelect';
 
 export default function Home() {
     return (
@@ -13,6 +14,10 @@ export default function Home() {
                     <Button variant="outline">Outline</Button>
                     <Button variant="transparent">Transparent</Button>
                 </div>
+            </div>
+            <div>
+                <h2 className="mb-4">Select</h2>
+
             </div>
         </main>
     );
