@@ -3,7 +3,7 @@
 import { createContext, useContext } from 'react';
 import { KeyboardEvent } from 'react';
 interface ISelectContext {
-    handleChange?(value: unknown): void;
+    handleChange(value: unknown): void;
     handleChangeWithKeyboard: (
         event: KeyboardEvent<HTMLDivElement>,
         value: unknown,

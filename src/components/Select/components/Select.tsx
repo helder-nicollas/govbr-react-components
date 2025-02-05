@@ -1,6 +1,14 @@
 'use client';
 /* eslint-disable no-unused-vars */
-import { KeyboardEvent, useMemo, useRef, useState } from 'react';
+import React, {
+    KeyboardEvent,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
+import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import { twMerge } from 'tailwind-merge';
 import '@govbr-ds/core/dist/components/select/select.min.css';
 import '@govbr-ds/core/dist/components/input/input.min.css';
@@ -12,12 +20,13 @@ import { SelectGovBr } from '../types';
 
 interface ISelectProps {
     className?: string;
+    children: React.ReactNode;
     onChange?(value: unknown): void;
 }
 
-export function Select({ className, onChange }: ISelectProps) {
+export function Select({ className, onChange, children }: ISelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
-    const [select] = useState<SelectGovBr | null>(null);
+    const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<unknown>(null);
 
     const setSelectedValue = useMemo(() => {
@@ -37,78 +46,61 @@ export function Select({ className, onChange }: ISelectProps) {
         return null;
     }, [select]);
 
-    // const resetOptionsList = useMemo(() => {
-    //     if (select)
-    //         return Object.getPrototypeOf(select).resetOptionsList.bind(
-    //             select,
-    //         ) as () => void;
-    //     return null;
-    // }, [select]);
+    const resetOptionsList = useMemo(() => {
+        if (select)
+            return Object.getPrototypeOf(select).resetOptionsList.bind(
+                select,
+            ) as () => void;
+        return null;
+    }, [select]);
 
-    const handleChange = (value: unknown) => {
-        select?.optionsList?.forEach((option, index) =>
-            removeSelected!(index, option.element),
-        );
-        const optionIndexInGovScript = select?.optionsList?.findIndex(
-            option => option.inputValue === value,
-        );
+    const handleChange = useCallback(
+        (value: unknown) => {
+            if (!select) return;
+            select?.optionsList?.forEach((option, index) =>
+                removeSelected!(index, option.element),
+            );
+            const optionIndexInGovScript = select?.optionsList?.findIndex(
+                option => option.inputValue === String(value),
+            );
 
-        if (optionIndexInGovScript === -1) return;
+            if (optionIndexInGovScript === -1) return;
 
-        const optionToChange = select!.optionsList[optionIndexInGovScript!];
+            const optionToChange = select!.optionsList[optionIndexInGovScript!];
+            setSelectedValue!(optionIndexInGovScript!, optionToChange.element);
+            setSelected(value);
+            return onChange?.(value);
+        },
+        [select, setSelectedValue, removeSelected],
+    );
 
-        setSelectedValue!(optionIndexInGovScript!, optionToChange.element);
-        setSelected(value);
-        return onChange?.(value);
-    };
+    const handleChangeWithKeyboard = useCallback(
+        (event: KeyboardEvent<HTMLDivElement>, value: unknown) => {
+            event.preventDefault();
+            switch (event.key) {
+                case 'Enter':
+                    handleChange(value);
+                    break;
+                case ' ':
+                    handleChange(value);
+                    break;
+            }
+        },
+        [handleChange],
+    );
 
-    const handleChangeWithKeyboard = (
-        event: KeyboardEvent<HTMLDivElement>,
-        value: unknown,
-    ) => {
-        event.preventDefault();
-        switch (event.key) {
-            case 'Enter':
-                handleChange(value);
-                break;
-            case ' ':
-                handleChange(value);
-                break;
+    useEffect(() => {
+        if (selectRef.current && !select) {
+            const brSelect = new BRSelect(
+                `br-select-${Math.floor(Math.random() * 50)}-${Math.floor(Math.random() * 50)}`,
+                selectRef.current,
+            );
+            setSelect(brSelect);
         }
-    };
+    }, [select, selectRef]);
 
-    // useEffect(() => {
-    //     if (!props.defaultSelected?.value || !select) return;
+    console.log(select);
 
-    //     setSelected(props.defaultSelected.value);
-    //     resetOptionsList?.();
-
-    //     const selectedOptionIndex = select?.optionsList?.findIndex(
-    //         option =>
-    //             option.inputValue ===
-    //             props.items.find(
-    //                 searchedItem =>
-    //                     searchedItem.value === props.defaultSelected?.value,
-    //             )?.label,
-    //     );
-
-    //     if (selectedOptionIndex === -1) return;
-
-    //     setSelectedValue?.(
-    //         selectedOptionIndex,
-    //         select?.optionsList?.[selectedOptionIndex]?.element,
-    //     );
-    // }, [props.defaultSelected, resetOptionsList, setSelectedValue]);
-
-    // useEffect(() => {
-    //     if (selectRef.current && !select && props.items.length) {
-    //         const brSelect = new BRSelect(
-    //             `br-select-${Math.floor(Math.random() * 50)}-${Math.floor(Math.random() * 50)}`,
-    //             selectRef.current,
-    //         );
-    //         setSelect(brSelect);
-    //     }
-    // }, [select, selectRef]);
     return (
         <SelectContext.Provider
             value={{
@@ -117,10 +109,9 @@ export function Select({ className, onChange }: ISelectProps) {
                 selected,
             }}
         >
-            <div
-                ref={selectRef}
-                className={twMerge('br-select', className)}
-            ></div>
+            <div ref={selectRef} className={twMerge('br-select', className)}>
+                {children}
+            </div>
         </SelectContext.Provider>
     );
 }

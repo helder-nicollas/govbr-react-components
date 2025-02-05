@@ -1,13 +1,26 @@
+'use client';
 import { twMerge } from 'tailwind-merge';
 import { useSelect } from '../contexts/SelectContext';
-import { ComponentProps } from 'react';
+import { ComponentProps, useEffect } from 'react';
 
 interface IProps extends ComponentProps<'div'> {
+    defaultSelected?: boolean;
     value: unknown;
 }
 
-export function SelectItem({ className, value, children, ...props }: IProps) {
+export function SelectItem({
+    className,
+    value,
+    defaultSelected,
+    children,
+    ...props
+}: IProps) {
     const { handleChangeWithKeyboard, selected, handleChange } = useSelect();
+
+    useEffect(() => {
+        if (defaultSelected) handleChange(value);
+    }, [handleChange]);
+
     return (
         <div
             className={twMerge(
