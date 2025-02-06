@@ -1,6 +1,7 @@
 'use client';
 /* eslint-disable no-unused-vars */
 import React, {
+    ComponentProps,
     KeyboardEvent,
     useCallback,
     useEffect,
@@ -18,13 +19,18 @@ import '@govbr-ds/core/dist/components/radio/radio.min.css';
 import { SelectContext } from '../contexts/SelectContext';
 import { SelectGovBr } from '../types';
 
-interface ISelectProps {
+interface ISelectProps extends ComponentProps<'div'> {
     className?: string;
     children: React.ReactNode;
     onChange?(value: unknown): void;
 }
 
-export function Select({ className, onChange, children }: ISelectProps) {
+export function Select({
+    className,
+    onChange,
+    children,
+    ...props
+}: ISelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<unknown>(null);
@@ -99,7 +105,11 @@ export function Select({ className, onChange, children }: ISelectProps) {
                 selected,
             }}
         >
-            <div ref={selectRef} className={twMerge('br-select', className)}>
+            <div
+                ref={selectRef}
+                className={twMerge('br-select', className)}
+                {...props}
+            >
                 {children}
             </div>
         </SelectContext.Provider>
