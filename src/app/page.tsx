@@ -11,15 +11,15 @@ import {
 const array = [
     {
         label: 'Maçã',
-        id: 1,
+        value: '1',
     },
     {
         label: 'Pera',
-        id: 2,
+        value: '2',
     },
     {
         label: 'Banana',
-        id: 3,
+        value: '3',
     },
 ];
 
@@ -41,15 +41,11 @@ export default function Home() {
                 <h2 className="mb-4">Select</h2>
                 <Select>
                     <SelectTriggerRoot>
-                        <SelectTriggerInput />
+                        <SelectTriggerInput id="name" />
                     </SelectTriggerRoot>
                     <SelectList>
                         {array.map(item => (
-                            <SelectItem
-                                value={item.id}
-                                key={item.id}
-                                defaultSelected={item.id === 2}
-                            >
+                            <SelectItem value={item.value} key={item.value}>
                                 {item.label}
                             </SelectItem>
                         ))}

@@ -46,14 +46,6 @@ export function Select({ className, onChange, children }: ISelectProps) {
         return null;
     }, [select]);
 
-    const resetOptionsList = useMemo(() => {
-        if (select)
-            return Object.getPrototypeOf(select).resetOptionsList.bind(
-                select,
-            ) as () => void;
-        return null;
-    }, [select]);
-
     const handleChange = useCallback(
         (value: unknown) => {
             if (!select) return;
@@ -98,8 +90,6 @@ export function Select({ className, onChange, children }: ISelectProps) {
             setSelect(brSelect);
         }
     }, [select, selectRef]);
-
-    console.log(select);
 
     return (
         <SelectContext.Provider
