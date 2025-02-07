@@ -12,7 +12,6 @@ const inputVariants = tv({
         },
         withButton: {
             true: 'input-button',
-            false: '',
         },
         density: {
             large: 'large',
