@@ -17,62 +17,24 @@
     }
 }
 
-
-
 :root {
-    --blue-warm-vivid-10: #d6e7ff;
-    --blue-warm-vivid-50: #2670e8;
-    --blue-warm-vivid-70: #1351b4;
-    --blue-warm-vivid-90: #071d41;
+    --background: var(--pure-0);
+    --foreground: var(--gray-80);
     
-    --pure-100: #000000;
-    --gray-30: #adadad;
-    --gray-60: #636363;
-    --gray-80: #333333;
-    
-    --pure-0: #ffffff;
-    --gray-1: #efefef;
-    --gray-10: #e6e6e6;
-    --gray-20: #cccccc;
-    
-    --red-vivid-50: #e52207;
-    --red-vivid-10: #fde0db;
-    --red-vivid-30: #ff8d7b;
-    --red-vivid-70: #8b0a03;
-    
-    --yellow-vivid-20: #ffcd07;
-    --yellow-vivid-5: #fff5c2;
-    --yellow-vivid-40: #b38c00;
-    --yellow-vivid-70: #b38c00;
-    
-    --green-cool-vivid-50: #168821;
-    --green-cool-vivid-5: #e3f5e1;
-    --green-cool-vivid-30: #21c834;
-    --green-cool-vivid-60: #216e1f;
-}
+    --secondary-background: var(--blue-warm-vivid-10);
+    --secondary-foreground: var(--blue-warm-vivid-70);
 
-.br-card {
-    margin-bottom: 0 !important;
-}
-
-:root {
-    --background: #{$pure-0};
-    --foreground: #{$gray-80};
-    
-    --secondary-background: #{$blue-warm-vivid-10};
-    --secondary-foreground: #{$blue-warm-vivid-70};
-
-    --header-background: #{$pure-0};
+    --header-background: var(--pure-0);
 }
 
 html.dark {
-    --background: #{$pure-100};
-    --foreground: #{$pure-0};
+    --background: var(--pure-100);
+    --foreground: var(--pure-0);
 
-    --secondary-background: #{$gray-80};
-    --secondary-foreground: #{$yellow-vivid-20};
+    --secondary-background: var(--gray-80);
+    --secondary-foreground: var(--yellow-vivid-20);
 
-    --header-background: #{$gray-80};
+    --header-background: var(--gray-80);
 }
 
 body {
