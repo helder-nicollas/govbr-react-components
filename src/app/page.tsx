@@ -7,6 +7,8 @@ import {
     SelectTriggerRoot,
     SelectTriggerInput,
 } from '@/components';
+import { Input, InputField } from '@/components/Input';
+import { Label } from '@/components/Label';
 
 const array = [
     {
@@ -51,6 +53,13 @@ export default function Home() {
                         ))}
                     </SelectList>
                 </Select>
+            </div>
+            <div>
+                <h2 className="mb-4">Input</h2>
+                <Input>
+                    <Label>Input</Label>
+                    <InputField />
+                </Input>
             </div>
         </main>
     );

@@ -2,13 +2,13 @@
 import { ComponentProps, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { VariantProps, tv } from 'tailwind-variants';
+import '@govbr-ds/core/dist/components/input/input.min.css';
 
-const inputContentVariants = tv({
+const inputVariants = tv({
     base: 'br-input',
     variants: {
-        border: {
-            highlight: 'input-highlight',
-            black: '',
+        highlight: {
+            true: 'input-highlight',
         },
         withButton: {
             true: 'input-button',
@@ -19,6 +19,12 @@ const inputContentVariants = tv({
             medium: '',
             small: 'small',
         },
+        variant: {
+            info: 'info',
+            warning: 'warning',
+            danger: 'danger',
+            success: 'success',
+        },
     },
     defaultVariants: {
         border: 'black',
@@ -28,26 +34,28 @@ const inputContentVariants = tv({
 
 interface InputContentProps
     extends ComponentProps<'div'>,
-        VariantProps<typeof inputContentVariants> {
+        VariantProps<typeof inputVariants> {
     children: ReactNode;
 }
 
-export default function InputRoot({
+export function Input({
     children,
     className,
-    border,
+    highlight,
     withButton,
     density,
+    variant,
     ...props
 }: InputContentProps) {
     return (
         <div
             className={twMerge(
                 'br-input max-w-[400px]',
-                inputContentVariants({
-                    border,
+                inputVariants({
+                    highlight,
                     density,
                     withButton,
+                    variant,
                     className,
                 }),
             )}
