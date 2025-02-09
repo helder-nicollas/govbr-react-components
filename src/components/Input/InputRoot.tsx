@@ -36,7 +36,7 @@ interface IInputProps
     children: ReactNode;
 }
 
-export function Input({
+export function InputRoot({
     children,
     className,
     highlight,
