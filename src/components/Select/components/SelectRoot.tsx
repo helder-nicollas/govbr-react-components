@@ -12,7 +12,6 @@ import React, {
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import { twMerge } from 'tailwind-merge';
 import '@govbr-ds/core/dist/components/select/select.min.css';
-import '@govbr-ds/core/dist/components/input/input.min.css';
 import '@govbr-ds/core/dist/components/list/list.min.css';
 import '@govbr-ds/core/dist/components/item/item.min.css';
 import '@govbr-ds/core/dist/components/radio/radio.min.css';
@@ -25,7 +24,7 @@ interface ISelectProps extends ComponentProps<'div'> {
     onChange?(value: unknown): void;
 }
 
-export function Select({
+export function SelectRoot({
     className,
     onChange,
     children,

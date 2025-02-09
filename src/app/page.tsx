@@ -2,16 +2,13 @@ import {
     Button,
     ButtonLink,
     Select,
-    SelectList,
-    SelectItem,
-    SelectTriggerRoot,
-    SelectTriggerInput,
     Label,
     Input,
     InputField,
     Feedback,
     InputGroup,
     InputIcon,
+    SelectTrigger,
 } from '@/components';
 
 const array = [
@@ -45,31 +42,37 @@ export default function Home() {
             </div>
             <div>
                 <h2 className="mb-4">Select</h2>
-                <Select>
-                    <SelectTriggerRoot>
-                        <SelectTriggerInput id="name" />
-                    </SelectTriggerRoot>
-                    <SelectList>
+                <Select.Root>
+                    <SelectTrigger.Root>
+                        <SelectTrigger.Field />
+                        <SelectTrigger.Button />
+                    </SelectTrigger.Root>
+                    <Select.List>
                         {array.map(item => (
-                            <SelectItem value={item.value} key={item.value}>
+                            <Select.Item value={item.value} key={item.value}>
                                 {item.label}
-                            </SelectItem>
+                            </Select.Item>
                         ))}
-                    </SelectList>
-                </Select>
+                    </Select.List>
+                </Select.Root>
             </div>
             <div>
                 <h2 className="mb-4">Input</h2>
-                <Input variant="success" size="medium" withButton>
+                <div className="space-y-2">
                     <Label>Input</Label>
-                    <InputGroup>
-                        <InputIcon>
-                            <i className="fas fa-user-tie" aria-hidden="true" />
-                        </InputIcon>
-                        <InputField placeholder="Usuário" />
-                    </InputGroup>
+                    <Input variant="success" size="medium" withButton>
+                        <InputGroup>
+                            <InputIcon>
+                                <i
+                                    className="fas fa-user-tie"
+                                    aria-hidden="true"
+                                />
+                            </InputIcon>
+                            <InputField placeholder="Usuário" />
+                        </InputGroup>
+                    </Input>
                     <Feedback message="Sucesso" icon="success" />
-                </Input>
+                </div>
             </div>
         </main>
     );

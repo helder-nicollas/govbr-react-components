@@ -1,12 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { Select } from '../components/Select';
-import {
-    SelectTriggerInput,
-    SelectTriggerRoot,
-} from '../components/SelectTrigger';
-import { SelectList } from '../components/SelectList';
-import { SelectItem } from '../components/SelectItem';
+import { SelectTrigger } from '../components/SelectTrigger';
+import { Select } from '..';
 
 describe('Select', () => {
     const options = [
@@ -28,22 +23,23 @@ describe('Select', () => {
         const onChange = jest.fn();
 
         render(
-            <Select data-testid="select" onChange={onChange}>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" />
-                </SelectTriggerRoot>
-                <SelectList>
+            <Select.Root data-testid="select" onChange={onChange}>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
+                <Select.List>
                     {options.map(item => (
-                        <SelectItem
+                        <Select.Item
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </SelectItem>
+                        </Select.Item>
                     ))}
-                </SelectList>
-            </Select>,
+                </Select.List>
+            </Select.Root>,
         );
 
         const optionToClick = screen.getByTestId('1').querySelector('input');
@@ -55,22 +51,23 @@ describe('Select', () => {
         const onChange = jest.fn();
 
         render(
-            <Select data-testid="select" onChange={onChange}>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" />
-                </SelectTriggerRoot>
-                <SelectList>
+            <Select.Root data-testid="select" onChange={onChange}>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
+                <Select.List>
                     {options.map(item => (
-                        <SelectItem
+                        <Select.Item
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </SelectItem>
+                        </Select.Item>
                     ))}
-                </SelectList>
-            </Select>,
+                </Select.List>
+            </Select.Root>,
         );
 
         const optionToClick = screen.getByTestId('1').querySelector('input');
@@ -81,18 +78,19 @@ describe('Select', () => {
 
     it('should add expanded attribute to select on input click', () => {
         render(
-            <Select>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" data-testid="trigger" />
-                </SelectTriggerRoot>
-                <SelectList data-testid="list">
+            <Select.Root>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
+                <Select.List data-testid="list">
                     {options.map(item => (
-                        <SelectItem value={item.value} key={item.value}>
+                        <Select.Item value={item.value} key={item.value}>
                             {item.label}
-                        </SelectItem>
+                        </Select.Item>
                     ))}
-                </SelectList>
-            </Select>,
+                </Select.List>
+            </Select.Root>,
         );
 
         const trigger = screen.getByTestId('trigger');
@@ -103,18 +101,19 @@ describe('Select', () => {
 
     it('should show not found image on filter item that is not in list', async () => {
         render(
-            <Select>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" data-testid="trigger" />
-                </SelectTriggerRoot>
-                <SelectList data-testid="list">
+            <Select.Root>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
+                <Select.List data-testid="list">
                     {options.map(item => (
-                        <SelectItem value={item.value} key={item.value}>
+                        <Select.Item value={item.value} key={item.value}>
                             {item.label}
-                        </SelectItem>
+                        </Select.Item>
                     ))}
-                </SelectList>
-            </Select>,
+                </Select.List>
+            </Select.Root>,
         );
 
         const trigger = screen.getByTestId('trigger');
