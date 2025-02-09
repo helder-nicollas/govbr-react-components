@@ -24,7 +24,7 @@ interface ISelectProps extends ComponentProps<'div'> {
     onChange?(value: unknown): void;
 }
 
-export function Select({
+export function SelectRoot({
     className,
     onChange,
     children,
