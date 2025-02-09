@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { VariantProps, tv } from 'tailwind-variants';
 import '@govbr-ds/core/dist/components/input/input.min.css';
 
-const inputVariants = tv({
+export const inputVariants = tv({
     base: 'br-input',
     variants: {
         highlight: {
@@ -23,14 +23,16 @@ const inputVariants = tv({
             warning: 'warning',
             danger: 'danger',
             success: 'success',
+            normal: '',
         },
     },
     defaultVariants: {
         size: 'medium',
+        variant: 'normal',
     },
 });
 
-interface IInputProps
+export interface IInputProps
     extends ComponentProps<'div'>,
         VariantProps<typeof inputVariants> {
     children: ReactNode;

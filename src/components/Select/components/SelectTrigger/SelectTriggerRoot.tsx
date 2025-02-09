@@ -18,6 +18,7 @@ const selecTriggerVariants = tv({
             warning: 'warning',
             danger: 'danger',
             success: 'success',
+            normal: '',
         },
     },
     defaultVariants: {
