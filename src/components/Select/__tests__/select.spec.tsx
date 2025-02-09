@@ -1,10 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { Select } from '../components/Select';
-import {
-    SelectTriggerInput,
-    SelectTriggerRoot,
-} from '../components/SelectTrigger';
+import { SelectTrigger } from '../components/SelectTrigger';
 import { SelectList } from '../components/SelectList';
 import { SelectItem } from '../components/SelectItem';
 
@@ -29,9 +26,10 @@ describe('Select', () => {
 
         render(
             <Select data-testid="select" onChange={onChange}>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" />
-                </SelectTriggerRoot>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
                 <SelectList>
                     {options.map(item => (
                         <SelectItem
@@ -56,9 +54,10 @@ describe('Select', () => {
 
         render(
             <Select data-testid="select" onChange={onChange}>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" />
-                </SelectTriggerRoot>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
                 <SelectList>
                     {options.map(item => (
                         <SelectItem
@@ -82,9 +81,10 @@ describe('Select', () => {
     it('should add expanded attribute to select on input click', () => {
         render(
             <Select>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" data-testid="trigger" />
-                </SelectTriggerRoot>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
                 <SelectList data-testid="list">
                     {options.map(item => (
                         <SelectItem value={item.value} key={item.value}>
@@ -104,9 +104,10 @@ describe('Select', () => {
     it('should show not found image on filter item that is not in list', async () => {
         render(
             <Select>
-                <SelectTriggerRoot>
-                    <SelectTriggerInput id="name" data-testid="trigger" />
-                </SelectTriggerRoot>
+                <SelectTrigger.Root>
+                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTrigger.Button />
+                </SelectTrigger.Root>
                 <SelectList data-testid="list">
                     {options.map(item => (
                         <SelectItem value={item.value} key={item.value}>

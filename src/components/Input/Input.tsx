@@ -30,7 +30,7 @@ const inputVariants = tv({
     },
 });
 
-interface InputContentProps
+interface IInputProps
     extends ComponentProps<'div'>,
         VariantProps<typeof inputVariants> {
     children: ReactNode;
@@ -44,11 +44,11 @@ export function Input({
     size,
     variant,
     ...props
-}: InputContentProps) {
+}: IInputProps) {
     return (
         <div
             className={twMerge(
-                'br-input max-w-[400px] space-y-2',
+                'br-input max-w-[400px]',
                 inputVariants({
                     highlight,
                     size,

@@ -4,14 +4,13 @@ import {
     Select,
     SelectList,
     SelectItem,
-    SelectTriggerRoot,
-    SelectTriggerInput,
     Label,
     Input,
     InputField,
     Feedback,
     InputGroup,
     InputIcon,
+    SelectTrigger,
 } from '@/components';
 
 const array = [
@@ -46,9 +45,10 @@ export default function Home() {
             <div>
                 <h2 className="mb-4">Select</h2>
                 <Select>
-                    <SelectTriggerRoot>
-                        <SelectTriggerInput id="name" />
-                    </SelectTriggerRoot>
+                    <SelectTrigger.Root>
+                        <SelectTrigger.Field />
+                        <SelectTrigger.Button />
+                    </SelectTrigger.Root>
                     <SelectList>
                         {array.map(item => (
                             <SelectItem value={item.value} key={item.value}>
@@ -60,16 +60,16 @@ export default function Home() {
             </div>
             <div>
                 <h2 className="mb-4">Input</h2>
+                <Label>Input</Label>
                 <Input variant="success" size="medium" withButton>
-                    <Label>Input</Label>
                     <InputGroup>
                         <InputIcon>
                             <i className="fas fa-user-tie" aria-hidden="true" />
                         </InputIcon>
                         <InputField placeholder="Usuário" />
                     </InputGroup>
-                    <Feedback message="Sucesso" icon="success" />
                 </Input>
+                <Feedback message="Sucesso" icon="success" />
             </div>
         </main>
     );
