@@ -21,7 +21,7 @@ import { SelectItem } from './SelectItem';
 import { SelectList } from './SelectList';
 import { SelectTrigger } from './SelectTrigger';
 
-interface ISelectProps extends ComponentProps<'div'> {
+export interface ISelectProps extends ComponentProps<'div'> {
     className?: string;
     children: React.ReactNode;
     onChange?(value: unknown): void;

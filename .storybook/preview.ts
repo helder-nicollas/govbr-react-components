@@ -10,6 +10,7 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        actions: { argTypesRegex: '^on.*' },
         docs: {
             theme: themes.dark,
         },

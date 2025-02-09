@@ -4,7 +4,7 @@ import { tv, VariantProps } from 'tailwind-variants';
 import { SelectTriggerField } from './SelectTriggerField';
 import { SelectTriggerButton } from './SelectTriggerButton';
 
-const selecTriggerVariants = tv({
+export const selecTriggerVariants = tv({
     base: 'br-input',
     variants: {
         highlight: {
@@ -28,7 +28,7 @@ const selecTriggerVariants = tv({
     },
 });
 
-interface ISelectTriggerProps
+export interface ISelectTriggerProps
     extends ComponentProps<'div'>,
         VariantProps<typeof selecTriggerVariants> {
     children: ReactNode;
