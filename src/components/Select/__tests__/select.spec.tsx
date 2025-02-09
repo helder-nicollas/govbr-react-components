@@ -1,7 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { SelectTrigger } from '../components/SelectTrigger';
-import { Select } from '..';
+import { Select } from '../components';
 
 describe('Select', () => {
     const options = [
@@ -23,11 +22,11 @@ describe('Select', () => {
         const onChange = jest.fn();
 
         render(
-            <Select.Root data-testid="select" onChange={onChange}>
-                <SelectTrigger.Root>
-                    <SelectTrigger.Field id="name" />
-                    <SelectTrigger.Button />
-                </SelectTrigger.Root>
+            <Select data-testid="select" onChange={onChange}>
+                <Select.Trigger>
+                    <Select.Trigger.Field id="name" />
+                    <Select.Trigger.Button />
+                </Select.Trigger>
                 <Select.List>
                     {options.map(item => (
                         <Select.Item
@@ -39,7 +38,7 @@ describe('Select', () => {
                         </Select.Item>
                     ))}
                 </Select.List>
-            </Select.Root>,
+            </Select>,
         );
 
         const optionToClick = screen.getByTestId('1').querySelector('input');
@@ -51,11 +50,11 @@ describe('Select', () => {
         const onChange = jest.fn();
 
         render(
-            <Select.Root data-testid="select" onChange={onChange}>
-                <SelectTrigger.Root>
-                    <SelectTrigger.Field id="name" />
-                    <SelectTrigger.Button />
-                </SelectTrigger.Root>
+            <Select data-testid="select" onChange={onChange}>
+                <Select.Trigger>
+                    <Select.Trigger.Field id="name" />
+                    <Select.Trigger.Button />
+                </Select.Trigger>
                 <Select.List>
                     {options.map(item => (
                         <Select.Item
@@ -67,7 +66,7 @@ describe('Select', () => {
                         </Select.Item>
                     ))}
                 </Select.List>
-            </Select.Root>,
+            </Select>,
         );
 
         const optionToClick = screen.getByTestId('1').querySelector('input');
@@ -78,11 +77,11 @@ describe('Select', () => {
 
     it('should add expanded attribute to select on input click', () => {
         render(
-            <Select.Root>
-                <SelectTrigger.Root>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
-                    <SelectTrigger.Button />
-                </SelectTrigger.Root>
+            <Select>
+                <Select.Trigger>
+                    <Select.Trigger.Field id="name" data-testid="trigger" />
+                    <Select.Trigger.Button />
+                </Select.Trigger>
                 <Select.List data-testid="list">
                     {options.map(item => (
                         <Select.Item value={item.value} key={item.value}>
@@ -90,7 +89,7 @@ describe('Select', () => {
                         </Select.Item>
                     ))}
                 </Select.List>
-            </Select.Root>,
+            </Select>,
         );
 
         const trigger = screen.getByTestId('trigger');
@@ -101,11 +100,11 @@ describe('Select', () => {
 
     it('should show not found image on filter item that is not in list', async () => {
         render(
-            <Select.Root>
-                <SelectTrigger.Root>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
-                    <SelectTrigger.Button />
-                </SelectTrigger.Root>
+            <Select>
+                <Select.Trigger>
+                    <Select.Trigger.Field id="name" data-testid="trigger" />
+                    <Select.Trigger.Button />
+                </Select.Trigger>
                 <Select.List data-testid="list">
                     {options.map(item => (
                         <Select.Item value={item.value} key={item.value}>
@@ -113,7 +112,7 @@ describe('Select', () => {
                         </Select.Item>
                     ))}
                 </Select.List>
-            </Select.Root>,
+            </Select>,
         );
 
         const trigger = screen.getByTestId('trigger');

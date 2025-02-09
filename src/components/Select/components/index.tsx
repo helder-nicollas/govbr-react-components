@@ -17,6 +17,9 @@ import '@govbr-ds/core/dist/components/item/item.min.css';
 import '@govbr-ds/core/dist/components/radio/radio.min.css';
 import { SelectContext } from '../contexts/SelectContext';
 import { SelectGovBr } from '../types';
+import { SelectItem } from './SelectItem';
+import { SelectList } from './SelectList';
+import { SelectTrigger } from './SelectTrigger';
 
 interface ISelectProps extends ComponentProps<'div'> {
     className?: string;
@@ -24,12 +27,7 @@ interface ISelectProps extends ComponentProps<'div'> {
     onChange?(value: unknown): void;
 }
 
-export function SelectRoot({
-    className,
-    onChange,
-    children,
-    ...props
-}: ISelectProps) {
+function Select({ className, onChange, children, ...props }: ISelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<unknown>(null);
@@ -114,3 +112,9 @@ export function SelectRoot({
         </SelectContext.Provider>
     );
 }
+
+Select.Item = SelectItem;
+Select.List = SelectList;
+Select.Trigger = SelectTrigger;
+
+export { Select };

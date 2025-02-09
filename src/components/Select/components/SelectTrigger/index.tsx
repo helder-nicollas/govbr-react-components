@@ -1,6 +1,8 @@
 import { ComponentProps, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { tv, VariantProps } from 'tailwind-variants';
+import { SelectTriggerField } from './SelectTriggerField';
+import { SelectTriggerButton } from './SelectTriggerButton';
 
 const selecTriggerVariants = tv({
     base: 'br-input',
@@ -32,7 +34,7 @@ interface ISelectTriggerProps
     children: ReactNode;
 }
 
-export function SelectTriggerRoot({
+export function SelectTrigger({
     children,
     className,
     highlight,
@@ -57,3 +59,6 @@ export function SelectTriggerRoot({
         </div>
     );
 }
+
+SelectTrigger.Field = SelectTriggerField;
+SelectTrigger.Button = SelectTriggerButton;

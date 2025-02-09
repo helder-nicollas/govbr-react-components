@@ -1,11 +1,10 @@
 import {
     Button,
     ButtonLink,
-    Select,
     Label,
     Input,
     Feedback,
-    SelectTrigger,
+    Select,
 } from '@/components';
 
 const array = [
@@ -39,11 +38,11 @@ export default function Home() {
             </div>
             <div>
                 <h2 className="mb-4">Select</h2>
-                <Select.Root>
-                    <SelectTrigger.Root>
-                        <SelectTrigger.Field />
-                        <SelectTrigger.Button />
-                    </SelectTrigger.Root>
+                <Select>
+                    <Select.Trigger>
+                        <Select.Trigger.Field />
+                        <Select.Trigger.Button />
+                    </Select.Trigger>
                     <Select.List>
                         {array.map(item => (
                             <Select.Item value={item.value} key={item.value}>
@@ -51,7 +50,7 @@ export default function Home() {
                             </Select.Item>
                         ))}
                     </Select.List>
-                </Select.Root>
+                </Select>
             </div>
             <div>
                 <h2 className="mb-4">Input</h2>
