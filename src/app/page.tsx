@@ -4,10 +4,7 @@ import {
     Select,
     Label,
     Input,
-    InputField,
     Feedback,
-    InputGroup,
-    InputIcon,
     SelectTrigger,
 } from '@/components';
 
@@ -60,17 +57,17 @@ export default function Home() {
                 <h2 className="mb-4">Input</h2>
                 <div className="space-y-2">
                     <Label>Input</Label>
-                    <Input variant="success" size="medium" withButton>
-                        <InputGroup>
-                            <InputIcon>
+                    <Input.Root variant="success" size="medium" withButton>
+                        <Input.Group>
+                            <Input.Icon>
                                 <i
                                     className="fas fa-user-tie"
                                     aria-hidden="true"
                                 />
-                            </InputIcon>
-                            <InputField placeholder="Usuário" />
-                        </InputGroup>
-                    </Input>
+                            </Input.Icon>
+                            <Input.Field placeholder="Usuário" />
+                        </Input.Group>
+                    </Input.Root>
                     <Feedback message="Sucesso" icon="success" />
                 </div>
             </div>

@@ -1,21 +1,26 @@
 import { render, screen } from '@testing-library/react';
-import { Input, InputButton, InputField, InputGroup, InputIcon } from '../';
+import { Input } from '..';
 import userEvent from '@testing-library/user-event';
 
 describe('Input', () => {
     it('should render applying variants from input', () => {
         render(
-            <Input variant="success" withButton highlight data-testid="input">
-                <InputGroup>
-                    <InputIcon>
+            <Input.Root
+                variant="success"
+                withButton
+                highlight
+                data-testid="input"
+            >
+                <Input.Group>
+                    <Input.Icon>
                         <i className="fas fa-user-tie" aria-hidden="true" />
-                    </InputIcon>
-                    <InputField placeholder="Usuário" />
-                    <InputButton>
+                    </Input.Icon>
+                    <Input.Field placeholder="Usuário" />
+                    <Input.Button>
                         <i className="fas fa-user-tie" aria-hidden="true" />
-                    </InputButton>
-                </InputGroup>
-            </Input>,
+                    </Input.Button>
+                </Input.Group>
+            </Input.Root>,
         );
 
         const input = screen.getByTestId('input');
@@ -28,9 +33,9 @@ describe('Input', () => {
         const onChange = jest.fn();
 
         render(
-            <Input>
-                <InputField onChange={onChange} placeholder="testing" />
-            </Input>,
+            <Input.Root>
+                <Input.Field onChange={onChange} placeholder="testing" />
+            </Input.Root>,
         );
 
         const inputField = screen.getByPlaceholderText(/testing/i);
