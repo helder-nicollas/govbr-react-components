@@ -57,7 +57,7 @@ export default function Home() {
                 <h2 className="mb-4">Input</h2>
                 <div className="space-y-2">
                     <Label>Input</Label>
-                    <Input.Root variant="success" size="medium" withButton>
+                    <Input variant="success" size="medium" withButton>
                         <Input.Group>
                             <Input.Icon>
                                 <i
@@ -67,7 +67,7 @@ export default function Home() {
                             </Input.Icon>
                             <Input.Field placeholder="Usuário" />
                         </Input.Group>
-                    </Input.Root>
+                    </Input>
                     <Feedback message="Sucesso" icon="success" />
                 </div>
             </div>

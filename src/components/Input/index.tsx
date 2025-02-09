@@ -3,6 +3,10 @@ import { ComponentProps, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { VariantProps, tv } from 'tailwind-variants';
 import '@govbr-ds/core/dist/components/input/input.min.css';
+import { InputIcon } from './InputIcon';
+import { InputButton } from './InputButton';
+import { InputField } from './InputField';
+import { InputGroup } from './InputGroup';
 
 export const inputVariants = tv({
     base: 'br-input',
@@ -38,7 +42,7 @@ export interface IInputProps
     children: ReactNode;
 }
 
-export function InputRoot({
+function Input({
     children,
     className,
     highlight,
@@ -65,3 +69,11 @@ export function InputRoot({
         </div>
     );
 }
+
+Input.Icon = InputIcon;
+Input.Button = InputButton;
+Input.Field = InputField;
+Input.Group = InputGroup;
+Input.Icon = InputIcon;
+
+export { Input };
