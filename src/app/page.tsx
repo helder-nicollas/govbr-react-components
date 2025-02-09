@@ -6,9 +6,13 @@ import {
     SelectItem,
     SelectTriggerRoot,
     SelectTriggerInput,
+    Label,
+    Input,
+    InputField,
+    Feedback,
+    InputGroup,
+    InputIcon,
 } from '@/components';
-import { Input, InputField } from '@/components/Input';
-import { Label } from '@/components/Label';
 
 const array = [
     {
@@ -56,9 +60,15 @@ export default function Home() {
             </div>
             <div>
                 <h2 className="mb-4">Input</h2>
-                <Input>
+                <Input variant="success" size="medium" withButton>
                     <Label>Input</Label>
-                    <InputField />
+                    <InputGroup>
+                        <InputIcon>
+                            <i className="fas fa-user-tie" aria-hidden="true" />
+                        </InputIcon>
+                        <InputField placeholder="Usuário" />
+                    </InputGroup>
+                    <Feedback message="Sucesso" icon="success" />
                 </Input>
             </div>
         </main>

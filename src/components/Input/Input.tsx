@@ -13,7 +13,7 @@ const inputVariants = tv({
         withButton: {
             true: 'input-button',
         },
-        density: {
+        size: {
             large: 'large',
             medium: '',
             small: 'small',
@@ -26,8 +26,7 @@ const inputVariants = tv({
         },
     },
     defaultVariants: {
-        border: 'black',
-        density: 'medium',
+        size: 'medium',
     },
 });
 
@@ -42,17 +41,17 @@ export function Input({
     className,
     highlight,
     withButton,
-    density,
+    size,
     variant,
     ...props
 }: InputContentProps) {
     return (
         <div
             className={twMerge(
-                'br-input max-w-[400px]',
+                'br-input max-w-[400px] space-y-2',
                 inputVariants({
                     highlight,
-                    density,
+                    size,
                     withButton,
                     variant,
                     className,
