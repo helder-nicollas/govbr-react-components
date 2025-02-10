@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-'use client';
 import { createContext, useContext } from 'react';
 import { KeyboardEvent } from 'react';
 interface ISelectContext {

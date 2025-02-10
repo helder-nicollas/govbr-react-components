@@ -49,6 +49,7 @@ const config: Config = {
     moduleNameMapper: {
         '\\.(css|less|scss)$': 'identity-obj-proxy',
     },
+    modulePathIgnorePatterns: ['./dist'],
 };
 
 export default config;

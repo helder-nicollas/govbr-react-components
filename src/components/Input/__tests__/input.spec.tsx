@@ -5,12 +5,7 @@ import userEvent from '@testing-library/user-event';
 describe('Input', () => {
     it('should render applying variants from input', () => {
         render(
-            <Input.Root
-                variant="success"
-                withButton
-                highlight
-                data-testid="input"
-            >
+            <Input variant="success" withButton highlight data-testid="input">
                 <Input.Group>
                     <Input.Icon>
                         <i className="fas fa-user-tie" aria-hidden="true" />
@@ -20,7 +15,7 @@ describe('Input', () => {
                         <i className="fas fa-user-tie" aria-hidden="true" />
                     </Input.Button>
                 </Input.Group>
-            </Input.Root>,
+            </Input>,
         );
 
         const input = screen.getByTestId('input');
@@ -33,9 +28,9 @@ describe('Input', () => {
         const onChange = jest.fn();
 
         render(
-            <Input.Root>
+            <Input>
                 <Input.Field onChange={onChange} placeholder="testing" />
-            </Input.Root>,
+            </Input>,
         );
 
         const inputField = screen.getByPlaceholderText(/testing/i);

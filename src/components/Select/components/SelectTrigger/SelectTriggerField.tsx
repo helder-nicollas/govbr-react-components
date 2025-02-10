@@ -1,4 +1,3 @@
-'use client';
 import { ComponentProps, forwardRef } from 'react';
 
 type Ref = HTMLInputElement;

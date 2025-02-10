@@ -13,3 +13,4 @@ declare module '@govbr-ds/core/dist/components/item/item.min.css';
 declare module '@govbr-ds/core/dist/components/radio/radio.min.css';
 declare module '@govbr-ds/core/dist/components/list/list.min.css';
 declare module '@govbr-ds/core/dist/components/message/message.min.css';
+declare module '@govbr-ds/core/dist/components/loading/loading.min.css';

@@ -1,4 +1,3 @@
-'use client';
 import { twMerge } from 'tailwind-merge';
 import { useSelect } from '../contexts/SelectContext';
 import { ComponentProps, useEffect } from 'react';
