@@ -1,4 +1,3 @@
-'use client';
 import { ComponentProps, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { VariantProps, tv } from 'tailwind-variants';

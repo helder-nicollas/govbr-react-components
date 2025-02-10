@@ -1,10 +1,10 @@
 {
   "name": "govbr-react-components",
   "version": "1.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "dist"
+    "types"
   ],
   "types": "dist/index.d.ts",
   "scripts": {
