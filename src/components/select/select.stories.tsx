@@ -1,9 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from './components';
-import {
-    ISelectTriggerProps,
-    selecTriggerVariants,
-} from './components/SelectTrigger';
+import { ISelectTriggerProps } from './components/SelectTrigger';
+import { selectTriggerVariants } from './components/SelectTrigger/variants';
 
 export default {
     title: 'Components/Select',
@@ -19,13 +17,13 @@ export default {
             control: {
                 type: 'inline-radio',
             },
-            options: Object.keys(selecTriggerVariants.variants.variant),
+            options: Object.keys(selectTriggerVariants.variants.variant),
         },
         size: {
             control: {
                 type: 'inline-radio',
             },
-            options: Object.keys(selecTriggerVariants.variants.size),
+            options: Object.keys(selectTriggerVariants.variants.size),
         },
     },
     tags: ['autodocs'],

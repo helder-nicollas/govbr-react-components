@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
-import '@govbr-ds/core/dist/components/message/message.min.css';
 import { inputMessageIconVariants, inputMessageVariants } from './variants';
+import '@govbr-ds/core/dist/components/message/message.min.css';
 
 export interface IFeedbackProps
     extends VariantProps<typeof inputMessageVariants>,

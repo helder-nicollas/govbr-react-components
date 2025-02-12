@@ -1,40 +1,14 @@
-import { ComponentProps, ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { tv, VariantProps } from 'tailwind-variants';
+import { ComponentProps } from 'react';
+import { VariantProps } from 'tailwind-variants';
 import { SelectTriggerField } from './select-trigger-field';
 import { SelectTriggerButton } from './select-trigger-button';
+import { selectTriggerVariants } from './variants';
 
-export const selecTriggerVariants = tv({
-    base: 'br-input',
-    variants: {
-        highlight: {
-            true: 'input-highlight',
-        },
-        size: {
-            large: 'large',
-            medium: '',
-            small: 'small',
-        },
-        variant: {
-            info: 'info',
-            warning: 'warning',
-            danger: 'danger',
-            success: 'success',
-            normal: '',
-        },
-    },
-    defaultVariants: {
-        size: 'medium',
-    },
-});
-
-export interface ISelectTriggerProps
+interface ISelectTriggerProps
     extends ComponentProps<'div'>,
-        VariantProps<typeof selecTriggerVariants> {
-    children: ReactNode;
-}
+        VariantProps<typeof selectTriggerVariants> {}
 
-export function SelectTrigger({
+function SelectTrigger({
     children,
     className,
     highlight,
@@ -44,15 +18,12 @@ export function SelectTrigger({
 }: ISelectTriggerProps) {
     return (
         <div
-            className={twMerge(
-                'br-input max-w-[400px] input-button',
-                selecTriggerVariants({
-                    highlight,
-                    size,
-                    variant,
-                    className,
-                }),
-            )}
+            className={selectTriggerVariants({
+                highlight,
+                size,
+                variant,
+                className,
+            })}
             {...props}
         >
             {children}
@@ -62,3 +33,5 @@ export function SelectTrigger({
 
 SelectTrigger.Field = SelectTriggerField;
 SelectTrigger.Button = SelectTriggerButton;
+
+export { SelectTrigger, ISelectTriggerProps };
