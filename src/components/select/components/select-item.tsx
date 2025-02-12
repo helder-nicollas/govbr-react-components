@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import { useSelect } from '../contexts/SelectContext';
+import { useSelect } from '../contexts/select-context';
 import { ComponentProps, useEffect } from 'react';
 
 interface IProps extends ComponentProps<'div'> {

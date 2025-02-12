@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from './button';
 import { buttonVariants } from './variants';
 import { fn } from '@storybook/test';
 

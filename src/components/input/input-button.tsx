@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { Button } from '../ButtonRenamed';
+import { Button } from '../button';
 import { twMerge } from 'tailwind-merge';
 
 export function InputButton({

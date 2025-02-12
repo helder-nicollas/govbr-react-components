@@ -14,10 +14,10 @@ import '@govbr-ds/core/dist/components/select/select.min.css';
 import '@govbr-ds/core/dist/components/list/list.min.css';
 import '@govbr-ds/core/dist/components/item/item.min.css';
 import '@govbr-ds/core/dist/components/radio/radio.min.css';
-import { SelectContext } from '../contexts/SelectContext';
+import { SelectContext } from '../contexts/select-context';
 import { SelectGovBr } from '../types';
-import { SelectItem } from './SelectItem';
-import { SelectList } from './SelectList';
+import { SelectItem } from './select-item';
+import { SelectList } from './select-list';
 import { SelectTrigger } from './SelectTrigger';
 
 export interface ISelectProps extends ComponentProps<'div'> {
