@@ -21,7 +21,7 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<ICheckboxProps>;
+} as Meta<ICheckboxProps & CheckboxFieldProps>;
 
 export const Default: StoryObj<ICheckboxProps & CheckboxFieldProps> = {
     args: {
