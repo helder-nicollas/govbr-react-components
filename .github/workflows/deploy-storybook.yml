@@ -1,0 +1,32 @@
+name: storybook-deploy
+
+on:
+    push:
+        branches: ['dev']
+    pull_request:
+        branches: ['dev']
+
+    workflow_dispatch:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build
+              run: npm run build-storybook
+   
+    deployment: 
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: repo checkout
+              uses: actions/checkout@v4
+            - name: node-setup
+              uses: actions/setup-node@v4
+              with:
+               node-version: '20'
+            - name: setup-storybook
+              uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+              with:                                             
+               checkout: false # default: true
+            
+        
