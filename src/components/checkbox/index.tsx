@@ -24,4 +24,4 @@ function Checkbox({ className, variant, children, ...props }: ICheckboxProps) {
 
 Checkbox.Field = CheckboxField;
 
-export { Checkbox };
+export { Checkbox, ICheckboxProps };

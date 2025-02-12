@@ -1,5 +1,14 @@
 import { ComponentProps } from 'react';
 
-export function CheckboxField({ ...props }: ComponentProps<'input'>) {
-    return <input {...props} type="checkbox" />;
+type CheckboxFieldProps = ComponentProps<'input'>;
+
+function CheckboxField({ ...props }: ComponentProps<'input'>) {
+    return (
+        <>
+            <input {...props} id={props.id} type="checkbox" />
+            <label htmlFor={props.id}>hidden label</label>
+        </>
+    );
 }
+
+export { CheckboxField, CheckboxFieldProps };
