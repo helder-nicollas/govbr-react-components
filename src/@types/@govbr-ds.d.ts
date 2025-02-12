@@ -4,6 +4,7 @@ declare module '@govbr-ds/core/dist/components/upload/upload';
 declare module '@govbr-ds/core/dist/components/table/table';
 declare module '@govbr-ds/core/dist/components/step/step';
 declare module '@govbr-ds/core/dist/components/textarea/textarea';
+declare module '@govbr-ds/core/dist/components/checkbox/checkbox';
 
 // CSS Modules
 declare module '@govbr-ds/core/dist/components/button/button.min.css';
@@ -15,3 +16,4 @@ declare module '@govbr-ds/core/dist/components/list/list.min.css';
 declare module '@govbr-ds/core/dist/components/message/message.min.css';
 declare module '@govbr-ds/core/dist/components/loading/loading.min.css';
 declare module '@govbr-ds/core/dist/components/textarea/textarea.min.css';
+declare module '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
