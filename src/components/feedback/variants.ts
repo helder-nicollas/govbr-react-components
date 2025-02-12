@@ -8,7 +8,6 @@ const inputMessageVariants = tv({
             danger: 'danger',
             info: 'info',
             warning: 'warning',
-            disabled: 'warning',
         },
     },
     defaultVariants: {
@@ -23,7 +22,6 @@ const inputMessageIconVariants = tv({
             danger: 'fas fa-times-circle',
             info: 'fas fa-info-circle',
             warning: 'fas fa-exclamation-triangle',
-            disabled: 'fas fa-exclamation-triangle',
         },
     },
     defaultVariants: {
