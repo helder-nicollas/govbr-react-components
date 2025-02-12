@@ -6,21 +6,22 @@ export default {
     title: 'Components/Feedback',
     component: Feedback,
     args: {
-        type: 'success',
-        message: 'Mensagem...',
+        variant: 'success',
+        iconVariant: 'success',
+        message: 'Mensagem para o usuário',
     },
     argTypes: {
-        type: {
+        variant: {
             control: {
                 type: 'inline-radio',
             },
-            options: Object.keys(inputMessageVariants.variants.type),
+            options: Object.keys(inputMessageVariants.variants.variant),
         },
-        icon: {
+        iconVariant: {
             control: {
                 type: 'inline-radio',
             },
-            options: Object.keys(inputMessageIconVariants.variants.icon),
+            options: Object.keys(inputMessageIconVariants.variants.iconVariant),
         },
     },
     tags: ['autodocs'],

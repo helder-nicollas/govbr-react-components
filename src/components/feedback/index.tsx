@@ -11,21 +11,21 @@ export interface IFeedbackProps
 }
 
 export function Feedback({
-    type,
     className,
     message,
-    icon,
+    iconVariant,
+    variant,
     ...props
 }: IFeedbackProps) {
     if (!message) return null;
     return (
         <span
             {...props}
-            className={inputMessageVariants({ className, type })}
+            className={inputMessageVariants({ className, variant })}
             role="alert"
         >
             <i
-                className={inputMessageIconVariants({ icon })}
+                className={inputMessageIconVariants({ iconVariant })}
                 aria-hidden="true"
             />
             {message}

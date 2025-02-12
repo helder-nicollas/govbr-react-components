@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants';
 const inputMessageVariants = tv({
     base: 'feedback',
     variants: {
-        type: {
+        variant: {
             success: 'success',
             danger: 'danger',
             info: 'info',
@@ -12,14 +12,13 @@ const inputMessageVariants = tv({
         },
     },
     defaultVariants: {
-        icon: 'success',
-        type: 'success',
+        variant: 'success',
     },
 });
 
 const inputMessageIconVariants = tv({
     variants: {
-        icon: {
+        iconVariant: {
             success: 'fas fa-check-circle',
             danger: 'fas fa-times-circle',
             info: 'fas fa-info-circle',
@@ -28,7 +27,7 @@ const inputMessageIconVariants = tv({
         },
     },
     defaultVariants: {
-        icon: 'success',
+        iconVariant: 'success',
     },
 });
 
