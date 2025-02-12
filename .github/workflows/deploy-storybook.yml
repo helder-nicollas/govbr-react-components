@@ -24,7 +24,8 @@ jobs:
                node-version: '20'
             - name: setup-storybook
               uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
-              with:                                             
-               checkout: false # default: true
+              with:                           
+               path: storybook-static
+               checkout: false
             
         
