@@ -1,45 +1,15 @@
-import { ComponentProps, ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { VariantProps, tv } from 'tailwind-variants';
-import '@govbr-ds/core/dist/components/input/input.min.css';
+import { ComponentProps } from 'react';
+import { VariantProps } from 'tailwind-variants';
 import { InputIcon } from './input-icon';
 import { InputButton } from './input-button';
 import { InputField } from './Input-field';
 import { InputGroup } from './input-group';
+import { inputVariants } from './variants';
+import '@govbr-ds/core/dist/components/input/input.min.css';
 
-export const inputVariants = tv({
-    base: 'br-input',
-    variants: {
-        highlight: {
-            true: 'input-highlight',
-        },
-        withButton: {
-            true: 'input-button',
-        },
-        size: {
-            large: 'large',
-            medium: '',
-            small: 'small',
-        },
-        variant: {
-            info: 'info',
-            warning: 'warning',
-            danger: 'danger',
-            success: 'success',
-            normal: '',
-        },
-    },
-    defaultVariants: {
-        size: 'medium',
-        variant: 'normal',
-    },
-});
-
-export interface IInputProps
+interface IInputProps
     extends ComponentProps<'div'>,
-        VariantProps<typeof inputVariants> {
-    children: ReactNode;
-}
+        VariantProps<typeof inputVariants> {}
 
 function Input({
     children,
@@ -52,16 +22,13 @@ function Input({
 }: IInputProps) {
     return (
         <div
-            className={twMerge(
-                'br-input max-w-[400px]',
-                inputVariants({
-                    highlight,
-                    size,
-                    withButton,
-                    variant,
-                    className,
-                }),
-            )}
+            className={inputVariants({
+                highlight,
+                size,
+                withButton,
+                variant,
+                className,
+            })}
             {...props}
         >
             {children}
@@ -75,4 +42,4 @@ Input.Field = InputField;
 Input.Group = InputGroup;
 Input.Icon = InputIcon;
 
-export { Input };
+export { Input, IInputProps };

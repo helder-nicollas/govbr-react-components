@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { IInputProps, inputVariants } from '.';
-import { Input } from '.';
+import { IInputProps, Input } from '.';
+import { inputVariants } from './variants';
 
 export default {
     title: 'Components/Input',

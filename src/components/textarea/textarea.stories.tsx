@@ -6,7 +6,7 @@ export default {
     title: 'Components/Textarea',
     component: Textarea,
     args: {
-        variant: 'success',
+        variant: 'normal',
     },
     argTypes: {
         variant: {
