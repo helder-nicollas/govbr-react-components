@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from './button';
 import { buttonVariants } from './variants';
+import { fn } from '@storybook/test';
 
 export default {
     title: 'Components/Button',
@@ -10,6 +11,7 @@ export default {
         children: 'Button',
         loading: false,
         disabled: false,
+        onClick: fn(),
     },
     argTypes: {
         variant: {
