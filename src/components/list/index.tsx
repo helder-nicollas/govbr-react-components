@@ -6,12 +6,7 @@ interface IListProps extends ComponentProps<'div'> {
     horizontal?: boolean;
 }
 
-export function List({
-    horizontal,
-    children,
-    className,
-    ...props
-}: IListProps) {
+function List({ horizontal, children, className, ...props }: IListProps) {
     return (
         <div
             {...props}
@@ -26,3 +21,5 @@ export function List({
         </div>
     );
 }
+
+export { List, IListProps };
