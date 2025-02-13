@@ -17,3 +17,4 @@ declare module '@govbr-ds/core/dist/components/message/message.min.css';
 declare module '@govbr-ds/core/dist/components/loading/loading.min.css';
 declare module '@govbr-ds/core/dist/components/textarea/textarea.min.css';
 declare module '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
+declare module '@govbr-ds/core/dist/components/list/list.min.css';
