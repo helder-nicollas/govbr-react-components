@@ -1,20 +1,28 @@
-import { ComponentProps } from 'react';
+import { ElementType } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { itemVariants } from './variants';
 import '@govbr-ds/core/dist/components/item/item.min.css';
 
-interface IItemProps
-    extends ComponentProps<'div'>,
-        VariantProps<typeof itemVariants> {}
+type ItemProps<T> = T & {
+    className?: string;
+    children: React.ReactNode;
+    Element?: ElementType;
+} & VariantProps<typeof itemVariants>;
 
-export function Item({ className, state, children, ...props }: IItemProps) {
+export function Item<T>({
+    className,
+    state,
+    children,
+    Element = 'div',
+    ...props
+}: ItemProps<T>) {
     return (
-        <div
+        <Element
             {...props}
             role="listitem"
             className={itemVariants({ className, state })}
         >
             {children}
-        </div>
+        </Element>
     );
 }
