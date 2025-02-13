@@ -12,6 +12,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
         type = 'button',
         className,
         children,
+        circle,
         variant,
         loading,
         ...rest
@@ -23,6 +24,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
             type={type}
             className={buttonVariants({
                 variant,
+                circle,
                 loading,
                 className,
             })}
