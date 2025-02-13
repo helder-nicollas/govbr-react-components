@@ -6,7 +6,6 @@ export const itemVariants = tv({
         state: {
             selected: 'selected',
             active: 'active',
-            disabled: 'disabled',
             normal: '',
         },
     },

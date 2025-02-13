@@ -3,13 +3,13 @@ import { VariantProps } from 'tailwind-variants';
 import { itemVariants } from './variants';
 import '@govbr-ds/core/dist/components/item/item.min.css';
 
-type ItemProps<T> = T & {
+type ItemProps<T = void> = T & {
     className?: string;
     children: React.ReactNode;
     Element?: ElementType;
 } & VariantProps<typeof itemVariants>;
 
-export function Item<T>({
+function Item<T>({
     className,
     state,
     children,
@@ -26,3 +26,5 @@ export function Item<T>({
         </Element>
     );
 }
+
+export { ItemProps, Item };
