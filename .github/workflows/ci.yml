@@ -7,25 +7,22 @@ permissions:
 
 on:
     push:
-        branches: ['master']
+        branches: ['master', 'dev']
+    pull:
+        branches: ['master', 'dev']
 
     workflow_dispatch:
 jobs:
-    deployment: 
+    quality:
         runs-on: ubuntu-latest
         environment: 
-            name: github-pages
+            name: development
         steps:
-            - name: repo checkout
+            - name: repo-checkout
               uses: actions/checkout@v4
             - name: node-setup
               uses: actions/setup-node@v4
               with:
                node-version: '20'
-            - name: setup-storybook
-              uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
-              with:                           
-               path: storybook-static
-               checkout: false
-            
-        
+            - run: npm install
+            - run: npm run test       
