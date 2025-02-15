@@ -11,7 +11,8 @@ type ItemProps<T = void> = T & {
 
 function Item<T>({
     className,
-    state,
+    selected,
+    active,
     children,
     Element = 'div',
     ...props
@@ -20,7 +21,7 @@ function Item<T>({
         <Element
             {...props}
             role="listitem"
-            className={itemVariants({ className, state })}
+            className={itemVariants({ className, active, selected })}
         >
             {children}
         </Element>

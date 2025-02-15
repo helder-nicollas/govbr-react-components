@@ -1,6 +1,6 @@
-import { twMerge } from 'tailwind-merge';
 import { useSelect } from '../contexts/select-context';
 import { ComponentProps, useEffect } from 'react';
+import { Item } from '../../item';
 
 interface IProps extends ComponentProps<'div'> {
     defaultSelected?: boolean;
@@ -8,7 +8,6 @@ interface IProps extends ComponentProps<'div'> {
 }
 
 export function SelectItem({
-    className,
     value,
     defaultSelected,
     children,
@@ -21,15 +20,7 @@ export function SelectItem({
     }, [handleChange]);
 
     return (
-        <div
-            className={twMerge(
-                'br-item',
-                selected === value && 'selected',
-                className,
-            )}
-            tabIndex={-1}
-            {...props}
-        >
+        <Item selected={selected === value} tabIndex={-1} {...props}>
             <div className="br-radio">
                 <input
                     id={String(value)}
@@ -51,6 +42,6 @@ export function SelectItem({
                 />
                 <label htmlFor={String(value)}>{children}</label>
             </div>
-        </div>
+        </Item>
     );
 }
