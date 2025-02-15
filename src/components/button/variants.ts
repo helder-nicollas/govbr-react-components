@@ -8,6 +8,9 @@ export const buttonVariants = tv({
             outline: 'secondary',
             transparent: '',
         },
+        circle: {
+            true: 'circle',
+        },
         loading: {
             true: 'loading',
         },

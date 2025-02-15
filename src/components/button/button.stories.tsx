@@ -11,6 +11,7 @@ export default {
         children: 'Button',
         loading: false,
         disabled: false,
+        circle: false,
         onClick: fn(),
     },
     argTypes: {

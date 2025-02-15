@@ -1,14 +1,10 @@
 import { ComponentProps } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { List } from '../../list';
 
-export function SelectList({
-    className,
-    children,
-    ...props
-}: ComponentProps<'div'>) {
+export function SelectList({ children, ...props }: ComponentProps<'div'>) {
     return (
-        <div className={twMerge('br-list', className)} tabIndex={0} {...props}>
+        <List tabIndex={0} {...props}>
             {children}
-        </div>
+        </List>
     );
 }
