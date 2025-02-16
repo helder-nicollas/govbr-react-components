@@ -16,8 +16,9 @@ export function Divider({
 }: IDividerProps) {
     return (
         <hr
-            className={dividerVariants({ className, dashed, size, vertical })}
             {...props}
+            className={dividerVariants({ className, dashed, size, vertical })}
+            role="separator"
         />
     );
 }
