@@ -13,7 +13,7 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish": "npm run rollup && npm version patch && npm run publish"
+    "publish": "npm run rollup && npm version patch && npm publish"
   },
   "dependencies": {
     "@govbr-ds/core": "^3.6.1",
