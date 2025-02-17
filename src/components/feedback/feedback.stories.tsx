@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Feedback, IFeedbackProps } from '.';
+import { Feedback, FeedbackProps } from '.';
 import { inputMessageIconVariants, inputMessageVariants } from './variants';
 
 export default {
@@ -25,6 +25,6 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<IFeedbackProps>;
+} as Meta<FeedbackProps>;
 
 export const Default: StoryObj = {};

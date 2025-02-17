@@ -4,9 +4,8 @@ import { SelectTriggerField } from './select-trigger-field';
 import { SelectTriggerButton } from './select-trigger-button';
 import { selectTriggerVariants } from './variants';
 
-interface ISelectTriggerProps
-    extends ComponentProps<'div'>,
-        VariantProps<typeof selectTriggerVariants> {}
+type SelectTriggerProps = ComponentProps<'div'> &
+    VariantProps<typeof selectTriggerVariants>;
 
 function SelectTrigger({
     children,
@@ -15,7 +14,7 @@ function SelectTrigger({
     size,
     variant,
     ...props
-}: ISelectTriggerProps) {
+}: SelectTriggerProps) {
     return (
         <div
             className={selectTriggerVariants({
@@ -34,4 +33,4 @@ function SelectTrigger({
 SelectTrigger.Field = SelectTriggerField;
 SelectTrigger.Button = SelectTriggerButton;
 
-export { SelectTrigger, ISelectTriggerProps };
+export { SelectTrigger, SelectTriggerProps };

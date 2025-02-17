@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { IListProps, List } from '.';
+import { ListProps, List } from '.';
 import { Item } from '../item';
 
 export default {
@@ -9,9 +9,9 @@ export default {
         horizontal: false,
     },
     tags: ['autodocs'],
-} as Meta<IListProps>;
+} as Meta<ListProps>;
 
-export const Default: StoryObj<IListProps> = {
+export const Default: StoryObj<ListProps> = {
     render: args => (
         <List {...args}>
             <Item>Maçã</Item>

@@ -7,9 +7,7 @@ import { InputGroup } from './input-group';
 import { inputVariants } from './variants';
 import '@govbr-ds/core/dist/components/input/input.min.css';
 
-interface IInputProps
-    extends ComponentProps<'div'>,
-        VariantProps<typeof inputVariants> {}
+type InputProps = ComponentProps<'div'> & VariantProps<typeof inputVariants>;
 
 function Input({
     children,
@@ -19,7 +17,7 @@ function Input({
     size,
     variant,
     ...props
-}: IInputProps) {
+}: InputProps) {
     return (
         <div
             className={inputVariants({
@@ -42,4 +40,4 @@ Input.Field = InputField;
 Input.Group = InputGroup;
 Input.Icon = InputIcon;
 
-export { Input, IInputProps };
+export { Input, InputProps };

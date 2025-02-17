@@ -3,20 +3,19 @@ import { VariantProps } from 'tailwind-variants';
 import { inputMessageIconVariants, inputMessageVariants } from './variants';
 import '@govbr-ds/core/dist/components/message/message.min.css';
 
-export interface IFeedbackProps
-    extends VariantProps<typeof inputMessageVariants>,
-        ComponentProps<'span'>,
-        VariantProps<typeof inputMessageIconVariants> {
-    message?: string;
-}
+type FeedbackProps = VariantProps<typeof inputMessageVariants> &
+    ComponentProps<'span'> &
+    VariantProps<typeof inputMessageIconVariants> & {
+        message?: string;
+    };
 
-export function Feedback({
+function Feedback({
     className,
     message,
     iconVariant,
     variant,
     ...props
-}: IFeedbackProps) {
+}: FeedbackProps) {
     if (!message) return null;
     return (
         <span
@@ -32,3 +31,5 @@ export function Feedback({
         </span>
     );
 }
+
+export { Feedback, FeedbackProps };
