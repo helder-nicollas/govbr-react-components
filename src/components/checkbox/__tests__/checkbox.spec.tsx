@@ -1,42 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import { Checkbox } from '..';
-import { Label } from '../../label';
 import userEvent from '@testing-library/user-event';
 
 describe('Checkbox', () => {
-    it('should render applying variants', () => {
-        render(
-            <>
-                <Checkbox variant="valid">
-                    <Checkbox.Field role="checkbox" id="checkbox" />
-                </Checkbox>
-                <Label htmlFor="checkbox" className="cursor-pointer">
-                    Checkbox 01
-                </Label>
-            </>,
-        );
-        const checkboxRoot = screen.getByRole('checkbox').parentElement;
+    it('should render applying variants and disabled state', () => {
+        render(<Checkbox variant="valid" disabled label="Checkbox 01" />);
+        const checkbox = screen.getByRole('checkbox');
 
-        expect(checkboxRoot).toHaveClass('valid');
+        expect(checkbox.parentElement).toHaveClass('valid');
+        expect(checkbox).toHaveAttribute('disabled');
     });
 
     it('should call onChange function on change checkbox', async () => {
         const onChange = jest.fn();
 
-        render(
-            <>
-                <Checkbox>
-                    <Checkbox.Field
-                        role="checkbox"
-                        id="checkbox"
-                        onChange={onChange}
-                    />
-                </Checkbox>
-                <Label htmlFor="checkbox" className="cursor-pointer">
-                    Checkbox 01
-                </Label>
-            </>,
-        );
+        render(<Checkbox label="Checkbox 01" onChange={onChange} />);
 
         const checkboxField = screen.getByRole('checkbox');
         await userEvent.click(checkboxField);
