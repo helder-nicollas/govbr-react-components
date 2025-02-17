@@ -1,16 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox, ICheckboxProps } from '.';
 import { checkboxVariants } from './variants';
-import '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
 import { fn } from '@storybook/test';
-import { CheckboxFieldProps } from './checkbox-field';
-import { Label } from '../label';
 
 export default {
     title: 'Components/Checkbox',
     component: Checkbox,
     args: {
         variant: 'normal',
+        disabled: false,
+        withoutLabel: false,
     },
     argTypes: {
         variant: {
@@ -21,25 +20,22 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<ICheckboxProps & CheckboxFieldProps>;
+} as Meta<ICheckboxProps>;
 
-export const Default: StoryObj<ICheckboxProps & CheckboxFieldProps> = {
+export const Default: StoryObj<ICheckboxProps> = {
     args: {
         onChange: fn(),
     },
     render: ({ onChange, checked, ...args }) => {
         return (
             <div className="flex gap-2">
-                <Checkbox {...args}>
-                    <Checkbox.Field
-                        id="checkbox"
-                        onChange={onChange}
-                        checked={checked}
-                    />
-                </Checkbox>
-                <Label htmlFor="checkbox" className="cursor-pointer">
-                    Checkbox 01
-                </Label>
+                <Checkbox
+                    {...args}
+                    id="checkbox"
+                    onChange={onChange}
+                    checked={checked}
+                    label="Checkbox 01"
+                ></Checkbox>
             </div>
         );
     },

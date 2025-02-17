@@ -1,13 +1,15 @@
 import { tv } from 'tailwind-variants';
 
 export const checkboxVariants = tv({
-    base: 'br-checkbox hidden-label',
+    base: 'br-checkbox',
     variants: {
         variant: {
             invalid: 'invalid',
             valid: 'valid',
-            disabled: 'disabled',
             normal: '',
+        },
+        withoutLabel: {
+            true: 'hidden-label',
         },
     },
     defaultVariants: {

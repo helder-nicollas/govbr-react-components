@@ -1,27 +1,43 @@
 import '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
-import { ComponentProps } from 'react';
+import { ComponentProps, useEffect, useRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { checkboxVariants } from './variants';
-import { CheckboxField } from './checkbox-field';
 
 interface ICheckboxProps
-    extends ComponentProps<'div'>,
-        VariantProps<typeof checkboxVariants> {}
+    extends ComponentProps<'input'>,
+        VariantProps<typeof checkboxVariants> {
+    label?: string;
+}
 
-function Checkbox({ className, variant, children, ...props }: ICheckboxProps) {
+function Checkbox({
+    className,
+    variant,
+    label,
+    withoutLabel,
+    disabled,
+    ...props
+}: ICheckboxProps) {
+    const inputRef = useRef<HTMLInputElement | null>(null);
+
+    useEffect(() => {
+        if (inputRef.current) {
+            if (disabled) inputRef.current.setAttribute('disabled', 'disabled');
+            else inputRef.current.removeAttribute('disabled');
+        }
+    }, [inputRef, disabled]);
+
     return (
         <div
             className={checkboxVariants({
                 className,
+                withoutLabel,
                 variant,
             })}
-            {...props}
         >
-            {children}
+            <input {...props} id={props.id} type="checkbox" ref={inputRef} />
+            <label htmlFor={props.id}>{label}</label>
         </div>
     );
 }
-
-Checkbox.Field = CheckboxField;
 
 export { Checkbox, ICheckboxProps };
