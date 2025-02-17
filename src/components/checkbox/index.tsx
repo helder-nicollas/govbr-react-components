@@ -34,7 +34,13 @@ function Checkbox({
                 variant,
             })}
         >
-            <input {...props} id={props.id} type="checkbox" ref={inputRef} />
+            <input
+                {...props}
+                role="checkbox"
+                type="checkbox"
+                id={props.id}
+                ref={inputRef}
+            />
             <label htmlFor={props.id}>{label}</label>
         </div>
     );
