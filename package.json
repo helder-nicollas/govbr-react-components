@@ -1,18 +1,19 @@
 {
-  "name": "govbr-react-components",
-  "version": "1.0.0",
+  "name": "@helder-programmer/govbr-react-components",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
-    "types"
+    "dist"
   ],
-  "types": "dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs",
     "dev": "vite",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "publish": "npm run rollup && npm version patch && npm run publish"
   },
   "dependencies": {
     "@govbr-ds/core": "^3.6.1",
@@ -85,5 +86,11 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/helder-programmer"
+  },
+  "repository": {
+    "url": "https://github.com/helder-programmer/govbr-react-components.git"
   }
 }
