@@ -3,17 +3,15 @@ import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { dividerVariants } from './variants';
 
-export interface IDividerProps
-    extends ComponentProps<'hr'>,
-        VariantProps<typeof dividerVariants> {}
+type DividerProps = ComponentProps<'hr'> & VariantProps<typeof dividerVariants>;
 
-export function Divider({
+function Divider({
     className,
     vertical,
     dashed,
     size,
     ...props
-}: IDividerProps) {
+}: DividerProps) {
     return (
         <hr
             {...props}
@@ -22,3 +20,5 @@ export function Divider({
         />
     );
 }
+
+export { Divider, DividerProps };

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { IInputProps, Input } from '.';
+import { InputProps, Input } from '.';
 import { inputVariants } from './variants';
 
 export default {
@@ -26,9 +26,9 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<IInputProps>;
+} as Meta<InputProps>;
 
-export const Default: StoryObj<IInputProps> = {
+export const Default: StoryObj<InputProps> = {
     render: args => {
         return (
             <Input {...args}>
@@ -37,7 +37,7 @@ export const Default: StoryObj<IInputProps> = {
         );
     },
 };
-export const WithButton: StoryObj<IInputProps> = {
+export const WithButton: StoryObj<InputProps> = {
     render: args => {
         return (
             <Input {...args} withButton>
@@ -50,7 +50,7 @@ export const WithButton: StoryObj<IInputProps> = {
     },
 };
 
-export const WithIcon: StoryObj<IInputProps> = {
+export const WithIcon: StoryObj<InputProps> = {
     render: args => {
         return (
             <Input {...args}>

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from './components';
-import { ISelectTriggerProps } from './components/SelectTrigger';
+import { SelectTriggerProps } from './components/SelectTrigger';
 import { selectTriggerVariants } from './components/SelectTrigger/variants';
 
 export default {
@@ -27,9 +27,9 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<ISelectTriggerProps>;
+} as Meta<SelectTriggerProps>;
 
-export const Default: StoryObj<ISelectTriggerProps> = {
+export const Default: StoryObj<SelectTriggerProps> = {
     render: args => {
         const array = [
             {

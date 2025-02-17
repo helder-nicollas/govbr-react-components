@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Divider, IDividerProps } from '.';
+import { Divider, DividerProps } from '.';
 import { dividerVariants } from './variants';
 import { List } from '../list';
 import { Item } from '../item';
@@ -16,9 +16,9 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<IDividerProps>;
+} as Meta<DividerProps>;
 
-export const Default: StoryObj<IDividerProps> = {
+export const Default: StoryObj<DividerProps> = {
     args: {
         size: 'medium',
     },
@@ -50,7 +50,7 @@ export const Default: StoryObj<IDividerProps> = {
     },
 };
 
-export const Dashed: StoryObj<IDividerProps> = {
+export const Dashed: StoryObj<DividerProps> = {
     args: {
         dashed: true,
         size: 'medium',
@@ -83,7 +83,7 @@ export const Dashed: StoryObj<IDividerProps> = {
     },
 };
 
-export const Vertical: StoryObj<IDividerProps> = {
+export const Vertical: StoryObj<DividerProps> = {
     args: {
         vertical: true,
         size: 'medium',

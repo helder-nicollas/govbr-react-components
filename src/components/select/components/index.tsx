@@ -20,13 +20,13 @@ import { SelectItem } from './select-item';
 import { SelectList } from './select-list';
 import { SelectTrigger } from './SelectTrigger';
 
-export interface ISelectProps extends ComponentProps<'div'> {
+type SelectProps = ComponentProps<'div'> & {
     className?: string;
     children: React.ReactNode;
     onChange?(value: unknown): void;
-}
+};
 
-function Select({ className, onChange, children, ...props }: ISelectProps) {
+function Select({ className, onChange, children, ...props }: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<unknown>(null);
@@ -116,4 +116,4 @@ Select.Item = SelectItem;
 Select.List = SelectList;
 Select.Trigger = SelectTrigger;
 
-export { Select };
+export { Select, SelectProps };

@@ -3,11 +3,10 @@ import { ComponentProps, useEffect, useRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { checkboxVariants } from './variants';
 
-interface ICheckboxProps
-    extends ComponentProps<'input'>,
-        VariantProps<typeof checkboxVariants> {
-    label?: string;
-}
+type CheckboxProps = ComponentProps<'input'> &
+    VariantProps<typeof checkboxVariants> & {
+        label?: string;
+    };
 
 function Checkbox({
     className,
@@ -16,7 +15,7 @@ function Checkbox({
     withoutLabel,
     disabled,
     ...props
-}: ICheckboxProps) {
+}: CheckboxProps) {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
@@ -46,4 +45,4 @@ function Checkbox({
     );
 }
 
-export { Checkbox, ICheckboxProps };
+export { Checkbox, CheckboxProps };

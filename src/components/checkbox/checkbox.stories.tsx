@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox, ICheckboxProps } from '.';
+import { Checkbox, CheckboxProps } from '.';
 import { checkboxVariants } from './variants';
 import { fn } from '@storybook/test';
 
@@ -20,9 +20,9 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta<ICheckboxProps>;
+} as Meta<CheckboxProps>;
 
-export const Default: StoryObj<ICheckboxProps> = {
+export const Default: StoryObj<CheckboxProps> = {
     args: {
         onChange: fn(),
     },
