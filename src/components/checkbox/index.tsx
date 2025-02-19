@@ -1,7 +1,7 @@
-import '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
-import { ComponentProps, useEffect, useRef } from 'react';
+import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { checkboxVariants } from './variants';
+import '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
 
 type CheckboxProps = ComponentProps<'input'> &
     VariantProps<typeof checkboxVariants> & {
@@ -12,19 +12,10 @@ function Checkbox({
     className,
     variant,
     label,
-    withoutLabel,
     disabled,
+    withoutLabel,
     ...props
 }: CheckboxProps) {
-    const inputRef = useRef<HTMLInputElement | null>(null);
-
-    useEffect(() => {
-        if (inputRef.current) {
-            if (disabled) inputRef.current.setAttribute('disabled', 'disabled');
-            else inputRef.current.removeAttribute('disabled');
-        }
-    }, [inputRef, disabled]);
-
     return (
         <div
             className={checkboxVariants({
@@ -38,7 +29,7 @@ function Checkbox({
                 role="checkbox"
                 type="checkbox"
                 id={props.id}
-                ref={inputRef}
+                disabled={disabled}
             />
             <label htmlFor={props.id}>{label}</label>
         </div>
