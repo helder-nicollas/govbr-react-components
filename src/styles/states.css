@@ -53,3 +53,10 @@ a:not(:disabled):active {
 .d-inline-flex {
     display: inline-flex !important;
 }
+
+
+[disabled],
+.disabled {
+  cursor: not-allowed;
+  opacity: var(--disabled);
+}
