@@ -23,10 +23,10 @@ import { SelectTrigger } from './SelectTrigger';
 type SelectProps = ComponentProps<'div'> & {
     className?: string;
     children: React.ReactNode;
-    onChange?(value: unknown): void;
+    onChangeValue?(value: unknown): void;
 };
 
-function Select({ className, onChange, children, ...props }: SelectProps) {
+function Select({ className, onChangeValue, children, ...props }: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<unknown>(null);
@@ -63,7 +63,7 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
             const optionToChange = select!.optionsList[optionIndexInGovScript!];
             setSelectedValue!(optionIndexInGovScript!, optionToChange.element);
             setSelected(value);
-            return onChange?.(value);
+            return onChangeValue?.(value);
         },
         [select, setSelectedValue, removeSelected],
     );
