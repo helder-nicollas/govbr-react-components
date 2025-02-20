@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card, CardProps } from '.';
+import { Card } from '.';
 import { CardHeader } from './card-header';
 import { CardFooter } from './card-footer';
 import { CardContent } from './card-content';
@@ -8,6 +8,11 @@ import '@govbr-ds/core/dist/components/card/card.min.css';
 
 export default {
     title: 'Components/Card',
+    argTypes: {
+        disabled: {
+            description: 'Adiciona o estado de desabilitado',
+        },
+    },
     component: Card,
     subcomponents: {
         CardHeader,
@@ -15,9 +20,9 @@ export default {
         CardContent,
     },
     tags: ['autodocs'],
-} as Meta;
+} as Meta<typeof Card>;
 
-export const Default: StoryObj<CardProps> = {
+export const Default: StoryObj<typeof Card> = {
     render: args => {
         return (
             <Card {...args} className="max-w-96">
@@ -39,7 +44,7 @@ export const Default: StoryObj<CardProps> = {
     },
 };
 
-export const Disabled: StoryObj<CardProps> = {
+export const Disabled: StoryObj<typeof Card> = {
     args: {
         disabled: true,
     },
