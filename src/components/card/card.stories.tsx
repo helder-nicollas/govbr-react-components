@@ -40,6 +40,9 @@ export const Default: StoryObj<CardProps> = {
 };
 
 export const Disabled: StoryObj<CardProps> = {
+    args: {
+        disabled: true,
+    },
     render: args => {
         return (
             <Card {...args}>
