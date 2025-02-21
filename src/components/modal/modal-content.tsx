@@ -12,6 +12,7 @@ function ModalContent({ children, width, className }: ModalContentProps) {
                 className,
                 width,
             })}
+            role="dialog"
         >
             {children}
         </div>
