@@ -19,3 +19,5 @@ declare module '@govbr-ds/core/dist/components/textarea/textarea.min.css';
 declare module '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
 declare module '@govbr-ds/core/dist/components/divider/divider.min.css';
 declare module '@govbr-ds/core/dist/components/card/card.min.css';
+declare module '@govbr-ds/core/dist/components/modal/modal.min.css';
+declare module '@govbr-ds/core/dist/components/scrim/scrim.min.css';
