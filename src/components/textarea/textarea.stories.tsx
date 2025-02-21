@@ -23,7 +23,7 @@ export const Default: StoryObj<TextareaProps> = {
                 type: 'inline-radio',
             },
             options: Object.keys(textareaVariants.variants.variant),
-            description: 'Refere-se à variante a ser aplicada ao botão',
+            description: 'Refere-se à variante a ser aplicada ao textarea',
         },
         size: {
             control: {

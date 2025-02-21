@@ -10,6 +10,7 @@ export default {
         variant: 'normal',
         disabled: false,
         withoutLabel: false,
+        label: 'Checkbox 01'
     },
     argTypes: {
         variant: {
@@ -34,7 +35,6 @@ export const Default: StoryObj<CheckboxProps> = {
                     id="checkbox"
                     onChange={onChange}
                     checked={checked}
-                    label="Checkbox 01"
                 ></Checkbox>
             </div>
         );
