@@ -13,10 +13,25 @@ on:
 
     workflow_dispatch:
 jobs:
+    build: 
+        runs-on: ubuntu-latest
+        environment: 
+            name: development
+        steps:
+            - name: repo-checkout
+              uses: actions/checkout@v4
+            - name: node-setup
+              uses: actions/setup-node@v4
+              with:
+               node-version: '20'
+            - run: npm install
+            - run: npm run rollup
+    
     quality:
         runs-on: ubuntu-latest
         environment: 
             name: development
+        needs: ['build']
         steps:
             - name: repo-checkout
               uses: actions/checkout@v4
