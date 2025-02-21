@@ -13,6 +13,7 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "lint": "eslint --fix",
     "deploy": "npm run rollup && npm version patch && npm publish"
   },
   "dependencies": {
