@@ -29,7 +29,7 @@ export function MultiSelectAllItems() {
                     onChange={() => {}}
                 />
                 <Label
-                    htmlFor={'all-items'}
+                    htmlFor="all-items"
                     onClickCapture={event => {
                         handleChangeAll();
                         event.preventDefault();

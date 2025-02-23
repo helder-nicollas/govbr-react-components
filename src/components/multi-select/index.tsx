@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-'use client';
-
 import {
     KeyboardEvent,
     ReactNode,
@@ -37,7 +35,7 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
         return null;
     }, [select]);
 
-    const removeSelected = useMemo(() => {
+    const removeSelectedValue = useMemo(() => {
         if (select)
             return Object.getPrototypeOf(select)._removeSelected.bind(
                 select,
@@ -52,7 +50,9 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
     }, [select, selectedItems]);
 
     const handleChange = (value: string) => {
-        const optionIndexInGovScript = select?.optionsList?.findIndex(
+        if (!select || !removeSelectedValue || !selectValue) return;
+
+        const optionIndexInGovScript = select.optionsList.findIndex(
             option => option.inputValue === value,
         );
         if (optionIndexInGovScript === -1) return;
@@ -62,22 +62,22 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
             searchedItem => searchedItem === value,
         );
         const isExistentItem = itemIndex !== -1;
+
         if (isExistentItem) {
             newSelectedItems.splice(itemIndex, 1);
-            removeSelected!(
-                optionIndexInGovScript!,
-                select!.optionsList[optionIndexInGovScript!].element,
+            removeSelectedValue(
+                optionIndexInGovScript,
+                select.optionsList[optionIndexInGovScript].element,
             );
             setSelectedItems(newSelectedItems);
             return onChangeValue?.(newSelectedItems);
         }
 
-        selectValue!(
-            optionIndexInGovScript!,
-            select!.optionsList[optionIndexInGovScript!].element,
+        selectValue(
+            optionIndexInGovScript,
+            select.optionsList[optionIndexInGovScript].element,
         );
-        newSelectedItems.push(value);
-        setSelectedItems(newSelectedItems);
+        setSelectedItems(state => [...state, value]);
         return onChangeValue?.(newSelectedItems);
     };
 
@@ -90,7 +90,7 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
             setSelectedItems(newSelectedItems);
             select.optionsList.forEach((option, index) => {
                 if (index > 0) {
-                    removeSelected!(index, option.element);
+                    removeSelectedValue!(index, option.element);
                 }
             });
             return onChangeValue?.(newSelectedItems);

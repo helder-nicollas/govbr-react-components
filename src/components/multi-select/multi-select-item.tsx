@@ -28,8 +28,8 @@ export function MultiSelectItem({
     }, [select]);
 
     useEffect(() => {
-        if (defaultSelected) handleChange(value);
-    }, [handleChange]);
+        if (defaultSelected && select) handleChange(value);
+    }, [select]);
 
     return (
         <Item
