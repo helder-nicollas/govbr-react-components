@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { IMultiSelectProps, MultiSelect } from '.';
 import { fn } from '@storybook/test';
+import { SelectTrigger } from '../select-trigger';
 
 export default {
     title: 'Components/MultiSelect',
@@ -30,10 +31,9 @@ export const Default: StoryObj<IMultiSelectProps> = {
 
         return (
             <MultiSelect {...args}>
-                <MultiSelect.Trigger>
-                    <MultiSelect.Trigger.Field />
-                    <MultiSelect.Trigger.Button />
-                </MultiSelect.Trigger>
+                <SelectTrigger>
+                    <SelectTrigger.Field />
+                </SelectTrigger>
                 <MultiSelect.List>
                     <MultiSelect.AllItems />
                     {array.map(item => (

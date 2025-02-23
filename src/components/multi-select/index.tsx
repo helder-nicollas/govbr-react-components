@@ -16,7 +16,6 @@ import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import '@govbr-ds/core/dist/components/select/select.min.css';
 import { MultiSelectItem } from './multi-select-item';
 import { MultiSelectList } from './multi-select-list';
-import { MultiSelectTrigger } from './multi-select-trigger';
 import { MultiSelectAllItems } from './multi-select-all-items';
 
 interface IMultiSelectProps {
@@ -43,14 +42,6 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
             return Object.getPrototypeOf(select)._removeSelected.bind(
                 select,
             ) as (index: number, element: HTMLDivElement) => void;
-        return null;
-    }, [select]);
-
-    const resetOptionsList = useMemo(() => {
-        if (select)
-            return Object.getPrototypeOf(select).resetOptionsList.bind(
-                select,
-            ) as () => void;
         return null;
     }, [select]);
 
@@ -88,15 +79,6 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
         newSelectedItems.push(value);
         setSelectedItems(newSelectedItems);
         return onChangeValue?.(newSelectedItems);
-    };
-    console.log(select);
-
-    const syncSelectedItems = () => {
-        const newSelectedItems: string[] = [];
-        for (const option of select!.optionsList)
-            if (option.selected) newSelectedItems.push(option.inputValue);
-
-        setSelectedItems(newSelectedItems);
     };
 
     const handleChangeAll = useCallback(() => {
@@ -186,7 +168,6 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
 
 MultiSelect.Item = MultiSelectItem;
 MultiSelect.List = MultiSelectList;
-MultiSelect.Trigger = MultiSelectTrigger;
 MultiSelect.AllItems = MultiSelectAllItems;
 
 export { MultiSelect, IMultiSelectProps };
