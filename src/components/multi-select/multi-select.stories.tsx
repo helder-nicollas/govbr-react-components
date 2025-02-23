@@ -35,7 +35,7 @@ export const Default: StoryObj<IMultiSelectProps> = {
                     <SelectTrigger.Field />
                 </SelectTrigger>
                 <MultiSelect.List>
-                    <MultiSelect.AllItems />
+                    <MultiSelect.SelectAll />
                     {array.map(item => (
                         <MultiSelect.Item value={item.value} key={item.value}>
                             {item.label}

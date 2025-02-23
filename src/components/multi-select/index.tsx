@@ -84,6 +84,7 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
     const handleChangeAll = useCallback(() => {
         if (!select) return;
         const newSelectedItems: string[] = [];
+        console.log('here');
 
         if (allSelected) {
             setSelectedItems(newSelectedItems);
@@ -168,6 +169,6 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
 
 MultiSelect.Item = MultiSelectItem;
 MultiSelect.List = MultiSelectList;
-MultiSelect.AllItems = MultiSelectAllItems;
+MultiSelect.SelectAll = MultiSelectAllItems;
 
 export { MultiSelect, IMultiSelectProps };
