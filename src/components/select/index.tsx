@@ -8,17 +8,14 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import { twMerge } from 'tailwind-merge';
-import '@govbr-ds/core/dist/components/select/select.min.css';
-import '@govbr-ds/core/dist/components/list/list.min.css';
-import '@govbr-ds/core/dist/components/item/item.min.css';
-import '@govbr-ds/core/dist/components/radio/radio.min.css';
-import { SelectContext } from '../contexts/select-context';
-import { SelectGovBr } from '../types';
+import { SelectContext } from './contexts/select-context';
+import { SelectGovBr } from './types';
 import { SelectItem } from './select-item';
 import { SelectList } from './select-list';
-import { SelectTrigger } from './SelectTrigger';
+import BRSelect from '@govbr-ds/core/dist/components/select/select';
+import '@govbr-ds/core/dist/components/select/select.min.css';
+import '@govbr-ds/core/dist/components/radio/radio.min.css';
 
 type SelectProps = ComponentProps<'div'> & {
     className?: string;
@@ -114,6 +111,5 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
 
 Select.Item = SelectItem;
 Select.List = SelectList;
-Select.Trigger = SelectTrigger;
 
 export { Select, SelectProps };

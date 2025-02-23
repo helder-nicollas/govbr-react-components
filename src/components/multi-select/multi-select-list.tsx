@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
-import { List } from '../../list';
+import { List } from '../list';
 
-export function SelectList({ children, ...props }: ComponentProps<'div'>) {
+export function MultiSelectList({ children, ...props }: ComponentProps<'div'>) {
     return (
         <List tabIndex={0} {...props}>
             {children}

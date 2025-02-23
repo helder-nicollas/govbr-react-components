@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Select } from './components';
-import { SelectTriggerProps } from './components/SelectTrigger';
-import { selectTriggerVariants } from './components/SelectTrigger/variants';
+import { Select } from '.';
+import { SelectTrigger, SelectTriggerProps } from '../select-trigger';
+import { selectTriggerVariants } from '../select-trigger/variants';
 
 export default {
     title: 'Components/Select',
@@ -48,10 +48,9 @@ export const Default: StoryObj<SelectTriggerProps> = {
 
         return (
             <Select>
-                <Select.Trigger {...args}>
-                    <Select.Trigger.Field />
-                    <Select.Trigger.Button />
-                </Select.Trigger>
+                <SelectTrigger {...args}>
+                    <SelectTrigger.Field />
+                </SelectTrigger>
                 <Select.List>
                     {array.map(item => (
                         <Select.Item value={item.value} key={item.value}>

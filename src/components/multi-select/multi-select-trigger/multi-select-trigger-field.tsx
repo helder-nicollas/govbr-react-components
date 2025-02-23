@@ -2,7 +2,7 @@ import { ComponentProps, forwardRef } from 'react';
 
 type Ref = HTMLInputElement;
 
-const SelectTriggerField = forwardRef<Ref, ComponentProps<'input'>>(
+const MultiSelectTriggerField = forwardRef<Ref, ComponentProps<'input'>>(
     (props, ref) => {
         return (
             <input
@@ -15,5 +15,5 @@ const SelectTriggerField = forwardRef<Ref, ComponentProps<'input'>>(
     },
 );
 
-SelectTriggerField.displayName = 'SelectTriggerField';
-export { SelectTriggerField };
+MultiSelectTriggerField.displayName = 'MultiSelectTriggerField';
+export { MultiSelectTriggerField };

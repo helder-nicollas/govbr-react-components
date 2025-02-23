@@ -1,20 +1,20 @@
 import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
-import { SelectTriggerField } from './select-trigger-field';
-import { SelectTriggerButton } from './select-trigger-button';
 import { selectTriggerVariants } from './variants';
+import { MultiSelectTriggerField } from './multi-select-trigger-field';
+import { MultiSelectTriggerButton } from './multi-select-trigger-button';
 
-type SelectTriggerProps = ComponentProps<'div'> &
+type MultiSelectTriggerProps = ComponentProps<'div'> &
     VariantProps<typeof selectTriggerVariants>;
 
-function SelectTrigger({
+function MultiSelectTrigger({
     children,
     className,
     highlight,
     size,
     variant,
     ...props
-}: SelectTriggerProps) {
+}: MultiSelectTriggerProps) {
     return (
         <div
             className={selectTriggerVariants({
@@ -30,7 +30,7 @@ function SelectTrigger({
     );
 }
 
-SelectTrigger.Field = SelectTriggerField;
-SelectTrigger.Button = SelectTriggerButton;
+MultiSelectTrigger.Field = MultiSelectTriggerField;
+MultiSelectTrigger.Button = MultiSelectTriggerButton;
 
-export { SelectTrigger, SelectTriggerProps };
+export { MultiSelectTrigger, MultiSelectTriggerProps };

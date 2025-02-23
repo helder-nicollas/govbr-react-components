@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { Select } from '../components';
+import { Select } from '..';
+import { SelectTrigger } from '../../select-trigger';
 
 describe('Select', () => {
     const options = [
@@ -23,10 +24,9 @@ describe('Select', () => {
 
         render(
             <Select data-testid="select" onChange={onChange}>
-                <Select.Trigger>
-                    <Select.Trigger.Field id="name" />
-                    <Select.Trigger.Button />
-                </Select.Trigger>
+                <SelectTrigger>
+                    <SelectTrigger.Field id="name" />
+                </SelectTrigger>
                 <Select.List>
                     {options.map(item => (
                         <Select.Item
@@ -51,10 +51,9 @@ describe('Select', () => {
 
         render(
             <Select data-testid="select" onChange={onChange}>
-                <Select.Trigger>
-                    <Select.Trigger.Field id="name" />
-                    <Select.Trigger.Button />
-                </Select.Trigger>
+                <SelectTrigger>
+                    <SelectTrigger.Field id="name" />
+                </SelectTrigger>
                 <Select.List>
                     {options.map(item => (
                         <Select.Item
@@ -78,10 +77,9 @@ describe('Select', () => {
     it('should add expanded attribute to select on input click', () => {
         render(
             <Select>
-                <Select.Trigger>
-                    <Select.Trigger.Field id="name" data-testid="trigger" />
-                    <Select.Trigger.Button />
-                </Select.Trigger>
+                <SelectTrigger>
+                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                </SelectTrigger>
                 <Select.List data-testid="list">
                     {options.map(item => (
                         <Select.Item value={item.value} key={item.value}>
@@ -101,10 +99,9 @@ describe('Select', () => {
     it('should show not found image on filter item that is not in list', async () => {
         render(
             <Select>
-                <Select.Trigger>
-                    <Select.Trigger.Field id="name" data-testid="trigger" />
-                    <Select.Trigger.Button />
-                </Select.Trigger>
+                <SelectTrigger>
+                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                </SelectTrigger>
                 <Select.List data-testid="list">
                     {options.map(item => (
                         <Select.Item value={item.value} key={item.value}>

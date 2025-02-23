@@ -1,6 +1,6 @@
-import { useSelect } from '../contexts/select-context';
+import { useSelect } from './contexts/select-context';
 import { ComponentProps, useEffect } from 'react';
-import { Item } from '../../item';
+import { Item } from '../item';
 
 interface IProps extends ComponentProps<'div'> {
     defaultSelected?: boolean;

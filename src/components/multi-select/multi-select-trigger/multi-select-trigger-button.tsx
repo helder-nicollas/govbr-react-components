@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export function SelectTriggerButton({
+export function MultiSelectTriggerButton({
     className,
     ...props
 }: ComponentProps<'button'>) {
