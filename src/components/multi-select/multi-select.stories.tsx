@@ -36,8 +36,13 @@ export const Default: StoryObj<IMultiSelectProps> = {
                 </SelectTrigger>
                 <MultiSelect.List>
                     <MultiSelect.SelectAll />
-                    {array.map(item => (
-                        <MultiSelect.Item value={item.value} key={item.value}>
+                    {array.map((item, index) => (
+                        <MultiSelect.Item
+                            index={index}
+                            value={item.value}
+                            key={item.value}
+                            defaultSelected={['1', '2'].includes(item.value)}
+                        >
                             {item.label}
                         </MultiSelect.Item>
                     ))}

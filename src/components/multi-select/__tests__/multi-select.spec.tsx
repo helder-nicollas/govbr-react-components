@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, getAllByRole, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { MultiSelect } from '..';
 import { SelectTrigger } from '../../select-trigger';
@@ -37,8 +37,9 @@ describe('MultiSelect', () => {
                 </SelectTrigger>
                 <MultiSelect.List>
                     <MultiSelect.SelectAll />
-                    {options.map(item => (
+                    {options.map((item, index) => (
                         <MultiSelect.Item
+                            index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
@@ -65,8 +66,9 @@ describe('MultiSelect', () => {
                 </SelectTrigger>
                 <MultiSelect.List>
                     <MultiSelect.SelectAll />
-                    {options.map(item => (
+                    {options.map((item, index) => (
                         <MultiSelect.Item
+                            index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
@@ -84,6 +86,41 @@ describe('MultiSelect', () => {
         expect(onChange).toHaveBeenCalledTimes(2);
     });
 
+    it('should call the onChange function with 3 values on click 3 options', async () => {
+        const onChangeValue = jest.fn();
+
+        const { container } = render(
+            <MultiSelect data-testid="select" onChangeValue={onChangeValue}>
+                <SelectTrigger>
+                    <SelectTrigger.Field id="name" />
+                </SelectTrigger>
+                <MultiSelect.List data-testid="list">
+                    <MultiSelect.SelectAll />
+                    {options.map((item, index) => (
+                        <MultiSelect.Item
+                            index={index}
+                            value={item.value}
+                            key={item.value}
+                        >
+                            {item.label}
+                        </MultiSelect.Item>
+                    ))}
+                </MultiSelect.List>
+            </MultiSelect>,
+        );
+
+        const items = getAllByRole(container, 'option');
+
+        // The [0] position is SelectAll component
+        await userEvent.click(items[1].querySelector('label')!);
+        await userEvent.click(items[2].querySelector('label')!);
+        await userEvent.click(items[3].querySelector('label')!);
+
+        expect(onChangeValue).toHaveBeenLastCalledWith(
+            expect.arrayContaining(['1', '2', '3']),
+        );
+    });
+
     it('should add expanded attribute to select on label click', () => {
         render(
             <MultiSelect>
@@ -92,8 +129,13 @@ describe('MultiSelect', () => {
                 </SelectTrigger>
                 <MultiSelect.List data-testid="list">
                     <MultiSelect.SelectAll />
-                    {options.map(item => (
-                        <MultiSelect.Item value={item.value} key={item.value}>
+                    {options.map((item, index) => (
+                        <MultiSelect.Item
+                            index={index}
+                            value={item.value}
+                            key={item.value}
+                            data-testid={String(item.value)}
+                        >
                             {item.label}
                         </MultiSelect.Item>
                     ))}
@@ -115,8 +157,12 @@ describe('MultiSelect', () => {
                 </SelectTrigger>
                 <MultiSelect.List data-testid="list">
                     <MultiSelect.SelectAll />
-                    {options.map(item => (
-                        <MultiSelect.Item value={item.value} key={item.value}>
+                    {options.map((item, index) => (
+                        <MultiSelect.Item
+                            index={index}
+                            value={item.value}
+                            key={item.value}
+                        >
                             {item.label}
                         </MultiSelect.Item>
                     ))}
@@ -139,15 +185,16 @@ describe('MultiSelect', () => {
 
     it('should select default values', () => {
         const onChangeValue = jest.fn();
-        render(
+        const { container } = render(
             <MultiSelect onChangeValue={onChangeValue}>
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" data-testid="trigger" />
                 </SelectTrigger>
                 <MultiSelect.List data-testid="list">
                     <MultiSelect.SelectAll />
-                    {options.map(item => (
+                    {options.map((item, index) => (
                         <MultiSelect.Item
+                            index={index}
                             value={item.value}
                             key={item.value}
                             defaultSelected={['1', '2'].includes(item.value)}
@@ -159,13 +206,11 @@ describe('MultiSelect', () => {
             </MultiSelect>,
         );
 
-        const items = screen.getByTestId('list').querySelectorAll('.br-item');
+        const items = getAllByRole(container, 'option');
 
         // The [0] position is SelectAll component
-        expect(items.item(1).classList.contains('selected')).toBeTruthy();
-        expect(items.item(2).classList.contains('selected')).toBeTruthy();
-
-        expect(items.item(3).classList.contains('selected')).not.toBeTruthy();
-        expect(onChangeValue).toHaveBeenCalledTimes(2);
+        expect(items[1].classList.contains('selected')).toBeTruthy();
+        expect(items[2].classList.contains('selected')).toBeTruthy();
+        expect(items[3].classList.contains('selected')).not.toBeTruthy();
     });
 });

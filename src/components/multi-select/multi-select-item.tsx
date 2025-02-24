@@ -6,17 +6,24 @@ import { Label } from '../label';
 
 type MultiSelectItemProps = ComponentProps<'div'> & {
     defaultSelected?: boolean;
+    index: number;
     value: string;
 };
 
 export function MultiSelectItem({
     defaultSelected,
     value,
+    index,
     children,
     ...props
 }: MultiSelectItemProps) {
-    const { handleChange, handleChangeWithKeyboard, selectedItems, select } =
-        useMultiSelect();
+    const {
+        handleChange,
+        handleChangeWithKeyboard,
+        addDefaultValue,
+        selectedItems,
+        select,
+    } = useMultiSelect();
 
     useEffect(() => {
         if (select) {
@@ -25,9 +32,9 @@ export function MultiSelectItem({
             );
             option!.inputValue = value;
 
-            if (defaultSelected && select) handleChange(value);
+            if (defaultSelected) addDefaultValue(value, index);
         }
-    }, [select]);
+    }, [select, addDefaultValue]);
 
     return (
         <Item

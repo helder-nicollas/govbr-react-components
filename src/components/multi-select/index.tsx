@@ -77,6 +77,8 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
             optionIndexInGovScript,
             select.optionsList[optionIndexInGovScript].element,
         );
+
+        newSelectedItems.push(value);
         setSelectedItems(state => [...state, value]);
         return onChangeValue?.(newSelectedItems);
     };
@@ -84,7 +86,6 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
     const handleChangeAll = useCallback(() => {
         if (!select) return;
         const newSelectedItems: string[] = [];
-        console.log('here');
 
         if (allSelected) {
             setSelectedItems(newSelectedItems);
@@ -136,6 +137,17 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
         }
     };
 
+    const addDefaultValue = useCallback(
+        (value: string, index: number) => {
+            if (!selectValue) return;
+            // The first value is select All Component in govbr script.
+            index = index + 1;
+            setSelectedItems(state => [...state, value]);
+            selectValue(index, select!.optionsList[index].element);
+        },
+        [selectValue],
+    );
+
     useEffect(() => {
         if (selectRef.current && !select) {
             selectRef.current.setAttribute('multiple', 'multiple');
@@ -155,6 +167,7 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
                 handleChangeWithKeyboard,
                 handleChangeAll,
                 handleChangeAllWithKeyboard,
+                addDefaultValue,
                 selectedItems,
                 select,
                 allSelected,
