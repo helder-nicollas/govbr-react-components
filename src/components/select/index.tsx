@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, {
-    ComponentProps,
     KeyboardEvent,
     useCallback,
     useEffect,
@@ -8,30 +7,34 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import { twMerge } from 'tailwind-merge';
-import '@govbr-ds/core/dist/components/select/select.min.css';
-import '@govbr-ds/core/dist/components/list/list.min.css';
-import '@govbr-ds/core/dist/components/item/item.min.css';
-import '@govbr-ds/core/dist/components/radio/radio.min.css';
-import { SelectContext } from '../contexts/select-context';
-import { SelectGovBr } from '../types';
+import { SelectContext } from './contexts/select-context';
+import { SelectGovBr } from './types';
 import { SelectItem } from './select-item';
 import { SelectList } from './select-list';
-import { SelectTrigger } from './SelectTrigger';
+import BRSelect from '@govbr-ds/core/dist/components/select/select';
+import '@govbr-ds/core/dist/components/select/select.min.css';
+import '@govbr-ds/core/dist/components/radio/radio.min.css';
 
-type SelectProps = ComponentProps<'div'> & {
+type SelectProps = {
+    reset?: unknown;
     className?: string;
     children: React.ReactNode;
     onChangeValue?(value: unknown): void;
 };
 
-function Select({ className, onChangeValue, children, ...props }: SelectProps) {
+function Select({
+    className,
+    reset,
+    children,
+    onChangeValue,
+    ...props
+}: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
-    const [selected, setSelected] = useState<unknown>(null);
+    const [selected, setSelected] = useState<string>('');
 
-    const setSelectedValue = useMemo(() => {
+    const selectValue = useMemo(() => {
         if (select)
             return Object.getPrototypeOf(select)._setSelected.bind(select) as (
                 index: number,
@@ -40,7 +43,7 @@ function Select({ className, onChangeValue, children, ...props }: SelectProps) {
         return null;
     }, [select]);
 
-    const removeSelected = useMemo(() => {
+    const removeSelectedValue = useMemo(() => {
         if (select)
             return Object.getPrototypeOf(select)._removeSelected.bind(
                 select,
@@ -48,11 +51,19 @@ function Select({ className, onChangeValue, children, ...props }: SelectProps) {
         return null;
     }, [select]);
 
+    const resetOptionsList = useMemo(() => {
+        if (select)
+            return Object.getPrototypeOf(select).resetOptionsList.bind(
+                select,
+            ) as () => void;
+        return null;
+    }, [select]);
+
     const handleChange = useCallback(
-        (value: unknown) => {
+        (value: string) => {
             if (!select) return;
             select?.optionsList?.forEach((option, index) =>
-                removeSelected!(index, option.element),
+                removeSelectedValue!(index, option.element),
             );
             const optionIndexInGovScript = select?.optionsList?.findIndex(
                 option => option.inputValue === String(value),
@@ -61,15 +72,15 @@ function Select({ className, onChangeValue, children, ...props }: SelectProps) {
             if (optionIndexInGovScript === -1) return;
 
             const optionToChange = select!.optionsList[optionIndexInGovScript!];
-            setSelectedValue!(optionIndexInGovScript!, optionToChange.element);
+            selectValue!(optionIndexInGovScript!, optionToChange.element);
             setSelected(value);
             return onChangeValue?.(value);
         },
-        [select, setSelectedValue, removeSelected],
+        [select, selectValue, removeSelectedValue],
     );
 
     const handleChangeWithKeyboard = useCallback(
-        (event: KeyboardEvent<HTMLDivElement>, value: unknown) => {
+        (event: KeyboardEvent<HTMLDivElement>, value: string) => {
             event.preventDefault();
             switch (event.key) {
                 case 'Enter':
@@ -83,6 +94,15 @@ function Select({ className, onChangeValue, children, ...props }: SelectProps) {
         [handleChange],
     );
 
+    const addDefaultValue = useCallback(
+        (value: string, index: number) => {
+            if (!selectValue) return;
+            setSelected(value);
+            selectValue(index, select!.optionsList[index].element);
+        },
+        [selectValue],
+    );
+
     useEffect(() => {
         if (selectRef.current && !select) {
             const brSelect = new BRSelect(
@@ -93,11 +113,16 @@ function Select({ className, onChangeValue, children, ...props }: SelectProps) {
         }
     }, [select, selectRef]);
 
+    useEffect(() => {
+        if (resetOptionsList) resetOptionsList();
+    }, [reset, resetOptionsList]);
+
     return (
         <SelectContext.Provider
             value={{
                 handleChange,
                 handleChangeWithKeyboard,
+                addDefaultValue,
                 selected,
             }}
         >
@@ -114,6 +139,5 @@ function Select({ className, onChangeValue, children, ...props }: SelectProps) {
 
 Select.Item = SelectItem;
 Select.List = SelectList;
-Select.Trigger = SelectTrigger;
 
-export { Select, SelectProps };
+export { Select, type SelectProps };

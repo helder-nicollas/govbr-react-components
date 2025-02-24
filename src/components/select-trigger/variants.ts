@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const selectTriggerVariants = tv({
-    base: 'br-input input-button max-w-[400px]',
+    base: 'br-input max-w-[400px]',
     variants: {
         highlight: {
             true: 'input-highlight',

@@ -1,8 +1,8 @@
 import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
-import { SelectTriggerField } from './select-trigger-field';
-import { SelectTriggerButton } from './select-trigger-button';
 import { selectTriggerVariants } from './variants';
+import { Input } from '../input';
+import { SelectTriggerField } from './select-trigger-field';
 
 type SelectTriggerProps = ComponentProps<'div'> &
     VariantProps<typeof selectTriggerVariants>;
@@ -16,21 +16,28 @@ function SelectTrigger({
     ...props
 }: SelectTriggerProps) {
     return (
-        <div
+        <Input
+            {...props}
             className={selectTriggerVariants({
                 highlight,
                 size,
                 variant,
                 className,
             })}
-            {...props}
+            withButton
         >
             {children}
-        </div>
+            <Input.Button
+                aria-label="Exibir lista"
+                data-trigger="data-trigger"
+                tabIndex={-1}
+            >
+                <i className="fas fa-angle-down" aria-hidden="true" />
+            </Input.Button>
+        </Input>
     );
 }
 
 SelectTrigger.Field = SelectTriggerField;
-SelectTrigger.Button = SelectTriggerButton;
 
 export { SelectTrigger, SelectTriggerProps };

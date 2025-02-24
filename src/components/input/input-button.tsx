@@ -11,8 +11,6 @@ export function InputButton({
         <Button
             className={twMerge('relative top-1', className)}
             type="button"
-            aria-label="Exibir senha"
-            role="switch"
             aria-checked="false"
             variant="transparent"
             {...props}

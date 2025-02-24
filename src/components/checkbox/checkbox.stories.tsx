@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox, CheckboxProps } from '.';
 import { checkboxVariants } from './variants';
 import { fn } from '@storybook/test';
+import { Label } from '../label';
+import { CheckboxFieldProps } from './checkbox-field';
 
 export default {
     title: 'Components/Checkbox',
@@ -10,7 +12,7 @@ export default {
         variant: 'normal',
         disabled: false,
         withoutLabel: false,
-        label: 'Checkbox 01'
+        label: 'Checkbox 01',
     },
     argTypes: {
         variant: {
@@ -23,20 +25,16 @@ export default {
     tags: ['autodocs'],
 } as Meta<CheckboxProps>;
 
-export const Default: StoryObj<CheckboxProps> = {
+export const Default: StoryObj<CheckboxProps & CheckboxFieldProps> = {
     args: {
         onChange: fn(),
     },
-    render: ({ onChange, checked, ...args }) => {
+    render: ({ variant, withoutLabel, ...args }) => {
         return (
-            <div className="flex gap-2">
-                <Checkbox
-                    {...args}
-                    id="checkbox"
-                    onChange={onChange}
-                    checked={checked}
-                ></Checkbox>
-            </div>
+            <Checkbox withoutLabel={withoutLabel} variant={variant}>
+                <Checkbox.Field {...args} id="checkbox" />
+                <Label htmlFor="checkbox">Checkbox 01</Label>
+            </Checkbox>
         );
     },
 };

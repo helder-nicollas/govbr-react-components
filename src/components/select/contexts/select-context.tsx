@@ -1,14 +1,5 @@
-/* eslint-disable no-unused-vars */
 import { createContext, useContext } from 'react';
-import { KeyboardEvent } from 'react';
-interface ISelectContext {
-    handleChange(value: unknown): void;
-    handleChangeWithKeyboard: (
-        event: KeyboardEvent<HTMLDivElement>,
-        value: unknown,
-    ) => void;
-    selected: unknown;
-}
+import { ISelectContext } from '../types';
 
 export const SelectContext = createContext({} as ISelectContext);
 
