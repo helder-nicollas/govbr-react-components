@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, {
-    ComponentProps,
     KeyboardEvent,
     useCallback,
     useEffect,
@@ -17,13 +16,20 @@ import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import '@govbr-ds/core/dist/components/select/select.min.css';
 import '@govbr-ds/core/dist/components/radio/radio.min.css';
 
-type SelectProps = ComponentProps<'div'> & {
+type SelectProps = {
     className?: string;
     children: React.ReactNode;
+    reset?: unknown;
     onChange?(value: unknown): void;
 };
 
-function Select({ className, onChange, children, ...props }: SelectProps) {
+function Select({
+    className,
+    onChange,
+    children,
+    reset,
+    ...props
+}: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<string>('');
@@ -42,6 +48,14 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
             return Object.getPrototypeOf(select)._removeSelected.bind(
                 select,
             ) as (index: number, element: HTMLDivElement) => void;
+        return null;
+    }, [select]);
+
+    const resetOptionsList = useMemo(() => {
+        if (select)
+            return Object.getPrototypeOf(select).resetOptionsList.bind(
+                select,
+            ) as () => void;
         return null;
     }, [select]);
 
@@ -98,6 +112,10 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
             setSelect(brSelect);
         }
     }, [select, selectRef]);
+
+    useEffect(() => {
+        if (resetOptionsList) resetOptionsList();
+    }, [reset, resetOptionsList]);
 
     return (
         <SelectContext.Provider
