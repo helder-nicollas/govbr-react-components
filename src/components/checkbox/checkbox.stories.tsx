@@ -12,7 +12,7 @@ export default {
         variant: 'normal',
         disabled: false,
         withoutLabel: false,
-        label: 'Checkbox 01'
+        label: 'Checkbox 01',
     },
     argTypes: {
         variant: {
