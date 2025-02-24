@@ -24,11 +24,9 @@ export function MultiSelectItem({
                 option => String(children) === option.value,
             );
             option!.inputValue = value;
-        }
-    }, [select]);
 
-    useEffect(() => {
-        if (defaultSelected && select) handleChange(value);
+            if (defaultSelected && select) handleChange(value);
+        }
     }, [select]);
 
     return (

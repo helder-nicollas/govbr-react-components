@@ -10,11 +10,11 @@ import {
 } from 'react';
 import { ISelectGovBr } from './types';
 import { MultiSelectContext } from './contexts/multi-select-context';
-import BRSelect from '@govbr-ds/core/dist/components/select/select';
-import '@govbr-ds/core/dist/components/select/select.min.css';
 import { MultiSelectItem } from './multi-select-item';
 import { MultiSelectList } from './multi-select-list';
 import { MultiSelectAllItems } from './multi-select-all-items';
+import BRSelect from '@govbr-ds/core/dist/components/select/select';
+import '@govbr-ds/core/dist/components/select/select.min.css';
 
 interface IMultiSelectProps {
     onChangeValue?(items: string[]): void;
