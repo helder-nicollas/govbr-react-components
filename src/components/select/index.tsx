@@ -17,17 +17,17 @@ import '@govbr-ds/core/dist/components/select/select.min.css';
 import '@govbr-ds/core/dist/components/radio/radio.min.css';
 
 type SelectProps = {
+    reset?: unknown;
     className?: string;
     children: React.ReactNode;
-    reset?: unknown;
-    onChange?(value: unknown): void;
+    onChangeValue?(value: unknown): void;
 };
 
 function Select({
     className,
-    onChange,
-    children,
     reset,
+    children,
+    onChangeValue,
     ...props
 }: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
@@ -74,7 +74,7 @@ function Select({
             const optionToChange = select!.optionsList[optionIndexInGovScript!];
             selectValue!(optionIndexInGovScript!, optionToChange.element);
             setSelected(value);
-            return onChange?.(value);
+            return onChangeValue?.(value);
         },
         [select, selectValue, removeSelectedValue],
     );
@@ -140,4 +140,4 @@ function Select({
 Select.Item = SelectItem;
 Select.List = SelectList;
 
-export { Select, SelectProps };
+export { Select, type SelectProps };

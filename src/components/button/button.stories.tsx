@@ -20,6 +20,22 @@ export default {
                 type: 'inline-radio',
             },
             options: Object.keys(buttonVariants.variants.variant),
+            description: 'Refere-se à variante a ser aplicada ao botão',
+        },
+        children: {
+            description: 'Conteúdo do botão (texto, imagem, etc).',
+        },
+        loading: {
+            description: 'Adiciona o estado de loading',
+        },
+        disabled: {
+            description: 'Adiciona o estado de desabilitado',
+        },
+        circle: {
+            description: 'Adiciona o tipo circular',
+        },
+        onClick: {
+            description: 'Função a ser executada com o click do botão',
         },
     },
     tags: ['autodocs'],

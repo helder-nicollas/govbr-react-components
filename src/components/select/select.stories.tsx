@@ -1,37 +1,33 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from '.';
-import { SelectTrigger, SelectTriggerProps } from '../select-trigger';
-import { selectTriggerVariants } from '../select-trigger/variants';
-import { Button } from '../button';
+import { SelectTrigger } from '../select-trigger';
+import { SelectList } from './select-list';
+import { SelectItem } from './select-item';
+import { fn } from '@storybook/test';
 import { useState } from 'react';
+import { Button } from '../button';
 
 export default {
     title: 'Components/Select',
     component: Select,
+    subcomponents: {
+        SelectTrigger,
+        SelectList,
+        SelectItem,
+    },
     id: 'Select',
+    tags: ['autodocs'],
+} as Meta;
+
+export const Default: StoryObj<typeof Select> = {
     args: {
-        variant: 'normal',
-        size: 'medium',
-        highlight: false,
+        onChangeValue: fn(),
     },
     argTypes: {
-        variant: {
-            control: {
-                type: 'inline-radio',
-            },
-            options: Object.keys(selectTriggerVariants.variants.variant),
-        },
-        size: {
-            control: {
-                type: 'inline-radio',
-            },
-            options: Object.keys(selectTriggerVariants.variants.size),
+        onChangeValue: {
+            description: 'Função a ser executada com a modificação do valor',
         },
     },
-    tags: ['autodocs'],
-} as Meta<SelectTriggerProps>;
-
-export const Default: StoryObj<SelectTriggerProps> = {
     render: args => {
         const array = [
             {
