@@ -4,19 +4,26 @@ import { Item } from '../item';
 
 interface IProps extends ComponentProps<'div'> {
     defaultSelected?: boolean;
-    value: unknown;
+    value: string;
+    index: number;
 }
 
 export function SelectItem({
     value,
     defaultSelected,
     children,
+    index,
     ...props
 }: IProps) {
-    const { handleChangeWithKeyboard, selected, handleChange } = useSelect();
+    const {
+        handleChangeWithKeyboard,
+        addDefaultValue,
+        handleChange,
+        selected,
+    } = useSelect();
 
     useEffect(() => {
-        if (defaultSelected) handleChange(value);
+        if (defaultSelected) addDefaultValue(value, index);
     }, [handleChange]);
 
     return (

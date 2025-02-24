@@ -1,6 +1,19 @@
+/* eslint-disable no-unused-vars */
+import { KeyboardEvent } from 'react';
+
 export interface ISelectionHandler {
     element: HTMLInputElement;
     handler: () => void;
+}
+
+export interface ISelectContext {
+    handleChange(value: string): void;
+    handleChangeWithKeyboard: (
+        event: KeyboardEvent<HTMLDivElement>,
+        value: string,
+    ) => void;
+    addDefaultValue(value: string, index: number): void;
+    selected: string;
 }
 
 export interface IOptionObject {
@@ -18,7 +31,7 @@ export interface SelectGovBr {
     _setFilterBehavior: () => void;
     _prepareComponent: () => void;
     resetOptionsList: () => void;
-    selected: unknown[];
+    selected: string[];
     component: HTMLDivElement | null;
     optionsList: IOptionObject[];
     selectionHandler: ISelectionHandler[];

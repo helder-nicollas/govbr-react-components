@@ -52,8 +52,12 @@ export const Default: StoryObj<SelectTriggerProps> = {
                     <SelectTrigger.Field />
                 </SelectTrigger>
                 <Select.List>
-                    {array.map(item => (
-                        <Select.Item value={item.value} key={item.value}>
+                    {array.map((item, index) => (
+                        <Select.Item
+                            index={index}
+                            value={item.value}
+                            key={item.value}
+                        >
                             {item.label}
                         </Select.Item>
                     ))}

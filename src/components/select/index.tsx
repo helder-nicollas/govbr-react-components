@@ -26,9 +26,9 @@ type SelectProps = ComponentProps<'div'> & {
 function Select({ className, onChange, children, ...props }: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
-    const [selected, setSelected] = useState<unknown>(null);
+    const [selected, setSelected] = useState<string>('');
 
-    const setSelectedValue = useMemo(() => {
+    const selectValue = useMemo(() => {
         if (select)
             return Object.getPrototypeOf(select)._setSelected.bind(select) as (
                 index: number,
@@ -37,7 +37,7 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
         return null;
     }, [select]);
 
-    const removeSelected = useMemo(() => {
+    const removeSelectedValue = useMemo(() => {
         if (select)
             return Object.getPrototypeOf(select)._removeSelected.bind(
                 select,
@@ -46,10 +46,10 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
     }, [select]);
 
     const handleChange = useCallback(
-        (value: unknown) => {
+        (value: string) => {
             if (!select) return;
             select?.optionsList?.forEach((option, index) =>
-                removeSelected!(index, option.element),
+                removeSelectedValue!(index, option.element),
             );
             const optionIndexInGovScript = select?.optionsList?.findIndex(
                 option => option.inputValue === String(value),
@@ -58,15 +58,15 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
             if (optionIndexInGovScript === -1) return;
 
             const optionToChange = select!.optionsList[optionIndexInGovScript!];
-            setSelectedValue!(optionIndexInGovScript!, optionToChange.element);
+            selectValue!(optionIndexInGovScript!, optionToChange.element);
             setSelected(value);
             return onChange?.(value);
         },
-        [select, setSelectedValue, removeSelected],
+        [select, selectValue, removeSelectedValue],
     );
 
     const handleChangeWithKeyboard = useCallback(
-        (event: KeyboardEvent<HTMLDivElement>, value: unknown) => {
+        (event: KeyboardEvent<HTMLDivElement>, value: string) => {
             event.preventDefault();
             switch (event.key) {
                 case 'Enter':
@@ -78,6 +78,15 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
             }
         },
         [handleChange],
+    );
+
+    const addDefaultValue = useCallback(
+        (value: string, index: number) => {
+            if (!selectValue) return;
+            setSelected(value);
+            selectValue(index, select!.optionsList[index].element);
+        },
+        [selectValue],
     );
 
     useEffect(() => {
@@ -95,6 +104,7 @@ function Select({ className, onChange, children, ...props }: SelectProps) {
             value={{
                 handleChange,
                 handleChangeWithKeyboard,
+                addDefaultValue,
                 selected,
             }}
         >
