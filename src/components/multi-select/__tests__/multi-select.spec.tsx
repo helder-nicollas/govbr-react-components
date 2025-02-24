@@ -1,4 +1,10 @@
-import { fireEvent, getAllByRole, render, screen, waitFor } from '@testing-library/react';
+import {
+    fireEvent,
+    getAllByRole,
+    render,
+    screen,
+    waitFor,
+} from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { MultiSelect } from '..';
 import { SelectTrigger } from '../../select-trigger';
