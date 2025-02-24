@@ -1,35 +1,31 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from './components';
-import { SelectTriggerProps } from './components/SelectTrigger';
-import { selectTriggerVariants } from './components/SelectTrigger/variants';
+import { SelectTrigger } from './components/SelectTrigger';
+import { SelectList } from './components/select-list';
+import { SelectItem } from './components/select-item';
+import { fn } from '@storybook/test';
 
 export default {
     title: 'Components/Select',
     component: Select,
+    subcomponents: {
+        SelectTrigger,
+        SelectList,
+        SelectItem,
+    },
     id: 'Select',
+    tags: ['autodocs'],
+} as Meta;
+
+export const Default: StoryObj<typeof Select> = {
     args: {
-        variant: 'normal',
-        size: 'medium',
-        highlight: false,
+        onChangeValue: fn(),
     },
     argTypes: {
-        variant: {
-            control: {
-                type: 'inline-radio',
-            },
-            options: Object.keys(selectTriggerVariants.variants.variant),
-        },
-        size: {
-            control: {
-                type: 'inline-radio',
-            },
-            options: Object.keys(selectTriggerVariants.variants.size),
+        onChangeValue: {
+            description: 'Função a ser executada com a modificação do valor',
         },
     },
-    tags: ['autodocs'],
-} as Meta<SelectTriggerProps>;
-
-export const Default: StoryObj<SelectTriggerProps> = {
     render: args => {
         const array = [
             {
@@ -47,8 +43,8 @@ export const Default: StoryObj<SelectTriggerProps> = {
         ];
 
         return (
-            <Select>
-                <Select.Trigger {...args}>
+            <Select {...args}>
+                <Select.Trigger>
                     <Select.Trigger.Field />
                     <Select.Trigger.Button />
                 </Select.Trigger>
