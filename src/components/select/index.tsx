@@ -110,10 +110,15 @@ function Select({ reset, children, onChangeValue, ...props }: SelectProps) {
             const optionIndex = select.optionsList.findIndex(
                 option => option.inputValue === selected,
             );
-            removeSelectedValue(
-                optionIndex,
-                select.optionsList[optionIndex].element,
-            );
+
+            const isExistentOption = optionIndex !== -1;
+
+            if (isExistentOption) {
+                removeSelectedValue(
+                    optionIndex,
+                    select.optionsList[optionIndex].element,
+                );
+            }
             resetOptionsList();
             setSelected('');
         }
