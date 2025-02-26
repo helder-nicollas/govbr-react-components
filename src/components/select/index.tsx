@@ -18,7 +18,7 @@ import '@govbr-ds/core/dist/components/radio/radio.min.css';
 type SelectProps = {
     reset?: unknown;
     children: React.ReactNode;
-    onChangeValue?(value: unknown): void;
+    onChangeValue?(value: string): void;
 };
 
 function Select({ reset, children, onChangeValue, ...props }: SelectProps) {

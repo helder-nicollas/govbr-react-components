@@ -23,7 +23,11 @@ export const Default: StoryObj<typeof Select> = {
     },
     argTypes: {
         onChangeValue: {
-            description: 'Função a ser executada com a modificação do valor',
+            description: 'Função a ser executada com a modificação do valor.',
+        },
+        reset: {
+            description:
+                'Deve ser utilizado quando houver a necessidade de resetar as opções do select. Geralmente, é passado o array de opções',
         },
     },
     render: args => {
