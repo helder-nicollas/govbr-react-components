@@ -7,7 +7,6 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { SelectContext } from './contexts/select-context';
 import { SelectGovBr } from './types';
 import { SelectItem } from './select-item';
@@ -18,18 +17,11 @@ import '@govbr-ds/core/dist/components/radio/radio.min.css';
 
 type SelectProps = {
     reset?: unknown;
-    className?: string;
     children: React.ReactNode;
     onChangeValue?(value: unknown): void;
 };
 
-function Select({
-    className,
-    reset,
-    children,
-    onChangeValue,
-    ...props
-}: SelectProps) {
+function Select({ reset, children, onChangeValue, ...props }: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<string>('');
@@ -114,8 +106,18 @@ function Select({
     }, [select, selectRef]);
 
     useEffect(() => {
-        if (resetOptionsList) resetOptionsList();
-    }, [reset, resetOptionsList]);
+        if (resetOptionsList && removeSelectedValue && select) {
+            const optionIndex = select.optionsList.findIndex(
+                option => option.inputValue === selected,
+            );
+            removeSelectedValue(
+                optionIndex,
+                select.optionsList[optionIndex].element,
+            );
+            resetOptionsList();
+            setSelected('');
+        }
+    }, [reset]);
 
     return (
         <SelectContext.Provider
@@ -126,11 +128,7 @@ function Select({
                 selected,
             }}
         >
-            <div
-                ref={selectRef}
-                className={twMerge('br-select', className)}
-                {...props}
-            >
+            <div ref={selectRef} className="br-select" {...props}>
                 {children}
             </div>
         </SelectContext.Provider>
