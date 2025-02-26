@@ -90,10 +90,7 @@
       "plugin:storybook/recommended"
     ]
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/helder-programmer"
-  },
   "repository": {
-    "url": "https://github.com/helder-programmer/govbr-react-components.git"
+    "url": "https://github.com/helder-nicollas/govbr-react-components.git"
   }
 }
