@@ -1,0 +1,28 @@
+name: release
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+on:
+    push:
+        branches: ['master']
+
+jobs:
+    release:
+        runs-on: 'ubuntu-latest'
+        steps:
+            - name: repo-checkout
+              uses: actions/checkout@v4
+            - name: node-setup
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+            - run: npm ci
+            - run: npm run rollup
+            - name: release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npm run semantic-release

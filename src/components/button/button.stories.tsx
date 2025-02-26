@@ -1,0 +1,44 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { Button, ButtonProps } from './button';
+import { buttonVariants } from './variants';
+import { fn } from '@storybook/test';
+
+export default {
+    title: 'Components/Button',
+    component: Button,
+    args: {
+        variant: 'primary',
+        children: 'Button',
+        loading: false,
+        disabled: false,
+        circle: false,
+        onClick: fn(),
+    },
+    argTypes: {
+        variant: {
+            control: {
+                type: 'inline-radio',
+            },
+            options: Object.keys(buttonVariants.variants.variant),
+            description: 'Refere-se à variante a ser aplicada ao botão',
+        },
+        children: {
+            description: 'Conteúdo do botão (texto, imagem, etc).',
+        },
+        loading: {
+            description: 'Adiciona o estado de loading',
+        },
+        disabled: {
+            description: 'Adiciona o estado de desabilitado',
+        },
+        circle: {
+            description: 'Adiciona o tipo circular',
+        },
+        onClick: {
+            description: 'Função a ser executada com o click do botão',
+        },
+    },
+    tags: ['autodocs'],
+} as Meta<ButtonProps>;
+
+export const Default: StoryObj = {};

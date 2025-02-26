@@ -1,0 +1,45 @@
+@import 'variables.css';
+@import 'states.css';
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    .gov-input-focused {
+        box-shadow: 0 0 0 2px #c2850c;
+    }
+    p {
+        @apply font-inter;
+    }
+}
+
+:root {
+    --background: var(--pure-0);
+    --foreground: var(--gray-80);
+    
+    --secondary-background: var(--blue-warm-vivid-10);
+    --secondary-foreground: var(--blue-warm-vivid-70);
+
+    --header-background: var(--pure-0);
+}
+
+html.dark {
+    --background: var(--pure-100);
+    --foreground: var(--pure-0);
+
+    --secondary-background: var(--gray-80);
+    --secondary-foreground: var(--yellow-vivid-20);
+
+    --header-background: var(--gray-80);
+}
+
+body {
+    @apply bg-background text-foreground;
+    @apply font-rawline;
+}
