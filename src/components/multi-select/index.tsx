@@ -18,6 +18,7 @@ import '@govbr-ds/core/dist/components/select/select.min.css';
 
 interface IMultiSelectProps {
     onChangeValue?(items: string[]): void;
+    reset?: boolean;
     children: ReactNode;
 }
 
