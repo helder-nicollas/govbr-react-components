@@ -94,6 +94,6 @@
     "access": "public"
   },
   "repository": {
-    "url": "https://github.com/helder-nicollas/govbr-react-components.git"
+    "url": "git+https://github.com/helder-nicollas/govbr-react-components.git"
   }
 }
