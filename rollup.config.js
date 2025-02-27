@@ -29,10 +29,7 @@ export default [
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
             terser(),
-            postcss({
-                extract: true,
-                autoModules: true,
-            }),
+            postcss(),
             copy({
                 targets: [
                     {
