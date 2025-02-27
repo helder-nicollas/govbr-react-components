@@ -1,13 +1,12 @@
+import { dts } from 'rollup-plugin-dts';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import { dts } from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports, no-undef
-const packageJson = require('./package.json');
+import copy from 'rollup-plugin-copy';
+import packageJson from './package.json';
 
 export default [
     {
@@ -30,7 +29,18 @@ export default [
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
             terser(),
-            postcss(),
+            postcss({
+                extract: true,
+                autoModules: true,
+            }),
+            copy({
+                targets: [
+                    {
+                        src: 'src/styles/**/*.css',
+                        dest: 'dist/styles',
+                    },
+                ],
+            }),
         ],
         external: ['react', 'react-dom'],
     },
