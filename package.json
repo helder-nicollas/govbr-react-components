@@ -91,6 +91,10 @@
       "plugin:storybook/recommended"
     ]
   },
+  "homepage": "https://helder-nicollas.github.io/govbr-react-components/",
+  "bugs": {
+    "url": "https://github.com/helder-nicollas/govbr-react-components/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
