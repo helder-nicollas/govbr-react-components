@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { ListProps, List } from '.';
+import { ListProps, List } from './list';
 import { Item } from '../item';
 
 export default {
