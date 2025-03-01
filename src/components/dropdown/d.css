@@ -1,0 +1,20 @@
+[data-toggle='dropdown'] + * {
+    position: absolute;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.target,
+.target {
+    box-shadow: var(--surface-shadow-sm);
+    left: 0;
+    position: absolute;
+    top: 100%;
+}
+
+.dropdown > .notification {
+    left: auto;
+    right: 0;
+}
