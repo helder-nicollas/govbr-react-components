@@ -10,6 +10,7 @@ import generatePackageJson from 'rollup-plugin-generate-package-json';
 import packageJson from './package.json';
 import fs from 'fs';
 import replace from '@rollup/plugin-replace';
+import json from '@rollup/plugin-json';
 
 const EXCLUDE_FOLDERS = ['types', 'styles', 'stories'];
 
@@ -100,4 +101,23 @@ const cssBuild = getFiles('./src/styles').map(file => {
     };
 });
 
-export default [...componentsBuild, ...cssBuild];
+const packageCopy = {
+    input: `package.json`,
+    plugins: [
+        json(),
+        copy({
+            targets: [
+                {
+                    src: 'package.json',
+                    dest: 'dist',
+                },
+                {
+                    src: 'README.md',
+                    dest: 'dist',
+                },
+            ],
+        }),
+    ],
+};
+
+export default [...componentsBuild, ...cssBuild, packageCopy];
