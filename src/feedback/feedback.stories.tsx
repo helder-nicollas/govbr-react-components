@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Feedback, FeedbackProps } from '.';
+import { Feedback, FeedbackProps } from './feedback';
 import { inputMessageIconVariants, inputMessageVariants } from './variants';
 
 export default {
