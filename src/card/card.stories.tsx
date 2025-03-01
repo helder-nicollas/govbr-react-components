@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Card } from '.';
+import { Card } from './card';
 import { CardHeader } from './card-header';
 import { CardFooter } from './card-footer';
 import { CardContent } from './card-content';

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Divider, DividerProps } from '.';
 import { dividerVariants } from './variants';
-import { List } from '../list';
+import { List } from '../list/list';
 import { Item } from '../item';
 
 export default {

@@ -1,11 +1,11 @@
 import { ComponentProps, forwardRef } from 'react';
+import { buttonVariants, ButtonVariants } from './variants';
 import '@govbr-ds/core/dist/components/button/button.min.css';
 import '@govbr-ds/core/dist/components/loading/loading.min.css';
-import { buttonVariants, ButtonVariants } from './variants';
 
 type Ref = HTMLButtonElement;
 
-export type ButtonProps = ButtonVariants & ComponentProps<'button'>;
+type ButtonProps = ButtonVariants & ComponentProps<'button'>;
 
 const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
     const {
@@ -36,4 +36,4 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
 });
 
 Button.displayName = 'Button';
-export { Button };
+export { Button, type ButtonProps };
