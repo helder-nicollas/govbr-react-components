@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import { CardHeader } from './card-header';
 import { CardContent } from './card-content';
 import { CardFooter } from './card-footer';
+import '@govbr-ds/core/dist/components/card/card.min.css';
 
 type CardProps = ComponentProps<'div'> & {
     disabled?: boolean;

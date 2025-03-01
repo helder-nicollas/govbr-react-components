@@ -4,7 +4,6 @@ import { CardHeader } from './card-header';
 import { CardFooter } from './card-footer';
 import { CardContent } from './card-content';
 import { Button } from '../button';
-import '@govbr-ds/core/dist/components/card/card.min.css';
 
 export default {
     title: 'Components/Card',
