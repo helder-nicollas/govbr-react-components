@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { List } from '../list';
+import { List } from '../list/list';
 import { twMerge } from 'tailwind-merge';
 
 export function SelectList({
