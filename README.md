@@ -33,7 +33,7 @@ npm install @fortawesome/fontawesome-free@^5.11.2
 ```js
 /* main.tsx */
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import '@helder-nicollas/govbr-react-components/dist/styles/globals.css';
+import '@helder-nicollas/govbr-react-components/styles/globals.css';
 ```
 
 4. Importar as fontes _Raleway_ e _Rawline_ no projeto através do arquivo <code>index.html</code>.
@@ -61,7 +61,7 @@ Exemplo:
 Exemplo de utilização de um componente:
 
 ```tsx
-import { Button } from '@helder-nicollas/govbr-react-components';
+import { Button } from '@helder-nicollas/govbr-react-components/button';
 
 export function Component() {
     return (
@@ -82,6 +82,9 @@ Exemplo utilizando um client component no NextJs:
 
 ```tsx
 'use client';
+import { Select } from '@helder-nicollas/govbr-react-components/select
+import { SelectTrigger } from '@helder-nicollas/govbr-react-components/select-trigger
+
 export function Form() {
     const array = [
         {
@@ -121,7 +124,7 @@ export function Form() {
 
 ## ⚡ Flexibilidade
 
-Um exemplo claro de flexibilidade é a utilização de componentes compostos para gerar a UI, onde cada componente pode ser customizado de acordo à necessidade do desenvolvedor, tanto na parte de interações do usuário, quanto na parte de estilização. Abaixo está o exemplo utilizando [TailwindCSS](https://tailwindcss.com/):
+Um exemplo claro de flexibilidade é a utilização de componentes compostos para gerar a UI, onde cada componente pode ser customizado de acordo à necessidade do desenvolvedor, tanto na parte de interações do usuário, quanto na parte de estilização. Abaixo está o exemplo de um corpo de componente utilizando [TailwindCSS](https://tailwindcss.com/):
 
 ```tsx
 const [open, setOpen] = useState(false);

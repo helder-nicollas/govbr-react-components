@@ -10,9 +10,13 @@ import generatePackageJson from 'rollup-plugin-generate-package-json';
 import packageJson from './package.json';
 import fs from 'fs';
 import replace from '@rollup/plugin-replace';
-import json from '@rollup/plugin-json';
 
 const EXCLUDE_FOLDERS = ['types', 'styles', 'stories'];
+const DIST_PATH = './dist';
+
+if (!fs.existsSync(DIST_PATH)) {
+    fs.mkdirSync(DIST_PATH, { recursive: true });
+}
 
 const getComponentsFolder = path =>
     fs
@@ -50,9 +54,21 @@ const subfolderPlugins = folderName => [
         baseContents: {
             name: `${packageJson.name}/${folderName}`,
             private: true,
-            main: '../cjs/index.js', // --> points to cjs format entry point of whole library
-            module: './index.js', // --> points to esm format entry point of individual component
-            types: './index.d.ts', // --> points to types definition file of individual component
+            main: './index.js',
+            module: './index.mjs',
+            types: './index.d.ts',
+            exports: {
+                '.': {
+                    import: {
+                        types: './index.d.mts',
+                        default: './index.mjs',
+                    },
+                    require: {
+                        types: './index.d.ts',
+                        default: './index.js',
+                    },
+                },
+            },
         },
     }),
 ];
@@ -63,13 +79,29 @@ const componentsBuild = getComponentsFolder('./src')
             {
                 input: `src/${folder}/index.ts`,
                 output: {
-                    file: `dist/${folder}/index.js`,
+                    file: `dist/${folder}/index.mjs`,
                     sourcemap: true,
                     exports: 'named',
                     format: 'esm',
                 },
                 plugins: subfolderPlugins(folder),
                 external: ['react', 'react-dom'],
+            },
+            {
+                input: `src/${folder}/index.ts`,
+                output: {
+                    file: `dist/${folder}/index.js`,
+                    sourcemap: true,
+                    exports: 'named',
+                    format: 'cjs',
+                },
+                plugins,
+                external: ['react', 'react-dom'],
+            },
+            {
+                input: `src/${folder}/index.ts`,
+                output: [{ file: `dist/${folder}/index.d.mts` }],
+                plugins: [dts()],
             },
             {
                 input: `src/${folder}/index.ts`,
@@ -101,23 +133,32 @@ const cssBuild = getFiles('./src/styles').map(file => {
     };
 });
 
-const packageCopy = {
-    input: `package.json`,
-    plugins: [
-        json(),
-        copy({
-            targets: [
-                {
-                    src: 'package.json',
-                    dest: 'dist',
-                },
-                {
-                    src: 'README.md',
-                    dest: 'dist',
-                },
-            ],
-        }),
-    ],
+const components = getComponentsFolder('./src');
+
+const exportsObject = {
+    './styles/globals.css': {
+        default: './styles/globals.css',
+    },
+    ...components.reduce((acc, folder) => {
+        acc[`./${folder}`] = {
+            import: `./${folder}/index.mjs`,
+            require: `./${folder}/index.js`,
+            types: `./${folder}/index.d.ts`,
+        };
+        return acc;
+    }, {}),
 };
 
-export default [...componentsBuild, ...cssBuild, packageCopy];
+const updatedPackageJson = {
+    ...packageJson,
+    exports: exportsObject,
+};
+
+fs.copyFileSync('./package.json', `${DIST_PATH}/package.json`);
+fs.writeFileSync(
+    `${DIST_PATH}/package.json`,
+    JSON.stringify(updatedPackageJson, null, 2),
+);
+fs.copyFileSync('./README.md', `${DIST_PATH}/README.md`);
+
+export default [...componentsBuild, ...cssBuild];
