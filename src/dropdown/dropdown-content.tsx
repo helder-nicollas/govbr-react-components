@@ -1,10 +1,10 @@
 import { ComponentProps } from 'react';
-import { useDropdown } from '.';
+import { useDropdown } from './dropdown';
 import { twMerge } from 'tailwind-merge';
 
 type DropdownContentProps = ComponentProps<'div'>;
 
-export function DropdownContent({
+function DropdownContent({
     className,
     children,
     ...props
@@ -14,8 +14,10 @@ export function DropdownContent({
     if (!open) return null;
 
     return (
-        <div {...props} className={twMerge('target', className)} id="target">
+        <div {...props} className={twMerge('target', className)}>
             {children}
         </div>
     );
 }
+
+export { DropdownContent, type DropdownContentProps };
