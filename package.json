@@ -14,7 +14,7 @@
         "build-storybook": "storybook build",
         "semantic-release": "semantic-release",
         "lint": "eslint --fix",
-        "deploy": "npm run rollup && npm version patch && npm publish"
+        "deploy": "npm run build && npm version patch && npm publish"
     },
     "dependencies": {
         "@govbr-ds/core": "^3.6.1",
