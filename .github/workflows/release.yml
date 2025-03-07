@@ -20,7 +20,7 @@ jobs:
               with:
                   node-version: '20'
             - run: npm ci
-            - run: npm run rollup
+            - run: npm run build
             - name: release
               env:
                   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

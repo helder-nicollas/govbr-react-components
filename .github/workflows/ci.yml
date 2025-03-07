@@ -1,4 +1,4 @@
-name: storybook-deploy
+name: build-and-quality
 
 permissions:
   contents: read
@@ -25,7 +25,7 @@ jobs:
               with:
                node-version: '20'
             - run: npm install
-            - run: npm run rollup
+            - run: npm run build
     
     quality:
         runs-on: ubuntu-latest
