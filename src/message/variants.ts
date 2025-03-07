@@ -1,6 +1,6 @@
 import { tv } from 'tailwind-variants';
 
-export const toastVariants = tv({
+export const messageVariants = tv({
     base: 'br-message min-w-80',
     variants: {
         type: {
@@ -15,7 +15,7 @@ export const toastVariants = tv({
     },
 });
 
-export const toastIconVariants = tv({
+export const iconVariants = tv({
     base: 'fa-lg fas',
     variants: {
         icon: {
