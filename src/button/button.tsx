@@ -15,6 +15,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
         circle,
         variant,
         loading,
+        size,
         ...rest
     } = props;
 
@@ -25,6 +26,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
             className={buttonVariants({
                 variant,
                 circle,
+                size,
                 loading,
                 className,
             })}

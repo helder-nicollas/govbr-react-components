@@ -12,6 +12,7 @@ export default {
         loading: false,
         disabled: false,
         circle: false,
+        size: 'medium',
         onClick: fn(),
     },
     argTypes: {
@@ -33,6 +34,13 @@ export default {
         },
         circle: {
             description: 'Adiciona o tipo circular',
+        },
+        size: {
+            description: 'Tamanho do botão',
+            control: {
+                type: 'inline-radio',
+            },
+            options: Object.keys(buttonVariants.variants.size),
         },
         onClick: {
             description: 'Função a ser executada com o click do botão',

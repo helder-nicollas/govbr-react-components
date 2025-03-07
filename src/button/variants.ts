@@ -8,6 +8,11 @@ export const buttonVariants = tv({
             outline: 'secondary',
             transparent: '',
         },
+        size: {
+            large: 'large',
+            medium: '',
+            small: 'small',
+        },
         circle: {
             true: 'circle',
         },
@@ -17,6 +22,7 @@ export const buttonVariants = tv({
     },
     defaultVariants: {
         variant: 'primary',
+        size: 'medium',
     },
 });
 
