@@ -60,17 +60,3 @@ a:not(:disabled):active {
   cursor: not-allowed;
   opacity: var(--disabled);
 }
-
-.svg-inline--fa,
-.fa,
-.fab,
-.fad,
-.fal,
-.far,
-.fas {
-  --icon-size: var(--icon-size-base);
-  display: inline-block;
-  font-size: var(--icon-size);
-  text-align: center;
-  width: calc(var(--icon-size) + 8px);
-}

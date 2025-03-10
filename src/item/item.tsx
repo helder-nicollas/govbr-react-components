@@ -1,32 +1,30 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react';
+import { ElementType } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { itemVariants } from './variants';
 import '@govbr-ds/core/dist/components/item/item.min.css';
 
-type ItemProps<T extends ElementType = 'div'> = ComponentPropsWithoutRef<T> & {
+type ItemProps<T = void> = T & {
     className?: string;
     children: React.ReactNode;
-    as?: T;
+    Element?: ElementType;
 } & VariantProps<typeof itemVariants>;
 
-function Item<T extends ElementType = 'div'>({
+function Item<T>({
     className,
     selected,
     active,
     children,
-    as,
+    Element = 'div',
     ...props
 }: ItemProps<T>) {
-    const Component = as || 'div';
-
     return (
-        <Component
+        <Element
             {...props}
             role="listitem"
             className={itemVariants({ className, active, selected })}
         >
             {children}
-        </Component>
+        </Element>
     );
 }
 
