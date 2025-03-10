@@ -10,6 +10,19 @@ import { Item, ItemProps } from '.';
 export default {
     title: 'Components/Item',
     component: Item,
+    argTypes: {
+        selected: {
+            description: 'Adiciona o estado de selecionado.',
+        },
+        active: {
+            description: 'Adiciona o estado de ativo.',
+        },
+        as: {
+            control: { type: 'select' },
+            options: ['button', 'a', 'div', 'li'],
+            description: 'Tag que irá receber os estilos do Item.',
+        },
+    },
     tags: ['autodocs'],
 } as Meta<ItemProps>;
 
@@ -18,11 +31,5 @@ export const Default: StoryObj<ItemProps> = {
         selected: false,
         active: false,
         children: 'Item',
-    },
-    argTypes: {
-        as: {
-            control: { type: 'select' },
-            options: ['button', 'a', 'div', 'li'],
-        },
     },
 };

@@ -21,36 +21,36 @@ export default {
                 type: 'select',
             },
             options: ['a', 'button', 'div', 'li'],
-            description: 'Tag que irá receber a estilização d botão',
+            description: 'Tag que irá receber a estilização do botão.',
         },
         variant: {
             control: {
                 type: 'inline-radio',
             },
             options: Object.keys(buttonVariants.variants.variant),
-            description: 'Refere-se à variante a ser aplicada ao botão',
+            description: 'Refere-se à variante a ser aplicada ao botão.',
         },
         children: {
             description: 'Conteúdo do botão (texto, imagem, etc).',
         },
         loading: {
-            description: 'Adiciona o estado de loading',
+            description: 'Adiciona o estado de loading.',
         },
         disabled: {
-            description: 'Adiciona o estado de desabilitado',
+            description: 'Adiciona o estado de desabilitado.',
         },
         circle: {
-            description: 'Adiciona o tipo circular',
+            description: 'Adiciona o tipo circular.',
         },
         size: {
-            description: 'Tamanho do botão',
+            description: 'Tamanho do botão.',
             control: {
                 type: 'inline-radio',
             },
             options: Object.keys(buttonVariants.variants.size),
         },
         onClick: {
-            description: 'Função a ser executada com o click do botão',
+            description: 'Função a ser executada com o click do botão.',
         },
     },
     tags: ['autodocs'],
