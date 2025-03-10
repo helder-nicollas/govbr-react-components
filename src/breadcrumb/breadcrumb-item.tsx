@@ -7,8 +7,11 @@ export function BreadcrumbItem({
     ...props
 }: ComponentProps<'li'>) {
     return (
-        <li {...props} className={twMerge('crumb', className)}>
-            <i className="icon fas fa-chevron-right"></i>
+        <li
+            {...props}
+            className={twMerge('crumb text-gov-blue-warm-vivid-70', className)}
+        >
+            <i className="icon fas fa-chevron-right "></i>
             {children}
         </li>
     );
