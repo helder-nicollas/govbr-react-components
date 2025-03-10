@@ -1,28 +1,27 @@
-import { ComponentProps, forwardRef } from 'react';
+import { ComponentPropsWithoutRef, ElementType } from 'react';
 import { buttonVariants, ButtonVariants } from './variants';
 import '@govbr-ds/core/dist/components/button/button.min.css';
 import '@govbr-ds/core/dist/components/loading/loading.min.css';
 
-type Ref = HTMLButtonElement;
+type ButtonProps<T extends ElementType = 'button'> = ButtonVariants & {
+    as?: T;
+} & ComponentPropsWithoutRef<T>;
 
-type ButtonProps = ButtonVariants & ComponentProps<'button'>;
-
-const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
-    const {
-        type = 'button',
-        className,
-        children,
-        circle,
-        variant,
-        loading,
-        size,
-        ...rest
-    } = props;
+function Button<T extends ElementType = 'button'>({
+    as,
+    className,
+    children,
+    circle,
+    variant,
+    loading,
+    size,
+    ...rest
+}: ButtonProps<T>) {
+    const Component = as || 'button';
 
     return (
-        <button
-            ref={ref}
-            type={type}
+        <Component
+            {...rest}
             className={buttonVariants({
                 variant,
                 circle,
@@ -30,12 +29,10 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
                 loading,
                 className,
             })}
-            {...rest}
         >
             {children}
-        </button>
+        </Component>
     );
-});
+}
 
-Button.displayName = 'Button';
 export { Button, type ButtonProps };

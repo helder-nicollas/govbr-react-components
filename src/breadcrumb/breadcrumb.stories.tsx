@@ -28,7 +28,9 @@ export const Default: StoryObj<typeof Breadcrumb> = {
                     <Breadcrumb.Item>
                         <a href="a">Link 05</a>
                     </Breadcrumb.Item>
-                    <Breadcrumb.CurrentPage />
+                    <Breadcrumb.CurrentPage>
+                        Página Atual
+                    </Breadcrumb.CurrentPage>
                 </Breadcrumb.List>
             </Breadcrumb>
         );

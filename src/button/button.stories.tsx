@@ -16,6 +16,13 @@ export default {
         onClick: fn(),
     },
     argTypes: {
+        as: {
+            control: {
+                type: 'select',
+            },
+            options: ['a', 'button', 'div', 'li'],
+            description: 'Tag que irá receber a estilização d botão',
+        },
         variant: {
             control: {
                 type: 'inline-radio',
@@ -49,4 +56,10 @@ export default {
     tags: ['autodocs'],
 } as Meta<ButtonProps>;
 
-export const Default: StoryObj = {};
+export const Default: StoryObj = {
+    render: args => (
+        <Button as="a" {...args}>
+            Botão
+        </Button>
+    ),
+};
