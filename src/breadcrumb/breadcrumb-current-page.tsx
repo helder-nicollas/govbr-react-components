@@ -1,8 +1,9 @@
 import { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export function BreadcrumbItemCurrentPage({
+export function BreadcrumbCurrentPage({
     className,
+    children,
     ...props
 }: ComponentProps<'li'>) {
     return (
@@ -11,9 +12,9 @@ export function BreadcrumbItemCurrentPage({
             className={twMerge('crumb', className)}
             data-active="active"
         >
-            <i className="icon fas fa-chevron-right"></i>
+            <i className="icon fas fa-chevron-right" />
             <span tabIndex={0} aria-current="page">
-                Página atual
+                {children}
             </span>
         </li>
     );

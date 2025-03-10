@@ -8,7 +8,6 @@ export default {
 } as Meta<typeof Breadcrumb>;
 
 export const Default: StoryObj<typeof Breadcrumb> = {
-    decorators: s => <div className="bg-black">{s()}</div>,
     render: args => {
         return (
             <Breadcrumb {...args}>
@@ -18,18 +17,18 @@ export const Default: StoryObj<typeof Breadcrumb> = {
                         <a href="a">Link 01</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 01</a>
+                        <a href="a">Link 02</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 01</a>
+                        <a href="a">Link 03</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 01</a>
+                        <a href="a">Link 04</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 01</a>
+                        <a href="a">Link 05</a>
                     </Breadcrumb.Item>
-                    <Breadcrumb.CurrentPage></Breadcrumb.CurrentPage>
+                    <Breadcrumb.CurrentPage />
                 </Breadcrumb.List>
             </Breadcrumb>
         );
