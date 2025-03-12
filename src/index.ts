@@ -12,3 +12,4 @@ export * from './modal';
 export * from './multi-select';
 export * from './select-trigger';
 export * from './card';
+export * from './breadcrumb';
