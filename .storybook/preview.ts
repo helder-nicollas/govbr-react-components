@@ -15,7 +15,6 @@ const preview: Preview = {
             theme: themes.light,
         },
     },
-
     tags: ['autodocs', 'autodocs'],
 };
 
