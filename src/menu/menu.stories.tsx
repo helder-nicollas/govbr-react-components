@@ -5,18 +5,49 @@ import { Button } from '../button';
 
 export default {
     component: Menu,
+    decorators: story => <div className="h-96">{story()}</div>,
+    argTypes: {
+        type: {
+            control: {
+                type: 'inline-radio',
+            },
+            description: 'Tipo do menu.',
+            options: ['push', 'normal'],
+        },
+        size: {
+            control: {
+                type: 'inline-radio',
+            },
+            description: 'Tamanho dos itens do menu.',
+            options: ['small', 'normal'],
+        },
+        open: {
+            description: 'Propriedade usada para ativar o menu.',
+            control: {
+                disable: true,
+                type: 'boolean',
+            },
+        },
+        onOpenChange: {
+            description: 'Função que será executada ao fechar o menu.',
+        },
+    },
     title: 'Components/Menu',
     tags: ['autodocs'],
 } as Meta<typeof Menu>;
 
 export const Default: StoryObj<typeof Menu> = {
+    args: {
+        type: 'normal',
+        size: 'normal',
+    },
     render: args => {
         const [open, setOpen] = useState(false);
         return (
             <>
                 <Button onClick={() => setOpen(true)}>Abrir Menu</Button>
                 <Menu {...args} open={open} onOpenChange={() => setOpen(false)}>
-                    <Menu.Panel className="max-w-[20%]">
+                    <Menu.Panel className="max-w-72">
                         <Menu.Header withCloseButton>
                             <Menu.Title>
                                 <img
@@ -190,6 +221,7 @@ export const Default: StoryObj<typeof Menu> = {
 export const Push: StoryObj<typeof Menu> = {
     args: {
         type: 'push',
+        size: 'normal',
     },
     render: args => {
         const [open, setOpen] = useState(false);
