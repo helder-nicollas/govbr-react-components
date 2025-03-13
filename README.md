@@ -1,4 +1,3 @@
-<div style="max-width: 1100px;">
 
 # Govbr React Components
 
@@ -6,13 +5,19 @@ Biblioteca de componentes desenvolvida com as especificações do Design System 
 
 ## Objetivo
 
-Seu principal objetivo é fornecer componentes flexíveis, de fácil
-utilização e performáticos sem a necessidade de importar ou acessar
-diretamente o core do DSGOV, o que pode compremeter a stack de
-estilização que o desenvolvedor usuário do DSGOV está utilizando.
-Para isso, estão sendo utilizados vários
-padrões de componentização e boas práticas para trazer uma melhor
-Dev experience aos desenvolvedores.
+Seu principal objetivo é priorizar a flexibilidade e oferecer suporte completo a SSR (Server-Side Rendering), uma feature que está sendo amplamente utilizada nos projetos React atuais. Criada com o objetivo de proporcionar uma experiência de desenvolvimento ágil, ela permite a criação de interfaces de usuário altamente customizáveis, seguindo ainda os padrões do Design Sistem do Govbr.
+
+### Características principais
+
+Flexibilidade total de layout e estilo: A biblioteca oferece uma vasta gama de componentes reutilizáveis como botões, inputs, modais, tabelas, entre outros, que podem ser facilmente personalizados através de props, temas, ou até mesmo por classes CSS. Ela permite que os desenvolvedores ajustem os componentes às necessidades específicas do projeto sem se preocupar com rigidez de design.
+
+Suporte completo a SSR (Server-Side Rendering): A biblioteca foi projetada desde o início para ser compatível com SSR. Isso significa que ela pode ser usada de forma eficiente em projetos que exigem renderização no servidor, como em aplicações Next.js ou qualquer outra solução que necessite de geração de páginas no lado do servidor para otimizar o desempenho e SEO.
+
+Arquitetura modular e leve: Cada componente pode ser importado de forma isolada, garantindo que apenas o necessário seja carregado. Isso resulta em pacotes menores e uma performance melhorada.
+
+Não necessita da importação do core.css do govbr: Ao importar o core.css do DSGovbr em um projeto React, pode comprometer a stack de utilização de estilos do desenvolvedor, tais como Tailwind.css, o qual é muito utilizado em conjunto com NextJs.
+
+Acessibilidade e boas práticas: Todos os componentes são construídos seguindo as práticas de acessibilidade do DSGovbr.
 
 ## 🚀 Instalação
 
@@ -160,6 +165,16 @@ return (
 
 **Nota**: Todos os padrões de acessibilidade e as funcionalidades que o **core** do govbr oferece continuam sendo utilizados nos componentes.
 
+
+## 📝 Componentes que necessitam de hidratação javascript
+Alguns componentes devem ser utilizados obrigatoriamente como **client components**, pois o javascript se torna essencial para seu funcionamento. São eles:
+1. Select
+2. Modal
+3. MultiSelect
+4. Menu
+5. Dropdown
+
+
 ## ⚙️ Tecnologias
 
 Esta bilioteca de componentes está sendo desenvolvida utilizando:
@@ -175,5 +190,3 @@ Esta bilioteca de componentes está sendo desenvolvida utilizando:
 Toda a documentação dos componentes pode ser visualizada através do [Storybook do projeto](https://helder-nicollas.github.io/govbr-react-components/).
 
 **Nota: Este manual ainda está em construção.**
-
-</div>
