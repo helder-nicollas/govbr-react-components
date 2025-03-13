@@ -1,7 +1,5 @@
 import { ComponentPropsWithoutRef, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import '@govbr-ds/core/dist/components/menu/menu.min.css';
-import BRMenu from '@govbr-ds/core/dist/components/menu/menu';
 import { MenuHeader } from './menu-header';
 import { MenuFooter } from './menu-footer';
 import { MenuBody } from './menu-body';
@@ -9,6 +7,9 @@ import { MenuPanel } from './menu-panel';
 import { MenuTitle } from './menu-title';
 import { MenuItem } from './menu-item/menu-item';
 import { MenuFolder } from './menu-folder';
+import '@govbr-ds/core/dist/components/menu/menu.min.css';
+import BRMenu from '@govbr-ds/core/dist/components/menu/menu';
+import { MenuContext } from './context/menu-context';
 
 type MenuProps = ComponentPropsWithoutRef<'div'> & {
     type?: 'push' | 'normal';
@@ -23,6 +24,7 @@ function Menu({
     open,
     className,
     children,
+    onOpenChange,
     ...props
 }: MenuProps) {
     const menuRef = useRef<HTMLDivElement | null>(null);
@@ -34,22 +36,30 @@ function Menu({
     }, [menuRef]);
 
     return (
-        <div
-            {...props}
-            ref={menuRef}
-            className={twMerge(
-                'br-menu',
-                type != 'normal' && type,
-                size != 'normal' && size,
-                open && 'active',
-                className,
-            )}
-        >
-            <div className="menu-container">
-                {children}
-                {type !== 'push' && <div className="menu-scrim" tabIndex={0} />}
+        <MenuContext.Provider value={{ onOpenChange }}>
+            <div
+                {...props}
+                ref={menuRef}
+                className={twMerge(
+                    'br-menu',
+                    type != 'normal' && type,
+                    size != 'normal' && size,
+                    open && 'active',
+                    className,
+                )}
+            >
+                <div className="menu-container">
+                    {children}
+                    {type !== 'push' && (
+                        <div
+                            className="menu-scrim"
+                            tabIndex={0}
+                            onClick={onOpenChange}
+                        />
+                    )}
+                </div>
             </div>
-        </div>
+        </MenuContext.Provider>
     );
 }
 

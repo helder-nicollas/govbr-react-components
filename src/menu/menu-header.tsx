@@ -1,6 +1,7 @@
 import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../button';
+import { useMenu } from './context/menu-context';
 
 type Ref = HTMLDivElement;
 
@@ -10,6 +11,7 @@ type MenuHeaderProps = ComponentProps<'div'> & {
 
 const MenuHeader = forwardRef<Ref, MenuHeaderProps>(
     ({ className, withCloseButton, children, ...props }, ref) => {
+        const { onOpenChange } = useMenu();
         return (
             <div
                 {...props}
@@ -20,6 +22,7 @@ const MenuHeader = forwardRef<Ref, MenuHeaderProps>(
                 {withCloseButton && (
                     <div className="menu-close">
                         <Button
+                            onClick={onOpenChange}
                             variant="transparent"
                             circle
                             type="button"
