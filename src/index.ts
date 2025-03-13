@@ -13,3 +13,4 @@ export * from './multi-select';
 export * from './select-trigger';
 export * from './card';
 export * from './breadcrumb';
+export * from './menu';
