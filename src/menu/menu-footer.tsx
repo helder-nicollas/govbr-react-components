@@ -10,6 +10,7 @@ const MenuFooter = forwardRef<Ref, ComponentProps<'div'>>(
                 {...props}
                 className={twMerge('menu-footer', className)}
                 ref={ref}
+                data-visible="true"
             >
                 {children}
             </div>

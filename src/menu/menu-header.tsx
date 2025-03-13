@@ -17,6 +17,7 @@ const MenuHeader = forwardRef<Ref, MenuHeaderProps>(
                 {...props}
                 className={twMerge('menu-header', className)}
                 ref={ref}
+                data-visible="true"
             >
                 {children}
                 {withCloseButton && (
