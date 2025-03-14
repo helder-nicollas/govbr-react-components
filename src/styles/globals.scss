@@ -1,3 +1,16 @@
+@import "@govbr-ds/core/src/partial/scss/_base.scss";
+@import "@govbr-ds/core/src/partial/scss/_tokens.scss";
+
+@import '@govbr-ds/core/src/partial/scss/utilities/_display.scss';
+@import '@govbr-ds/core/src/partial/scss/utilities/_normalize.scss';
+@import '@govbr-ds/core/src/partial/scss/utilities/_states.scss';
+@import '@govbr-ds/core/src/partial/scss/utilities/_icons.scss';
+@import '@govbr-ds/core/src/partial/scss/utilities/_motion.scss';
+@import '@govbr-ds/core/src/partial/scss/utilities/_dropdown.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 a {
     --focus-offset: var(--spacing-scale-half);
     color: var(--interactive);
@@ -24,53 +37,4 @@ a:not(:disabled):active {
         rgba(var(--interactive-rgb), var(--pressed)),
         rgba(var(--interactive-rgb), var(--pressed))
     );
-}
-
-[hidden] {
-    display: none;
-}
-
-.d-none {
-    display: none !important;
-}
-
-.d-block {
-    display: block !important;
-}
-
-.d-flex {
-    display: flex !important;
-}
-
-.d-inline {
-    display: inline !important;
-}
-
-.d-inline-block {
-    display: inline-block !important;
-}
-
-.d-inline-flex {
-    display: inline-flex !important;
-}
-
-
-[disabled],
-.disabled {
-  cursor: not-allowed;
-  opacity: var(--disabled);
-}
-
-.svg-inline--fa,
-.fa,
-.fab,
-.fad,
-.fal,
-.far,
-.fas {
-  --icon-size: var(--icon-size-base);
-  display: inline-block;
-  font-size: var(--icon-size);
-  text-align: center;
-  width: calc(var(--icon-size) + 8px);
 }

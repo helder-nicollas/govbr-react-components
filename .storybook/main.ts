@@ -9,6 +9,7 @@ const config: StorybookConfig = {
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@chromatic-com/storybook',
+        '@storybook/addon-styling-webpack'
     ],
 
     staticDirs: [path.resolve('./public')],

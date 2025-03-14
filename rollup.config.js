@@ -9,7 +9,6 @@ import copy from 'rollup-plugin-copy';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 import packageJson from './package.json';
 import fs from 'fs';
-import path from 'path';
 
 const EXCLUDE_FOLDERS = ['types', 'styles', 'stories'];
 const DIST_PATH = './dist';
@@ -71,9 +70,6 @@ const subfolderPlugins = folderName => [
 
 const componentsBuild = getComponentsFolder('./src')
     .map(folder => {
-        const cssFilePath = path.resolve(`src/${folder}/index.css`);
-        const hasCss = fs.existsSync(cssFilePath);
-
         return [
             {
                 input: `src/${folder}/index.ts`,
@@ -107,19 +103,6 @@ const componentsBuild = getComponentsFolder('./src')
                 output: [{ file: `dist/${folder}/index.d.ts` }],
                 plugins: [dts(), postcss()],
             },
-            ...(hasCss
-                ? [
-                      {
-                          input: `src/${folder}/index.css`,
-                          plugins: [
-                              postcss({
-                                  extract: true,
-                                  modules: true,
-                              }),
-                          ],
-                      },
-                  ]
-                : []),
         ];
     })
     .flat();
@@ -130,8 +113,10 @@ const cssBuild = getFiles('./src/styles').map(file => {
         plugins: [
             terser(),
             postcss({
-                extract: `dist/styles/${file}`,
+                extensions: ['scss'],
                 minimize: true,
+                extract: `dist/styles/${file}`,
+                use: ['sass'],
             }),
             copy({
                 targets: [
