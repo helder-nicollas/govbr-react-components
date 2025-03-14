@@ -21,7 +21,7 @@ import { HeaderInfo } from './header-info';
 import { HeaderSearchClose } from './header-search-close';
 import BRHeader from '@govbr-ds/core/dist/components/header/header';
 import '@govbr-ds/core/dist/components/header/header.min.css';
-import { HeaderDropdownButton } from './header-dropdown-button';
+import { HeaderActionText } from './header-action-text';
 
 type HeaderProps = ComponentPropsWithoutRef<'header'> &
     VariantProps<typeof headerVariants> & {
@@ -74,6 +74,6 @@ Header.Login = HeaderLogin;
 Header.MenuTrigger = HeaderMenuTrigger;
 Header.Info = HeaderInfo;
 Header.SearchClose = HeaderSearchClose;
-Header.DropdownButton = HeaderDropdownButton;
+Header.ActionText = HeaderActionText;
 
 export { Header, type HeaderProps };

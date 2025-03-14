@@ -15,5 +15,5 @@ export const dividerVariants = tv({
             true: 'dashed',
         },
     },
-    defaultVariants: { size: 'medium' },
+    defaultVariants: { size: 'small' },
 });
