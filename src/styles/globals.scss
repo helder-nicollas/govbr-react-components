@@ -1,12 +1,12 @@
-@import "@govbr-ds/core/src/partial/scss/_base.scss";
-@import "@govbr-ds/core/src/partial/scss/_tokens.scss";
+@import "node_modules/@govbr-ds/core/src/partial/scss/_base.scss";
+@import "node_modules/@govbr-ds/core/src/partial/scss/_tokens.scss";
 
-@import '@govbr-ds/core/src/partial/scss/utilities/_display.scss';
-@import '@govbr-ds/core/src/partial/scss/utilities/_normalize.scss';
-@import '@govbr-ds/core/src/partial/scss/utilities/_states.scss';
-@import '@govbr-ds/core/src/partial/scss/utilities/_icons.scss';
-@import '@govbr-ds/core/src/partial/scss/utilities/_motion.scss';
-@import '@govbr-ds/core/src/partial/scss/utilities/_dropdown.scss';
+@import 'node_modules/@govbr-ds/core/src/partial/scss/utilities/_display.scss';
+@import 'node_modules/@govbr-ds/core/src/partial/scss/utilities/_normalize.scss';
+@import 'node_modules/@govbr-ds/core/src/partial/scss/utilities/_states.scss';
+@import 'node_modules/@govbr-ds/core/src/partial/scss/utilities/_icons.scss';
+@import 'node_modules/@govbr-ds/core/src/partial/scss/utilities/_motion.scss';
+@import 'node_modules/@govbr-ds/core/src/partial/scss/utilities/_dropdown.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

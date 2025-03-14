@@ -5,7 +5,6 @@ import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import copy from 'rollup-plugin-copy';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 import packageJson from './package.json';
 import fs from 'fs';
@@ -22,11 +21,6 @@ const getComponentsFolder = path =>
         .readdirSync(path)
         .filter(file => fs.statSync(path + '/' + file).isDirectory())
         .filter(folder => !EXCLUDE_FOLDERS.includes(folder));
-
-const getFiles = path =>
-    fs
-        .readdirSync(path)
-        .filter(file => fs.statSync(path + '/' + file).isFile());
 
 const plugins = [
     peerDepsExternal(),
@@ -107,28 +101,22 @@ const componentsBuild = getComponentsFolder('./src')
     })
     .flat();
 
-const cssBuild = getFiles('./src/styles').map(file => {
-    return {
-        input: `src/styles/${file}`,
-        plugins: [
-            terser(),
-            postcss({
-                extensions: ['scss'],
-                minimize: true,
-                extract: `dist/styles/${file}`,
-                use: ['sass'],
-            }),
-            copy({
-                targets: [
-                    {
-                        src: `src/styles/${file}`,
-                        dest: 'dist/styles',
-                    },
-                ],
-            }),
-        ],
-    };
-});
+const cssBuild = {
+    input: 'src/styles/globals.scss',
+    output: {
+        file: 'dist/styles/globals.css',
+        format: 'esm',
+    },
+    plugins: [
+        postcss({
+            extensions: ['.scss'],
+            minimize: true,
+            extract: true,
+            sourceMap: true,
+            use: ['sass'],
+        }),
+    ],
+};
 
 const components = getComponentsFolder('./src');
 
@@ -158,4 +146,4 @@ fs.writeFileSync(
 );
 fs.copyFileSync('./README.md', `${DIST_PATH}/README.md`);
 
-export default [...componentsBuild, ...cssBuild];
+export default [cssBuild, ...componentsBuild];
