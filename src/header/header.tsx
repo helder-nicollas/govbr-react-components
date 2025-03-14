@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, useEffect, useRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { headerVariants } from './variants';
 import { HeaderTitle } from './header-title';
@@ -19,6 +19,8 @@ import { HeaderLogin } from './header-login';
 import { HeaderMenuTrigger } from './header-menu-trigger';
 import { HeaderInfo } from './header-info';
 import { HeaderSearchClose } from './header-search-close';
+import BRHeader from '@govbr-ds/core/dist/components/header/header';
+import '@govbr-ds/core/dist/components/header/header.min.css';
 
 type HeaderProps = ComponentPropsWithoutRef<'header'> &
     VariantProps<typeof headerVariants> & {
@@ -33,11 +35,20 @@ function Header({
     sticky,
     ...props
 }: HeaderProps) {
+    const headerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (!headerRef.current) return;
+        const header = new BRHeader('br-header', headerRef.current);
+        console.log(header);
+    }, [headerRef]);
+
     return (
         <header
             {...props}
             className={headerVariants({ className, size, compact })}
             data-sticky={sticky}
+            ref={headerRef}
         >
             {children}
         </header>

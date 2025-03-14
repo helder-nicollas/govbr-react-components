@@ -9,6 +9,7 @@ const HeaderMenuTrigger = forwardRef<Ref, ComponentProps<'div'>>(
             <div
                 {...props}
                 className={twMerge('header-menu-trigger', className)}
+                data-target="#main-navigation"
                 ref={ref}
             >
                 {children}

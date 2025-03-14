@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react/*';
 import { Header } from './header';
-import '@govbr-ds/core/dist/components/header/header.min.css';
 import { Button } from '../button';
 import { List } from '../list';
 import { Item } from '../item';
@@ -17,7 +16,7 @@ export default {
     },
 } as Meta<typeof Header>;
 
-export const Defult: StoryObj<typeof Header> = {
+export const Default: StoryObj<typeof Header> = {
     render: args => {
         return (
             <Header {...args}>
@@ -115,7 +114,9 @@ export const Defult: StoryObj<typeof Header> = {
                                                 className="fas fa-chart-bar"
                                                 aria-hidden="true"
                                             ></i>
-                                            <span>Funcionalidade 1</span>
+                                            <span className="text">
+                                                Funcionalidade 1
+                                            </span>
                                         </Button>
                                     </Item>
                                     <Item className="br-item">
@@ -130,7 +131,9 @@ export const Defult: StoryObj<typeof Header> = {
                                                 className="fas fa-headset"
                                                 aria-hidden="true"
                                             ></i>
-                                            <span>Funcionalidade 2</span>
+                                            <span className="text">
+                                                Funcionalidade 2
+                                            </span>
                                         </Button>
                                     </Item>
                                     <Item className="br-item">
@@ -169,7 +172,7 @@ export const Defult: StoryObj<typeof Header> = {
                                     </Item>
                                 </List>
                             </Header.Functions>
-                            <Header.SearchTrigger className="header-search-trigger">
+                            <Header.SearchTrigger>
                                 <Button
                                     variant="transparent"
                                     circle
@@ -184,24 +187,6 @@ export const Defult: StoryObj<typeof Header> = {
                                     />
                                 </Button>
                             </Header.SearchTrigger>
-                            {/* <div className="header-login">
-                                <div className="header-sign-in">
-                                    <button
-                                        className="br-sign-in small"
-                                        type="button"
-                                        data-trigger="login"
-                                    >
-                                        <i
-                                            className="fas fa-user"
-                                            aria-hidden="true"
-                                        ></i>
-                                        <span className="d-sm-inline">
-                                            Entrar
-                                        </span>
-                                    </button>
-                                </div>
-                                <Header.Avatar />
-                            </div> */}
                         </Header.Actions>
                     </Header.Top>
                     <Header.Bottom>
