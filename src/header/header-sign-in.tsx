@@ -1,21 +1,21 @@
 import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Ref = HTMLHeadingElement;
+type Ref = HTMLDivElement;
 
-const HeaderTitle = forwardRef<Ref, ComponentProps<'h1'>>(
+const HeaderSignIn = forwardRef<Ref, ComponentProps<'div'>>(
     ({ className, children, ...props }, ref) => {
         return (
-            <h1
+            <div
                 {...props}
-                className={twMerge('header-title', className)}
+                className={twMerge('header-sign-in', className)}
                 ref={ref}
             >
                 {children}
-            </h1>
+            </div>
         );
     },
 );
 
-HeaderTitle.displayName = 'HeaderTitle';
-export { HeaderTitle };
+HeaderSignIn.displayName = 'HeaderSignIn';
+export { HeaderSignIn };

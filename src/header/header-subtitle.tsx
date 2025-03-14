@@ -3,19 +3,19 @@ import { twMerge } from 'tailwind-merge';
 
 type Ref = HTMLHeadingElement;
 
-const HeaderTitle = forwardRef<Ref, ComponentProps<'h1'>>(
+const HeaderSubtitle = forwardRef<Ref, ComponentProps<'h2'>>(
     ({ className, children, ...props }, ref) => {
         return (
-            <h1
+            <h2
                 {...props}
-                className={twMerge('header-title', className)}
+                className={twMerge('header-subtitle', className)}
                 ref={ref}
             >
                 {children}
-            </h1>
+            </h2>
         );
     },
 );
 
-HeaderTitle.displayName = 'HeaderTitle';
-export { HeaderTitle };
+HeaderSubtitle.displayName = 'HeaderSubtitle';
+export { HeaderSubtitle };
