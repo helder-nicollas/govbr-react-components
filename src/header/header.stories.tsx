@@ -32,70 +32,40 @@ export const Default: StoryObj<typeof Header> = {
                         </Header.Logo>
                         <Header.Actions>
                             <Header.Links>
-                                <Button
-                                    size="small"
-                                    circle
-                                    variant="transparent"
-                                    type="button"
-                                    data-toggle="dropdown"
-                                    aria-label="Abrir Acesso Rápido"
-                                >
+                                <Header.DropdownButton aria-label="Abrir Acesso Rápido">
                                     <i
                                         className="fas fa-ellipsis-v"
                                         aria-hidden="true"
                                     />
-                                </Button>
+                                </Header.DropdownButton>
                                 <List>
                                     <div className="header">
                                         <div className="title">
                                             Acesso Rápido
                                         </div>
                                     </div>
-                                    <Item
-                                        as="a"
-                                        className="br-item"
-                                        href="javascript:void(0)"
-                                    >
+                                    <Item as="a" href="#">
                                         Link de acesso 1
                                     </Item>
-                                    <Item
-                                        as="a"
-                                        className="br-item"
-                                        href="javascript:void(0)"
-                                    >
+                                    <Item as="a" href="#">
                                         Link de acesso 2
                                     </Item>
-                                    <Item
-                                        as="a"
-                                        className="br-item"
-                                        href="javascript:void(0)"
-                                    >
+                                    <Item as="a" href="#">
                                         Link de acesso 3
                                     </Item>
-                                    <Item
-                                        as="a"
-                                        className="br-item"
-                                        href="javascript:void(0)"
-                                    >
+                                    <Item as="a" href="#">
                                         Link de acesso 4
                                     </Item>
                                 </List>
                             </Header.Links>
                             <Divider vertical className="mx-1" size="small" />
                             <Header.Functions>
-                                <Button
-                                    size="small"
-                                    circle
-                                    variant="transparent"
-                                    type="button"
-                                    data-toggle="dropdown"
-                                    aria-label="Abrir Funcionalidades do Sistema"
-                                >
+                                <Header.DropdownButton aria-label="Abrir Funcionalidades do Sistema">
                                     <i
                                         className="fas fa-th"
                                         aria-hidden="true"
                                     />
-                                </Button>
+                                </Header.DropdownButton>
                                 <List>
                                     <div className="header">
                                         <div className="title">
@@ -153,7 +123,7 @@ export const Default: StoryObj<typeof Header> = {
                                             </span>
                                         </Button>
                                     </Item>
-                                    <Item className="br-item">
+                                    <Item>
                                         <Button
                                             variant="transparent"
                                             circle
@@ -213,7 +183,7 @@ export const Default: StoryObj<typeof Header> = {
                             </Header.Info>
                         </Header.Menu>
                         <Header.Search>
-                            <Input className="max-w-full">
+                            <Input className="max-w-full" withButton>
                                 <Input.Group className="w-full">
                                     <Input.Field
                                         id="searchbox-7690"
