@@ -21,7 +21,7 @@ export const buttonVariants = tv({
         },
     },
     defaultVariants: {
-        variant: 'primary',
+        variant: 'transparent',
         size: 'medium',
     },
 });

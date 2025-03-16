@@ -24,7 +24,6 @@ const MenuHeader = forwardRef<Ref, MenuHeaderProps>(
                     <div className="menu-close">
                         <Button
                             onClick={onOpenChange}
-                            variant="transparent"
                             circle
                             type="button"
                             aria-label="Fechar o menu"

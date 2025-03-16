@@ -14,7 +14,6 @@ import { MultiSelectItem } from './multi-select-item';
 import { MultiSelectList } from './multi-select-list';
 import { MultiSelectAllItems } from './multi-select-all-items';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
-import '@govbr-ds/core/dist/components/select/select.min.css';
 
 interface IMultiSelectProps {
     onChangeValue?(items: string[]): void;

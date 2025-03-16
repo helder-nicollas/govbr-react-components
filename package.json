@@ -1,6 +1,6 @@
 {
   "name": "@helder-nicollas/govbr-react-components",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "cjs/index.js",
   "module": "index.js",
   "files": [
@@ -34,6 +34,7 @@
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/addon-interactions": "^8.6.4",
     "@storybook/addon-onboarding": "^8.6.4",
+    "@storybook/addon-styling-webpack": "^1.0.1",
     "@storybook/blocks": "^8.6.4",
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
@@ -77,6 +78,10 @@
     "rollup-plugin-generate-package-json": "^3.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass": "^1.15.2",
+    "sass": "^1.85.1",
+    "sass-embedded": "^1.85.1",
+    "sass-loader": "^16.0.5",
     "semantic-release": "^24.2.3",
     "storybook": "^8.6.4",
     "tailwindcss": "^3.4.1",

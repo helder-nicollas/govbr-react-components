@@ -19,8 +19,7 @@ function ModalHeader({
             {children}
             {withCloseButton && (
                 <Button
-                    className="close"
-                    variant="transparent"
+                    className="close top-1"
                     circle
                     type="button"
                     onClick={handleClose}

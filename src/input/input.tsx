@@ -5,7 +5,6 @@ import { InputButton } from './input-button';
 import { InputField } from './Input-field';
 import { InputGroup } from './input-group';
 import { inputVariants } from './variants';
-import '@govbr-ds/core/dist/components/input/input.min.css';
 
 type InputProps = ComponentProps<'div'> & VariantProps<typeof inputVariants>;
 

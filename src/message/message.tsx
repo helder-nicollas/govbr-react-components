@@ -34,7 +34,6 @@ export function Message({
                 <Button
                     circle
                     type="button"
-                    variant="transparent"
                     aria-label="Fechar a messagem alerta"
                 >
                     <i className="fas fa-times" aria-hidden="true"></i>

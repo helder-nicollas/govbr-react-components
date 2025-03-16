@@ -1,7 +1,6 @@
 import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { inputMessageIconVariants, inputMessageVariants } from './variants';
-import '@govbr-ds/core/dist/components/message/message.min.css';
 
 type FeedbackProps = VariantProps<typeof inputMessageVariants> &
     ComponentProps<'span'> &

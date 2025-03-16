@@ -1,7 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react';
 import { buttonVariants, ButtonVariants } from './variants';
-import '@govbr-ds/core/dist/components/button/button.min.css';
-import '@govbr-ds/core/dist/components/loading/loading.min.css';
 
 type ButtonProps<T extends ElementType = 'button'> = ButtonVariants & {
     as?: T;

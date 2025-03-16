@@ -12,8 +12,6 @@ import { SelectGovBr } from './types';
 import { SelectItem } from './select-item';
 import { SelectList } from './select-list';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
-import '@govbr-ds/core/dist/components/select/select.min.css';
-import '@govbr-ds/core/dist/components/radio/radio.min.css';
 
 type SelectProps = {
     reset?: unknown;

@@ -13,7 +13,7 @@ import { Label } from '../label';
  *
  * - InputField: Tag **input**
  * - InputButton: Botão do input
- * - InputGroup: Agrupamento do input para utilizar com botões ou ícones
+ * - InputGroup: Agrupamento do input para utilizar com ícones
  * - InputIcon: Ícone do input
  *
  *
@@ -74,7 +74,7 @@ export const Default: StoryObj<InputProps> = {
 /***
  * Para utilizar o input com um botão, é necessário
  * o botão e o component <code>InputField</code> estejam dentro do componente input group.
- * Também é preciso que o componente <code>Input</code> esteja com a flag withButton marcada, conforme o exemplo abaixo:
+ * Também é preciso que o componente <code>Input</code> esteja com a flag **withButton** marcada, conforme o exemplo abaixo:
  */
 export const WithButton: StoryObj<InputProps> = {
     name: 'Input com botão',
@@ -83,12 +83,10 @@ export const WithButton: StoryObj<InputProps> = {
             <div className="space-y-1">
                 <Label htmlFor="input">Nome de usuário:</Label>
                 <Input {...args} withButton>
-                    <InputGroup>
-                        <Input.Field placeholder="Ex. joaogovbr" id="input" />
-                        <Input.Button>
-                            <i className="fas fa-eye" aria-hidden="true" />
-                        </Input.Button>
-                    </InputGroup>
+                    <Input.Field placeholder="Ex. joaogovbr" id="input" />
+                    <Input.Button>
+                        <i className="fas fa-eye" aria-hidden="true" />
+                    </Input.Button>
                 </Input>
             </div>
         );

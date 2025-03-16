@@ -1,8 +1,6 @@
 import { MouseEvent, ReactNode, useCallback, useEffect, useRef } from 'react';
 import { ModalContext } from './context/modal-context';
 import { twMerge } from 'tailwind-merge';
-import '@govbr-ds/core/dist/components/modal/modal.min.css';
-import '@govbr-ds/core/dist/components/scrim/scrim.min.css';
 import { ModalHeader } from './modal-header';
 import { ModalFooter } from './modal-footer';
 import { ModalTitle } from './modal-title';
