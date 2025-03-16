@@ -9,6 +9,20 @@ import { SignIn } from '../sign-in';
 
 export default {
     component: Header,
+    argTypes: {
+        size: {
+            description: 'Tamanho do header.',
+            control: {
+                type: 'inline-radio',
+            },
+            options: ['small', 'medium', 'large'],
+        },
+        compact: { description: 'Aplica o modo compacto.' },
+        sticky: {
+            description:
+                'Aplica position sticky no header para deixá-lo fixo no topo da página.',
+        },
+    },
     decorators: story => <div className="h-96">{story()}</div>,
     title: 'Components/Header',
     tags: ['autodocs'],
@@ -18,6 +32,11 @@ export default {
 } as Meta<typeof Header>;
 
 export const Default: StoryObj<typeof Header> = {
+    args: {
+        size: 'medium',
+        compact: false,
+        sticky: false,
+    },
     render: args => {
         return (
             <Header {...args}>
