@@ -71,6 +71,10 @@ hr.br-divider.vertical {
     height: auto;
 }
 
+.br-input .br-button {
+    top: 4px;
+}
+
 a {
     --focus-offset: var(--spacing-scale-half);
     color: var(--interactive);
