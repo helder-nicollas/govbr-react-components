@@ -14,19 +14,19 @@ export const Default: StoryObj<typeof Breadcrumb> = {
                 <Breadcrumb.List>
                     <Breadcrumb.Home />
                     <Breadcrumb.Item>
-                        <a href="a">Link 01</a>
+                        <a href="#">Link 01</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 02</a>
+                        <a href="#">Link 02</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 03</a>
+                        <a href="#">Link 03</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 04</a>
+                        <a href="#">Link 04</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item>
-                        <a href="a">Link 05</a>
+                        <a href="#">Link 05</a>
                     </Breadcrumb.Item>
                     <Breadcrumb.CurrentPage>
                         Página Atual

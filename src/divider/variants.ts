@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const dividerVariants = tv({
-    base: 'br-divider h-auto m-0',
+    base: 'br-divider',
     variants: {
         size: {
             small: 'sm',
