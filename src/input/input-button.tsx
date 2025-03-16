@@ -9,10 +9,9 @@ export function InputButton({
 }: ComponentProps<'button'>) {
     return (
         <Button
-            className={twMerge('relative top-1', className)}
+            className={twMerge('relative !top-1', className)}
             type="button"
             aria-checked="false"
-            variant="transparent"
             {...props}
         >
             {children}

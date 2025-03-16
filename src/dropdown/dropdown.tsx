@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { DropdownTrigger } from './drowdown-trigger';
 import { DropdownContent } from './dropdown-content';
-import './index.css';
 
 interface IDropdownContext {
     open: boolean;

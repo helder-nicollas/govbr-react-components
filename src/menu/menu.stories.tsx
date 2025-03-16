@@ -45,7 +45,9 @@ export const Default: StoryObj<typeof Menu> = {
         const [open, setOpen] = useState(false);
         return (
             <>
-                <Button onClick={() => setOpen(true)}>Abrir Menu</Button>
+                <Button onClick={() => setOpen(true)} variant="primary">
+                    Abrir Menu
+                </Button>
                 <Menu {...args} open={open} onOpenChange={() => setOpen(false)}>
                     <Menu.Panel className="max-w-72">
                         <Menu.Header withCloseButton>
@@ -394,7 +396,9 @@ export const Push: StoryObj<typeof Menu> = {
                         </Menu.Footer>
                     </Menu.Panel>
                 </Menu>
-                <Button onClick={() => setOpen(true)}>Abrir Menu</Button>
+                <Button onClick={() => setOpen(true)} variant="primary">
+                    Abrir Menu
+                </Button>
             </div>
         );
     },

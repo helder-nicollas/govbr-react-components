@@ -1,7 +1,7 @@
 import { themes } from '@storybook/theming';
 import type { Preview } from '@storybook/react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import '../src/styles/globals.css';
+import '../src/styles/globals.scss';
 
 const preview: Preview = {
     parameters: {

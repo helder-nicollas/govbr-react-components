@@ -4,7 +4,6 @@ import { BreadcrumbList } from './breadcrumb-list';
 import { BreadcrumbHome } from './breadcrumb-home';
 import { BreadcrumbItem } from './breadcrumb-item';
 import { BreadcrumbCurrentPage } from './breadcrumb-current-page';
-import '@govbr-ds/core/dist/components/breadcrumb/breadcrumb.min.css';
 
 function Breadcrumb({ className, children, ...props }: ComponentProps<'nav'>) {
     return (

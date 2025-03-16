@@ -5,11 +5,9 @@ import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import copy from 'rollup-plugin-copy';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 import packageJson from './package.json';
 import fs from 'fs';
-import path from 'path';
 
 const EXCLUDE_FOLDERS = ['types', 'styles', 'stories'];
 const DIST_PATH = './dist';
@@ -23,11 +21,6 @@ const getComponentsFolder = path =>
         .readdirSync(path)
         .filter(file => fs.statSync(path + '/' + file).isDirectory())
         .filter(folder => !EXCLUDE_FOLDERS.includes(folder));
-
-const getFiles = path =>
-    fs
-        .readdirSync(path)
-        .filter(file => fs.statSync(path + '/' + file).isFile());
 
 const plugins = [
     peerDepsExternal(),
@@ -71,9 +64,6 @@ const subfolderPlugins = folderName => [
 
 const componentsBuild = getComponentsFolder('./src')
     .map(folder => {
-        const cssFilePath = path.resolve(`src/${folder}/index.css`);
-        const hasCss = fs.existsSync(cssFilePath);
-
         return [
             {
                 input: `src/${folder}/index.ts`,
@@ -107,43 +97,27 @@ const componentsBuild = getComponentsFolder('./src')
                 output: [{ file: `dist/${folder}/index.d.ts` }],
                 plugins: [dts(), postcss()],
             },
-            ...(hasCss
-                ? [
-                      {
-                          input: `src/${folder}/index.css`,
-                          plugins: [
-                              postcss({
-                                  extract: true,
-                                  modules: true,
-                              }),
-                          ],
-                      },
-                  ]
-                : []),
         ];
     })
     .flat();
 
-const cssBuild = getFiles('./src/styles').map(file => {
-    return {
-        input: `src/styles/${file}`,
-        plugins: [
-            terser(),
-            postcss({
-                extract: `dist/styles/${file}`,
-                minimize: true,
-            }),
-            copy({
-                targets: [
-                    {
-                        src: `src/styles/${file}`,
-                        dest: 'dist/styles',
-                    },
-                ],
-            }),
-        ],
-    };
-});
+const cssBuild = {
+    input: 'src/styles/globals.scss',
+    output: {
+        file: 'dist/styles/globals.css',
+        format: 'esm',
+    },
+    plugins: [
+        postcss({
+            extensions: ['.scss'],
+            minimize: true,
+            extract: true,
+            sourceMap: true,
+            use: ['sass'],
+        }),
+    ],
+    external: ['@govbr-ds/core'],
+};
 
 const components = getComponentsFolder('./src');
 
@@ -173,4 +147,4 @@ fs.writeFileSync(
 );
 fs.copyFileSync('./README.md', `${DIST_PATH}/README.md`);
 
-export default [...componentsBuild, ...cssBuild];
+export default [cssBuild, ...componentsBuild];

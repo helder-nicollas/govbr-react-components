@@ -1,7 +1,6 @@
 import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { dividerVariants } from './variants';
-import '@govbr-ds/core/dist/components/divider/divider.min.css';
 
 type DividerProps = ComponentProps<'hr'> & VariantProps<typeof dividerVariants>;
 

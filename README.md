@@ -173,6 +173,7 @@ Alguns componentes devem ser utilizados obrigatoriamente como **client component
 3. MultiSelect
 4. Menu
 5. Dropdown
+6. Header
 
 
 ## ⚙️ Tecnologias
@@ -182,8 +183,9 @@ Esta bilioteca de componentes está sendo desenvolvida utilizando:
 1. React
 2. Jest e React Testing Library
 3. Typescript
-4. Storybook
-5. Vite
+4. Tailwind CSS
+5. Storybook
+6. Vite
 
 ## 📚 Documentação
 
