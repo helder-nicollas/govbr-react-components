@@ -5,6 +5,7 @@ import { List } from '../list';
 import { Item } from '../item';
 import { Divider } from '../divider';
 import { Input } from '../input';
+import { SignIn } from '../sign-in';
 
 export default {
     component: Header,
@@ -162,6 +163,17 @@ export const Default: StoryObj<typeof Header> = {
                                     />
                                 </Button>
                             </Header.SearchTrigger>
+                            <Header.Login>
+                                <Header.SignIn>
+                                    <SignIn variant="secondary">
+                                        <i
+                                            className="fas fa-user"
+                                            aria-hidden="true"
+                                        />
+                                        Entrar
+                                    </SignIn>
+                                </Header.SignIn>
+                            </Header.Login>
                         </Header.Actions>
                     </Header.Top>
                     <Header.Bottom>
