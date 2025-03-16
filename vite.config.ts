@@ -9,6 +9,11 @@ export default defineConfig({
     },
     css: {
         postcss: './postcss.config.mjs',
+        preprocessorOptions: {
+            scss: {
+                quietDeps: true,
+            },
+        },
     },
     resolve: {
         alias: {

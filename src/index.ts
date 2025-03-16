@@ -17,3 +17,4 @@ export * from './select';
 export * from './select-trigger';
 export * from './textarea';
 export * from './header';
+export * from './sign-in';
