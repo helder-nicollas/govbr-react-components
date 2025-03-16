@@ -24,7 +24,9 @@ export const Default: StoryObj<ModalProps> = {
         const [open, setOpen] = useState(false);
         return (
             <>
-                <Button onClick={() => setOpen(true)}>Abrir modal</Button>
+                <Button onClick={() => setOpen(true)} variant="primary">
+                    Abrir modal
+                </Button>
                 <Modal open={open} onOpenChange={() => setOpen(false)}>
                     <Modal.Content>
                         <Modal.Header withCloseButton>
@@ -42,7 +44,7 @@ export const Default: StoryObj<ModalProps> = {
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="outline">Sair</Button>
-                            <Button>Salvar</Button>
+                            <Button variant="primary">Salvar</Button>
                         </Modal.Footer>
                     </Modal.Content>
                 </Modal>

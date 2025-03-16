@@ -35,7 +35,6 @@ export const Default: StoryObj<typeof Header> = {
                                 <Button
                                     size="small"
                                     circle
-                                    variant="transparent"
                                     type="button"
                                     data-toggle="dropdown"
                                     aria-label="Abrir Acesso Rápido"
@@ -68,7 +67,6 @@ export const Default: StoryObj<typeof Header> = {
                                 <Button
                                     size="small"
                                     circle
-                                    variant="transparent"
                                     type="button"
                                     data-toggle="dropdown"
                                     aria-label="Abrir Funcionalidades do Sistema"
@@ -86,7 +84,6 @@ export const Default: StoryObj<typeof Header> = {
                                     </List.Header>
                                     <Item>
                                         <Button
-                                            variant="transparent"
                                             circle
                                             size="small"
                                             type="button"
@@ -103,7 +100,6 @@ export const Default: StoryObj<typeof Header> = {
                                     </Item>
                                     <Item>
                                         <Button
-                                            variant="transparent"
                                             circle
                                             size="small"
                                             type="button"
@@ -120,7 +116,6 @@ export const Default: StoryObj<typeof Header> = {
                                     </Item>
                                     <Item>
                                         <Button
-                                            variant="transparent"
                                             circle
                                             size="small"
                                             type="button"
@@ -137,7 +132,6 @@ export const Default: StoryObj<typeof Header> = {
                                     </Item>
                                     <Item>
                                         <Button
-                                            variant="transparent"
                                             circle
                                             size="small"
                                             type="button"
@@ -156,7 +150,6 @@ export const Default: StoryObj<typeof Header> = {
                             </Header.Functions>
                             <Header.SearchTrigger>
                                 <Button
-                                    variant="transparent"
                                     circle
                                     type="button"
                                     aria-label="Abrir Busca"
@@ -177,7 +170,6 @@ export const Default: StoryObj<typeof Header> = {
                                 <Button
                                     size="small"
                                     circle
-                                    variant="transparent"
                                     type="button"
                                     aria-label="Menu"
                                 >
@@ -216,7 +208,6 @@ export const Default: StoryObj<typeof Header> = {
                                 <Button
                                     type="button"
                                     circle
-                                    variant="transparent"
                                     aria-label="Fechar Busca"
                                     data-dismiss="search"
                                 >

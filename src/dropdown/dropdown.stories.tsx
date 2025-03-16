@@ -20,7 +20,7 @@ export const Default: StoryObj<typeof Dropdown> = {
         return (
             <Dropdown>
                 <Dropdown.Trigger>
-                    <Button variant="transparent" circle type="button">
+                    <Button circle type="button">
                         <i className="fas fa-ellipsis-v" aria-hidden="true" />
                     </Button>
                 </Dropdown.Trigger>

@@ -12,7 +12,6 @@ export function InputButton({
             className={twMerge('relative !top-1', className)}
             type="button"
             aria-checked="false"
-            variant="transparent"
             {...props}
         >
             {children}

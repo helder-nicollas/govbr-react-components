@@ -15,7 +15,7 @@ export function BreadcrumbHome<T extends ElementType = 'a'>({
 
     return (
         <li className={twMerge('crumb home', className)}>
-            <Button circle variant="transparent" as={Component}>
+            <Button circle as={Component}>
                 <span className="sr-only">Página inicial</span>
                 <i className="fas fa-home" />
             </Button>
