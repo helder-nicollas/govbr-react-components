@@ -116,6 +116,7 @@ const cssBuild = {
             use: ['sass'],
         }),
     ],
+    external: ['@govbr-ds/core'],
 };
 
 const components = getComponentsFolder('./src');

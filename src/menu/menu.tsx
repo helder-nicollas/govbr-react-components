@@ -7,9 +7,8 @@ import { MenuPanel } from './menu-panel';
 import { MenuTitle } from './menu-title';
 import { MenuItem } from './menu-item/menu-item';
 import { MenuFolder } from './menu-folder';
-import '@govbr-ds/core/dist/components/menu/menu.min.css';
-import BRMenu from '@govbr-ds/core/dist/components/menu/menu';
 import { MenuContext } from './context/menu-context';
+import BRMenu from '@govbr-ds/core/dist/components/menu/menu';
 
 type MenuProps = ComponentPropsWithoutRef<'div'> & {
     type?: 'push' | 'normal';

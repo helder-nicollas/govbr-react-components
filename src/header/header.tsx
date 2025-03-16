@@ -20,7 +20,6 @@ import { HeaderMenuTrigger } from './header-menu-trigger';
 import { HeaderInfo } from './header-info';
 import { HeaderSearchClose } from './header-search-close';
 import BRHeader from '@govbr-ds/core/dist/components/header/header';
-import '@govbr-ds/core/dist/components/header/header.min.css';
 import { HeaderActionText } from './header-action-text';
 
 type HeaderProps = ComponentPropsWithoutRef<'header'> &

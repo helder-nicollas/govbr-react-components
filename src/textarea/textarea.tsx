@@ -2,7 +2,6 @@ import { ComponentProps } from 'react';
 import { TextareaField } from './textarea-field';
 import { VariantProps } from 'tailwind-variants';
 import { textareaVariants } from './variants';
-import '@govbr-ds/core/dist/components/textarea/textarea.min.css';
 
 type TextareaProps = ComponentProps<'div'> &
     VariantProps<typeof textareaVariants>;

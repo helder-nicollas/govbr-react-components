@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { checkboxVariants } from './variants';
-import '@govbr-ds/core/dist/components/checkbox/checkbox.min.css';
 import { CheckboxField } from './checkbox-field';
 
 type CheckboxProps = VariantProps<typeof checkboxVariants> & {

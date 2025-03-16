@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
     plugins: [react()],
@@ -8,5 +9,13 @@ export default defineConfig({
     },
     css: {
         postcss: './postcss.config.mjs',
+    },
+    resolve: {
+        alias: {
+            '~@govbr-ds/core': path.resolve(
+                __dirname,
+                'node_modules/@govbr-ds/core',
+            ),
+        },
     },
 });

@@ -1,7 +1,6 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { itemVariants } from './variants';
-import '@govbr-ds/core/dist/components/item/item.min.css';
 
 type ItemProps<T extends ElementType = 'div'> = ComponentPropsWithoutRef<T> & {
     className?: string;
