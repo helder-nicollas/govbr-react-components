@@ -5,20 +5,37 @@ import { TabItem } from './tab-item';
 import { TabContent } from './tab-content';
 import { TabNav } from './tab-nav';
 import { TabPanel } from './tab-panel';
+import { tabVariants } from './variants';
 
 export default {
     title: 'Components/Tab',
+    component: Tab,
+    argTypes: {
+        size: {
+            description: 'Tamanho dos tabs.',
+            control: {
+                type: 'inline-radio',
+            },
+            options: Object.keys(tabVariants.variants.size),
+        },
+        counter: {
+            description: 'Adiciona estilo aos contadores de cada tab.',
+        },
+    },
     subcomponents: {
         TabItem,
         TabContent,
         TabNav,
         TabPanel,
     },
-    component: Tab,
     tags: ['autodocs'],
 } as Meta<typeof Tab>;
 
 export const Default: StoryObj<typeof Tab> = {
+    args: {
+        size: 'medium',
+        counter: false,
+    },
     render: args => {
         const [currentTab, setCurrentTab] = useState('1');
         return (
