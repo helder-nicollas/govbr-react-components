@@ -1,0 +1,111 @@
+import { Meta, Stories, Primary, Controls } from '@storybook/blocks';
+import * as TabStories from './tab.stories';
+
+<Meta title="Components/Tab" of={TabStories} />
+
+Por motivos de flexibilidade e facilidade no uso do componente, optamos por não
+utilizar o script próprio o DSGOV. Com isso, a forma de
+implementação do componente Tab fica por conta do desenvolvedor.
+Nós recomendamos duas maneiras de utilizar o componente Tab. São elas:
+
+- Por meio de estados (useState) via **Client Components**
+- Por meio de queryParams e SSR via **Server Components**
+
+### Utilização com estados (useState):
+
+```tsx
+'use client';
+import { useState } from 'react';
+import { Tab, TabProps } from '../tab';
+
+export function TestingTabComponent({ ...props }: TabProps) {
+    const [currentTab, setCurrentTab] = useState('1');
+
+    return (
+        <Tab {...props}>
+            <Tab.Nav>
+                <Tab.Item onClick={() => setCurrentTab('1')}>
+                    <button type="button">Texto 01</button>
+                </Tab.Item>
+                <Tab.Item
+                    active={currentTab === '2'}
+                    onClick={() => setCurrentTab('2')}
+                >
+                    <button type="button">Texto 02</button>
+                </Tab.Item>
+                <Tab.Item
+                    active={currentTab === '3'}
+                    onClick={() => setCurrentTab('3')}
+                >
+                    <button type="button">Texto 03</button>
+                </Tab.Item>
+            </Tab.Nav>
+            <Tab.Content>
+                <Tab.Panel active={currentTab === '1'}>
+                    Havia uma casa no fim da rua que ninguém ousava visitar.
+                </Tab.Panel>
+                <Tab.Panel active={currentTab === '2'}>
+                    Todo começo de semana, João tinha um ritual: visitar a
+                    pequena cafeteria na esquina da avenida.
+                </Tab.Panel>
+                <Tab.Panel active={currentTab === '3'}>
+                    No ano de 2147, a humanidade havia partido para Marte,
+                    deixando para trás apenas um único habitante: um androide
+                    chamado Atlas.
+                </Tab.Panel>
+            </Tab.Content>
+        </Tab>
+    );
+}
+```
+
+### Utilização com server components (NextJs 15)
+
+```tsx
+import Link from 'next/link';
+import { useState } from 'react';
+import { Tab, TabProps } from '../tab';
+
+interface IProps {
+    searchParams: Promise<any>;
+}
+
+export async function Page({ searchParams }: IProps) {
+    const query = await searchParams;
+
+
+    return (
+        <Tab>
+            <Tab.Nav>
+                <Tab.Item active={query.get('tab') === '1'}>
+                    <Link href="?tab=1">Texto 01</Link>
+                </Tab.Item>
+                <Tab.Item active={query.get('tab') === '2'}>
+                    <Link href="?tab=2">Texto 02</Link>
+                </Tab.Item>
+                <Tab.Item active={query.get('tab') === '3'}>
+                    <Link href="?tab=3">Texto 03</Link>
+                </Tab.Item>
+            </Tab.Nav>
+            <Tab.Content>
+                <Tab.Panel active={query.get('tab') === '1'}>
+                    Havia uma casa no fim da rua que ninguém ousava visitar.
+                </Tab.Panel>
+                <Tab.Panel active={query.get('tab') === '2'}>
+                    Todo começo de semana, João tinha um ritual: visitar a
+                    pequena cafeteria na esquina da avenida.
+                </Tab.Panel>
+                <Tab.Panel active={query.get('tab') === '3'}>
+                    No ano de 2147, a humanidade havia partido para Marte,
+                    deixando para trás apenas um único habitante: um androide
+                    chamado Atlas.
+                </Tab.Panel>
+            </Tab.Content>
+        </Tab>
+    );
+}
+```
+
+<Controls />
+
+<Stories />
