@@ -10,7 +10,7 @@ export function InputButton({
     return (
         <Button
             className={twMerge('relative', className)}
-            type="button"   
+            type="button"
             aria-checked="false"
             {...props}
         >

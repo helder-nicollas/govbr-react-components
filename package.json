@@ -109,5 +109,6 @@
   },
   "repository": {
     "url": "git+https://github.com/helder-nicollas/govbr-react-components.git"
-  }
+  },
+  "keywords": ["govbr-ds", "react", "nextjs", "ssr"]
 }
