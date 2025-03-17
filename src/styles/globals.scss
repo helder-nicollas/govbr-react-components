@@ -1,5 +1,5 @@
-@import "~@govbr-ds/core/src/partial/scss/_base.scss";
-@import "~@govbr-ds/core/src/partial/scss/_tokens.scss";
+@import '~@govbr-ds/core/src/partial/scss/_base.scss';
+@import '~@govbr-ds/core/src/partial/scss/_tokens.scss';
 
 @import '~@govbr-ds/core/src/partial/scss/utilities/_display.scss';
 @import '~@govbr-ds/core/src/partial/scss/utilities/_normalize.scss';
@@ -66,13 +66,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 hr.br-divider.vertical {
     height: auto;
 }
 
 .br-input .br-button {
     top: 4px;
+}
+
+.label {
+    color: var(--color);
+    font-size: var(--font-size-scale-base);
+    font-weight: var(--font-weight-semi-bold);
+    line-height: var(--font-line-height-medium);
+    margin-bottom: var(--spacing-scale-half);
 }
 
 a {
