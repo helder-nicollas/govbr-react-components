@@ -3,6 +3,13 @@ import { Button, ButtonProps } from './button';
 import { buttonVariants } from './variants';
 import { fn } from '@storybook/test';
 
+/***
+ * O componente **Button** renderiza o componente br-button do dsgov.
+ * Com o objetivo de trazer uma maior flexibilidade ao componente,
+ * ele conta com uma prop **as**, onde é possível renderizar o componente com
+ * outras tags, **a** e até mesmo com o **Link** do NextJs.
+ */
+
 export default {
     title: 'Components/Button',
     component: Button,
