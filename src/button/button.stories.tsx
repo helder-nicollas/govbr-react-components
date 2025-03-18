@@ -3,11 +3,18 @@ import { Button, ButtonProps } from './button';
 import { buttonVariants } from './variants';
 import { fn } from '@storybook/test';
 
+/***
+ * O componente **Button** renderiza o componente br-button do dsgov.
+ * Com o objetivo de trazer uma maior flexibilidade ao componente,
+ * ele conta com uma prop **as**, onde é possível renderizar o componente com
+ * outras tags, **a** e até mesmo com o **Link** do NextJs.
+ */
+
 export default {
     title: 'Components/Button',
     component: Button,
     args: {
-        variant: 'primary',
+        variant: 'transparent',
         children: 'Button',
         loading: false,
         disabled: false,
@@ -56,10 +63,37 @@ export default {
     tags: ['autodocs'],
 } as Meta<ButtonProps>;
 
-export const Default: StoryObj = {
-    render: args => (
-        <Button as="a" {...args}>
-            Botão
-        </Button>
-    ),
+export const Default: StoryObj<typeof Button> = {
+    name: 'Default (Transparent)',
+    render: args => <Button {...args}>Botão</Button>,
+};
+
+export const Primary: StoryObj<typeof Button> = {
+    args: {
+        variant: 'primary',
+    },
+    render: args => <Button {...args}>Botão</Button>,
+};
+
+export const Outline: StoryObj<typeof Button> = {
+    args: {
+        variant: 'outline',
+    },
+    render: args => <Button {...args}>Botão</Button>,
+};
+
+export const Circle: StoryObj<typeof Button> = {
+    args: {
+        variant: 'primary',
+        circle: true,
+    },
+    render: args => <Button {...args}>B</Button>,
+};
+
+export const Loading: StoryObj<typeof Button> = {
+    args: {
+        variant: 'primary',
+        loading: true,
+    },
+    render: args => <Button {...args}>Botão</Button>,
 };

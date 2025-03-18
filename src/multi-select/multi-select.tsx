@@ -13,15 +13,21 @@ import { MultiSelectContext } from './contexts/multi-select-context';
 import { MultiSelectItem } from './multi-select-item';
 import { MultiSelectList } from './multi-select-list';
 import { MultiSelectAllItems } from './multi-select-all-items';
+import { twMerge } from 'tailwind-merge';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
 
 interface IMultiSelectProps {
+    className?: string;
     onChangeValue?(items: string[]): void;
     reset?: boolean;
     children: ReactNode;
 }
 
-function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
+function MultiSelect({
+    children,
+    className,
+    onChangeValue,
+}: IMultiSelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<ISelectGovBr | null>(null);
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -173,7 +179,7 @@ function MultiSelect({ children, onChangeValue }: IMultiSelectProps) {
                 allSelected,
             }}
         >
-            <div ref={selectRef} className="br-select">
+            <div ref={selectRef} className={twMerge('br-select', className)}>
                 {children}
             </div>
         </MultiSelectContext.Provider>

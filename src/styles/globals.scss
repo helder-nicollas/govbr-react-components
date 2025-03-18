@@ -1,5 +1,5 @@
-@import "~@govbr-ds/core/src/partial/scss/_base.scss";
-@import "~@govbr-ds/core/src/partial/scss/_tokens.scss";
+@import '~@govbr-ds/core/src/partial/scss/_base.scss';
+@import '~@govbr-ds/core/src/partial/scss/_tokens.scss';
 
 @import '~@govbr-ds/core/src/partial/scss/utilities/_display.scss';
 @import '~@govbr-ds/core/src/partial/scss/utilities/_normalize.scss';
@@ -59,6 +59,9 @@
 @import '~@govbr-ds/core/src/components/radio/_radio.scss';
 @import '~@govbr-ds/core/src/components/radio/_mixins.scss';
 
+@import '~@govbr-ds/core/src/components/tab/_tab.scss';
+@import '~@govbr-ds/core/src/components/tab/_mixins.scss';
+
 @import '~@govbr-ds/core/src/components/textarea/_textarea.scss';
 @import '~@govbr-ds/core/src/components/textarea/_mixins.scss';
 
@@ -66,13 +69,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
 hr.br-divider.vertical {
     height: auto;
 }
 
 .br-input .br-button {
     top: 4px;
+}
+
+.label {
+    color: var(--color);
+    font-size: var(--font-size-scale-base);
+    font-weight: var(--font-weight-semi-bold);
+    line-height: var(--font-line-height-medium);
+    margin-bottom: var(--spacing-scale-half);
+}
+
+.br-tab .tab-item.is-active a, .br-tab .tab-item.active a {
+    border-bottom: 4px solid var(--active);
+    color: var(--active);
 }
 
 a {
@@ -102,3 +117,4 @@ a:not(:disabled):active {
         rgba(var(--interactive-rgb), var(--pressed))
     );
 }
+
