@@ -1,32 +1,33 @@
 import { tv } from 'tailwind-variants';
 
-const inputMessageVariants = tv({
-    base: 'feedback',
+const feedbackVariants = tv({
+    slots: {
+        base: 'feedback',
+        icon: '',
+    },
     variants: {
         variant: {
-            success: 'success',
-            danger: 'danger',
-            info: 'info',
-            warning: 'warning',
+            danger: {
+                base: 'danger',
+                icon: 'fas fa-times-circle',
+            },
+            success: {
+                base: 'success',
+                icon: 'fas fa-check-circle',
+            },
+            info: {
+                base: 'info',
+                icon: 'fas fa-info-circle',
+            },
+            warning: {
+                base: 'warning',
+                icon: 'fas fa-exclamation-triangle',
+            },
         },
     },
     defaultVariants: {
-        variant: 'success',
+        variant: 'danger',
     },
 });
 
-const inputMessageIconVariants = tv({
-    variants: {
-        iconVariant: {
-            success: 'fas fa-check-circle',
-            danger: 'fas fa-times-circle',
-            info: 'fas fa-info-circle',
-            warning: 'fas fa-exclamation-triangle',
-        },
-    },
-    defaultVariants: {
-        iconVariant: 'success',
-    },
-});
-
-export { inputMessageVariants, inputMessageIconVariants };
+export { feedbackVariants };

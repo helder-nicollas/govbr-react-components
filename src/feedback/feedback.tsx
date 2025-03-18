@@ -1,34 +1,29 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
-import { inputMessageIconVariants, inputMessageVariants } from './variants';
+import { feedbackVariants } from './variants';
 
-type FeedbackProps = VariantProps<typeof inputMessageVariants> &
-    ComponentProps<'span'> &
-    VariantProps<typeof inputMessageIconVariants> & {
+type Ref = HTMLSpanElement;
+
+type FeedbackProps = VariantProps<typeof feedbackVariants> &
+    Omit<ComponentProps<'span'>, 'children'> & {
         message?: string;
     };
 
-function Feedback({
-    className,
-    message,
-    iconVariant,
-    variant,
-    ...props
-}: FeedbackProps) {
-    if (!message) return null;
-    return (
-        <span
-            {...props}
-            className={inputMessageVariants({ className, variant })}
-            role="alert"
-        >
-            <i
-                className={inputMessageIconVariants({ iconVariant })}
-                aria-hidden="true"
-            />
-            {message}
-        </span>
-    );
-}
+const Feedback = forwardRef<Ref, FeedbackProps>(
+    ({ className, message, variant, ...props }: FeedbackProps) => {
+        if (!message) return null;
+
+        const { base, icon } = feedbackVariants({ className, variant });
+
+        return (
+            <span {...props} className={base()} role="alert">
+                <i className={icon()} aria-hidden="true" />
+                {message}
+            </span>
+        );
+    },
+);
+
+Feedback.displayName = 'Feedback';
 
 export { Feedback, FeedbackProps };
