@@ -1,34 +1,30 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Message } from './message';
-import { iconVariants, messageVariants } from './variants';
+import { messageVariants } from './variants';
 import { fn } from '@storybook/test';
 
 export default {
     title: 'Components/Message',
     component: Message,
     argTypes: {
-        icon: {
+        variant: {
             control: {
                 type: 'inline-radio',
             },
-            options: Object.keys(messageVariants.variants.type),
+            options: Object.keys(messageVariants.variants.variant),
             description: 'Tipo do ícone.',
         },
-        type: {
-            control: {
-                type: 'inline-radio',
-            },
-            options: Object.keys(iconVariants.variants.icon),
-            description: 'Tipo da mensagem.',
+        ariaLabel: {
+            description: 'Atributo de acessibilidade para o componente.',
         },
         messageBody: {
             description: 'Corpo da mensagem.',
         },
         messageTitle: {
-            description: 'Título da mensagem',
+            description: 'Título da mensagem.',
         },
         onClose: {
-            description: 'Função que será disparada ao fechar a mensagem',
+            description: 'Função que será disparada ao fechar a mensagem.',
         },
     },
     tags: ['autodocs'],
@@ -36,8 +32,7 @@ export default {
 
 export const Default: StoryObj<typeof Message> = {
     args: {
-        type: 'success',
-        icon: 'success',
+        variant: 'success',
         messageBody:
             'Seus dados foram alterados conforme preenchimento do formulário.',
         messageTitle: 'Sucesso.',
