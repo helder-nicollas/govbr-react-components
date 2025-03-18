@@ -20,6 +20,7 @@ export default {
 } as Meta<ModalProps>;
 
 export const Default: StoryObj<ModalProps> = {
+    decorators: s => <div className="h-80">{s()}</div>,
     render: () => {
         const [open, setOpen] = useState(false);
         return (

@@ -8,18 +8,11 @@ import { fn } from '@storybook/test';
 export default {
     title: 'Components/Select',
     component: Select,
+    decorators: s => <div className="h-80">{s()}</div>,
     subcomponents: {
         SelectTrigger,
         SelectList,
         SelectItem,
-    },
-    id: 'Select',
-    tags: ['autodocs'],
-} as Meta;
-
-export const Default: StoryObj<typeof Select> = {
-    args: {
-        onChangeValue: fn(),
     },
     argTypes: {
         onChangeValue: {
@@ -29,6 +22,14 @@ export const Default: StoryObj<typeof Select> = {
             description:
                 'Deve ser utilizado quando houver a necessidade de resetar as opções do select. Geralmente, é passado o array de opções',
         },
+    },
+    id: 'Select',
+    tags: ['autodocs'],
+} as Meta;
+
+export const Default: StoryObj<typeof Select> = {
+    args: {
+        onChangeValue: fn(),
     },
     render: args => {
         const array = [
