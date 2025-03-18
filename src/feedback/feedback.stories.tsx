@@ -10,7 +10,11 @@ export default {
             control: {
                 type: 'inline-radio',
             },
+            description: 'Refere-se à variante que será aplicada no feedback.',
             options: Object.keys(feedbackVariants.variants.variant),
+        },
+        message: {
+            description: 'Mensagem que será exibida.',
         },
     },
     tags: ['autodocs'],
