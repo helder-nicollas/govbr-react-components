@@ -1,31 +1,31 @@
 import { tv } from 'tailwind-variants';
 
 export const messageVariants = tv({
-    base: 'br-message min-w-80',
+    slots: {
+        base: 'br-message',
+        icon: 'fa-lg fas',
+    },
     variants: {
-        type: {
-            danger: 'danger',
-            success: 'success',
-            warning: 'warning',
-            info: 'info',
+        variant: {
+            danger: {
+                base: 'danger',
+                icon: 'fa-times-circle',
+            },
+            success: {
+                base: 'success',
+                icon: 'fa-check-circle',
+            },
+            info: {
+                base: 'info',
+                icon: 'fa-info-circle',
+            },
+            warning: {
+                base: 'warning',
+                icon: 'fa-exclamation-triangle',
+            },
         },
     },
     defaultVariants: {
-        type: 'success',
-    },
-});
-
-export const iconVariants = tv({
-    base: 'fa-lg fas',
-    variants: {
-        icon: {
-            success: 'fa-check-circle',
-            danger: 'fa-times-circle',
-            info: 'fa-info-circle',
-            warning: 'fa-exclamation-triangle',
-        },
-    },
-    defaultVariants: {
-        icon: 'success',
+        variant: 'danger',
     },
 });

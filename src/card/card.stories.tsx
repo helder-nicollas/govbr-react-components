@@ -36,7 +36,7 @@ export const Default: StoryObj<typeof Card> = {
                     mollitia quis corrupti.
                 </Card.Content>
                 <Card.Footer>
-                    <Button>Abrir</Button>
+                    <Button variant="primary">Abrir</Button>
                 </Card.Footer>
             </Card>
         );
