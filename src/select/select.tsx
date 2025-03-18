@@ -12,14 +12,22 @@ import { SelectGovBr } from './types';
 import { SelectItem } from './select-item';
 import { SelectList } from './select-list';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
+import { twMerge } from 'tailwind-merge';
 
 type SelectProps = {
+    className?: string;
     reset?: unknown;
     children: React.ReactNode;
     onChangeValue?(value: string): void;
 };
 
-function Select({ reset, children, onChangeValue, ...props }: SelectProps) {
+function Select({
+    reset,
+    children,
+    className,
+    onChangeValue,
+    ...props
+}: SelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<SelectGovBr | null>(null);
     const [selected, setSelected] = useState<string>('');
@@ -131,7 +139,11 @@ function Select({ reset, children, onChangeValue, ...props }: SelectProps) {
                 selected,
             }}
         >
-            <div ref={selectRef} className="br-select" {...props}>
+            <div
+                ref={selectRef}
+                className={twMerge('br-select', className)}
+                {...props}
+            >
                 {children}
             </div>
         </SelectContext.Provider>
