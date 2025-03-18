@@ -30,9 +30,36 @@ export default {
     tags: ['autodocs'],
 } as Meta<typeof Message>;
 
-export const Default: StoryObj<typeof Message> = {
+export const Success: StoryObj<typeof Message> = {
     args: {
         variant: 'success',
+        messageBody:
+            'Seus dados foram alterados conforme preenchimento do formulário.',
+        messageTitle: 'Sucesso.',
+        onClose: fn(),
+    },
+};
+export const Danger: StoryObj<typeof Message> = {
+    args: {
+        variant: 'danger',
+        messageBody:
+            'Seus dados foram alterados conforme preenchimento do formulário.',
+        messageTitle: 'Sucesso.',
+        onClose: fn(),
+    },
+};
+export const Info: StoryObj<typeof Message> = {
+    args: {
+        variant: 'info',
+        messageBody:
+            'Seus dados foram alterados conforme preenchimento do formulário.',
+        messageTitle: 'Sucesso.',
+        onClose: fn(),
+    },
+};
+export const Warning: StoryObj<typeof Message> = {
+    args: {
+        variant: 'warning',
         messageBody:
             'Seus dados foram alterados conforme preenchimento do formulário.',
         messageTitle: 'Sucesso.',
