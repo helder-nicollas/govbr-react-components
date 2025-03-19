@@ -32,8 +32,31 @@ export const Default: StoryObj<CheckboxProps & CheckboxFieldProps> = {
     render: ({ variant, withoutLabel, ...args }) => {
         return (
             <Checkbox withoutLabel={withoutLabel} variant={variant}>
-                <Checkbox.Field {...args} id="checkbox" />
+                <Checkbox.Field
+                    {...args}
+                    withoutLabel={withoutLabel}
+                    id="checkbox"
+                />
                 <Label htmlFor="checkbox">Checkbox 01</Label>
+            </Checkbox>
+        );
+    },
+};
+
+export const WithoutLabel: StoryObj<CheckboxProps & CheckboxFieldProps> = {
+    name: 'Sem Label',
+    args: {
+        withoutLabel: true,
+        onChange: fn(),
+    },
+    render: ({ variant, withoutLabel, ...args }) => {
+        return (
+            <Checkbox withoutLabel={withoutLabel} variant={variant}>
+                <Checkbox.Field
+                    {...args}
+                    withoutLabel={withoutLabel}
+                    id="checkbox"
+                />
             </Checkbox>
         );
     },
