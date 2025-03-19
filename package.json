@@ -1,6 +1,6 @@
 {
   "name": "@helder-nicollas/govbr-react-components",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "main": "cjs/index.js",
   "module": "index.js",
   "files": [
