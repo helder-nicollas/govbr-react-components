@@ -7,8 +7,7 @@ describe('Checkbox', () => {
     it('should render applying variants and disabled state', () => {
         render(
             <Checkbox withoutLabel variant="valid">
-                <Checkbox.Field id="checkbox" disabled />
-                <Label htmlFor="checkbox" />
+                <Checkbox.Field id="checkbox" withoutLabel disabled />
             </Checkbox>,
         );
         const checkbox = screen.getByRole('checkbox');
