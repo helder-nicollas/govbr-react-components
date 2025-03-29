@@ -1,12 +1,27 @@
-import { ReactNode } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { useDropdown } from './dropdown';
 
-export function DropdownTrigger({ children }: { children: ReactNode }) {
-    const { handleChangeOpen, open } = useDropdown();
+type Ref = HTMLDivElement;
 
-    return (
-        <div onClick={() => handleChangeOpen(!open)} data-toggle="dropdown">
-            {children}
-        </div>
-    );
-}
+type DropdownTriggerProps = ComponentProps<'div'>;
+
+const DropdownTrigger = forwardRef<Ref, DropdownTriggerProps>(
+    ({ children, ...props }, ref) => {
+        const { handleChangeOpen, open } = useDropdown();
+
+        return (
+            <div
+                {...props}
+                data-toggle="dropdown"
+                ref={ref}
+                onClick={() => handleChangeOpen(!open)}
+            >
+                {children}
+            </div>
+        );
+    },
+);
+
+DropdownTrigger.displayName = 'DropdownTrigger';
+
+export { DropdownTrigger, type DropdownTriggerProps };
