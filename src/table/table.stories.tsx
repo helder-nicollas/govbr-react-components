@@ -36,13 +36,22 @@ export const Default: StoryObj = {
                                 </Dropdown.Trigger>
                                 <Dropdown.Content>
                                     <List>
-                                        <Item onClick={() => setSize('small')}>
+                                        <Item
+                                            as="button"
+                                            onClick={() => setSize('small')}
+                                        >
                                             Densidade Alta
                                         </Item>
-                                        <Item onClick={() => setSize('medium')}>
+                                        <Item
+                                            as="button"
+                                            onClick={() => setSize('medium')}
+                                        >
                                             Densidade Média
                                         </Item>
-                                        <Item onClick={() => setSize('large')}>
+                                        <Item
+                                            as="button"
+                                            onClick={() => setSize('large')}
+                                        >
                                             Densidade Baixa
                                         </Item>
                                     </List>
