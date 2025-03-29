@@ -28,7 +28,6 @@ export default {
         TabNav,
         TabPanel,
     },
-    // tags: ['autodocs'],
 } as Meta<typeof Tab>;
 
 export const Default: StoryObj<typeof Tab> = {

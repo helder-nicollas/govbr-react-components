@@ -3,7 +3,9 @@ import { twMerge } from 'tailwind-merge';
 
 type Ref = HTMLDivElement;
 
-const TableTopBar = forwardRef<Ref, ComponentProps<'div'>>(
+type TableTopBarProps = ComponentProps<'div'>;
+
+const TableTopBar = forwardRef<Ref, TableTopBarProps>(
     ({ className, children, ...props }, ref) => {
         return (
             <div {...props} className={twMerge('top-bar', className)} ref={ref}>
@@ -14,4 +16,4 @@ const TableTopBar = forwardRef<Ref, ComponentProps<'div'>>(
 );
 
 TableTopBar.displayName = 'TableTopBar';
-export { TableTopBar };
+export { TableTopBar, type TableTopBarProps };

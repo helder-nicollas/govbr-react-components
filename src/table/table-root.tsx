@@ -3,12 +3,16 @@ import { twMerge } from 'tailwind-merge';
 
 type Ref = HTMLDivElement;
 
-const TableRoot = forwardRef<Ref, ComponentProps<'div'>>(
-    ({ className, children, ...props }, ref) => {
+type TableRootProps = ComponentProps<'div'> & {
+    size?: 'small' | 'medium' | 'large';
+};
+
+const TableRoot = forwardRef<Ref, TableRootProps>(
+    ({ className, children, size = 'medium', ...props }, ref) => {
         return (
             <div
                 {...props}
-                className={twMerge('br-table', className)}
+                className={twMerge('br-table', size, className)}
                 ref={ref}
             >
                 {children}
@@ -18,4 +22,4 @@ const TableRoot = forwardRef<Ref, ComponentProps<'div'>>(
 );
 
 TableRoot.displayName = 'TableRoot';
-export { TableRoot };
+export { TableRoot, type TableRootProps };

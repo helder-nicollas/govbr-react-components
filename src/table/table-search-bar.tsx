@@ -22,4 +22,4 @@ const TableSearchBar = forwardRef<Ref, SearchBarProps>(
 );
 
 TableSearchBar.displayName = 'TableSearchBar';
-export { TableSearchBar };
+export { TableSearchBar, type SearchBarProps };

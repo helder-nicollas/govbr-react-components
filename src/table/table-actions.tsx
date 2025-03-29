@@ -3,7 +3,9 @@ import { twMerge } from 'tailwind-merge';
 
 type Ref = HTMLDivElement;
 
-const TableActions = forwardRef<Ref, ComponentProps<'div'>>(
+type TableActionsProps = ComponentProps<'div'>;
+
+const TableActions = forwardRef<Ref, TableActionsProps>(
     ({ className, children, ...props }, ref) => {
         return (
             <div
@@ -18,4 +20,4 @@ const TableActions = forwardRef<Ref, ComponentProps<'div'>>(
 );
 
 TableActions.displayName = 'TableActions';
-export { TableActions };
+export { TableActions, type TableActionsProps };

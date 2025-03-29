@@ -15,9 +15,12 @@ export default {
 export const Default: StoryObj = {
     render: () => {
         const [searchIsOpen, setSearchIsOpen] = useState(false);
+        const [size, setSize] = useState<'small' | 'medium' | 'large'>(
+            'medium',
+        );
 
         return (
-            <Table.Root>
+            <Table.Root size={size}>
                 <Table.Header hiddenSearchIcon={searchIsOpen}>
                     <Table.TopBar>
                         <Table.Title>Tabela padrão</Table.Title>
@@ -28,14 +31,20 @@ export const Default: StoryObj = {
                                         <i
                                             className="fas fa-ellipsis-v"
                                             aria-hidden="true"
-                                        ></i>
+                                        />
                                     </Button>
                                 </Dropdown.Trigger>
                                 <Dropdown.Content>
                                     <List>
-                                        <Item>Item 01</Item>
-                                        <Item>Item 02</Item>
-                                        <Item>Item 03</Item>
+                                        <Item onClick={() => setSize('small')}>
+                                            Densidade Alta
+                                        </Item>
+                                        <Item onClick={() => setSize('medium')}>
+                                            Densidade Média
+                                        </Item>
+                                        <Item onClick={() => setSize('large')}>
+                                            Densidade Baixa
+                                        </Item>
                                     </List>
                                 </Dropdown.Content>
                             </Dropdown>
