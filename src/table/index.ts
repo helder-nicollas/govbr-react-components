@@ -1,3 +1,4 @@
+import { TableActions } from './table-actions';
 import { TableHeader } from './table-header';
 import { TableRoot } from './table-root';
 import { TableSearchBar } from './table-search-bar';
@@ -10,4 +11,5 @@ export const Table = {
     Title: TableTitle,
     TopBar: TableTopBar,
     SearchBar: TableSearchBar,
+    Actions: TableActions,
 };

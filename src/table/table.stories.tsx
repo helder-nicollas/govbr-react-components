@@ -21,23 +21,25 @@ export const Default: StoryObj = {
                 <Table.Header hiddenSearchIcon={searchIsOpen}>
                     <Table.TopBar>
                         <Table.Title>Tabela padrão</Table.Title>
-                        <Dropdown>
-                            <Dropdown.Trigger>
-                                <Button circle>
-                                    <i
-                                        className="fas fa-ellipsis-v"
-                                        aria-hidden="true"
-                                    ></i>
-                                </Button>
-                            </Dropdown.Trigger>
-                            <Dropdown.Content>
-                                <List>
-                                    <Item>Item 01</Item>
-                                    <Item>Item 02</Item>
-                                    <Item>Item 03</Item>
-                                </List>
-                            </Dropdown.Content>
-                        </Dropdown>
+                        <Table.Actions>
+                            <Dropdown>
+                                <Dropdown.Trigger>
+                                    <Button circle>
+                                        <i
+                                            className="fas fa-ellipsis-v"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </Button>
+                                </Dropdown.Trigger>
+                                <Dropdown.Content>
+                                    <List>
+                                        <Item>Item 01</Item>
+                                        <Item>Item 02</Item>
+                                        <Item>Item 03</Item>
+                                    </List>
+                                </Dropdown.Content>
+                            </Dropdown>
+                        </Table.Actions>
                         <Button
                             circle
                             onClick={() => setSearchIsOpen(true)}
@@ -79,8 +81,18 @@ export const Default: StoryObj = {
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Fulano de tal</td>
+                            <td>João</td>
                             <td>18 anos</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Maria</td>
+                            <td>19 anos</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Gustavo</td>
+                            <td>20 anos</td>
                         </tr>
                     </tbody>
                 </table>
