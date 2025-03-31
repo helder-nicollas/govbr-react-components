@@ -19,3 +19,5 @@ export * from './textarea';
 export * from './header';
 export * from './sign-in';
 export * from './tab';
+export * from './table';
+export * from './pagination';
