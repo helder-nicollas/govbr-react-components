@@ -2,7 +2,9 @@
 import { Meta, StoryObj } from '@storybook/react/*';
 import { Pagination } from './pagination';
 import { Button } from '../button';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import BRPagination from '@govbr-ds/core/dist/components/pagination/pagination';
+import { TestingPagination } from './testing-pagination';
 
 export default {
     title: 'Components/Pagination',
@@ -139,5 +141,17 @@ export const Default: StoryObj<typeof Pagination> = {
                 </ul>
             </Pagination>
         );
+    },
+};
+
+export const Context: StoryObj = {
+    render: () => {
+        const ref = useRef<HTMLDivElement | null>(null);
+
+        useEffect(() => {
+            if (ref.current) new BRPagination('br-pagination', ref.current);
+            console.log('nees');
+        }, [ref]);
+        return <TestingPagination />;
     },
 };
