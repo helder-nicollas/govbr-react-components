@@ -1,0 +1,80 @@
+import { Meta, Stories, Primary, Controls } from '@storybook/blocks';
+import * as PaginationStories from './pagination.stories';
+
+<Meta title="Components/Pagination" of={PaginationStories} name="Docs" />
+
+# Pagination
+
+Por motivos de flexibilidade e facilidade no uso do componente, optamos por não
+utilizar o script próprio do DSGOV. Com isso, a forma de
+implementação do componente Tab fica por conta do desenvolvedor.
+Nós recomendamos duas maneiras de utilizar o componente Pagination. São elas:
+
+- Por meio de estados (useState) via **Client Components**
+- Por meio de queryParams e SSR via **Server Components**
+
+A principal forma de utilização do componente **Pagination** que recomendamos, é
+utilizá-lo por meio de URL State com server components.
+
+### Utilização com server components (NextJs 15)
+
+```tsx
+import Link from 'next/link';
+import { Pagination } from '../pagination';
+
+interface IProps {
+    searchParams: Promise<any>;
+}
+
+export async function Page({ searchParams }: IProps) {
+    const query = await searchParams;
+
+
+    return (
+       <Pagination>
+            <ul>
+                <li>
+                    <Button circle type="button" aria-label="Voltar página">
+                        <i
+                            className="fas fa-angle-left"
+                            aria-hidden="true"
+                        />
+                    </Button>
+                </li>
+
+                <li>
+                    <Pagination.Page href="?page=1" active={query.page === 1} as={Link}>
+                        1
+                    </Pagination.Page>
+                </li>
+                <li>
+                    <Pagination.Page href="?page=2" active={query.page === 2} as={Link}>
+                        2
+                    </Pagination.Page>
+                </li>
+                <li>
+                    <Pagination.Page href="?page=3" active={query.page === 3} as={Link}>
+                        3
+                    </Pagination.Page>
+                </li>
+                <li>
+                    <Button
+                        circle
+                        type="button"
+                        aria-label="Página seguinte"
+                    >
+                        <i
+                            className="fas fa-angle-right"
+                            aria-hidden="true"
+                        />
+                    </Button>
+                </li>
+            </ul>
+        </Pagination>
+    );
+}
+```
+
+<Controls />
+
+<Stories />
