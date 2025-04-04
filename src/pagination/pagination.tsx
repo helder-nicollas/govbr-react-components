@@ -26,6 +26,7 @@ const Pagination = forwardRef<Ref, PaginationProps>(
                 {...props}
                 className={twMerge('br-pagination', className)}
                 ref={ref}
+                role="navigation"
             >
                 {children}
             </nav>
