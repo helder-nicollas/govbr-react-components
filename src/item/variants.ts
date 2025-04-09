@@ -1,4 +1,4 @@
-import { tv } from 'tailwind-variants';
+import { tv, VariantProps } from 'tailwind-variants';
 
 export const itemVariants = tv({
     base: 'br-item',
@@ -11,3 +11,5 @@ export const itemVariants = tv({
         },
     },
 });
+
+export type ItemVariants = VariantProps<typeof itemVariants>;
