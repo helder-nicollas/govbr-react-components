@@ -9,7 +9,7 @@ const SelectTriggerField = forwardRef<Ref, ComponentProps<'input'>>(
                 {...props}
                 type="text"
                 ref={ref}
-                placeholder={props.placeholder || 'Selecione um item'}
+                placeholder={props.placeholder}
             />
         );
     },

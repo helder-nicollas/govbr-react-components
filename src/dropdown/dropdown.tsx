@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
 import {
+    ComponentProps,
     createContext,
-    ReactNode,
+    forwardRef,
     useCallback,
     useContext,
     useState,
 } from 'react';
 import { DropdownTrigger } from './drowdown-trigger';
 import { DropdownContent } from './dropdown-content';
+import { twMerge } from 'tailwind-merge';
 
 interface IDropdownContext {
     open: boolean;
@@ -21,26 +23,44 @@ const useDropdown = () => {
     return context;
 };
 
-type DropdownProps = {
-    children: ReactNode;
-};
+type Ref = HTMLDivElement;
 
-function Dropdown({ children }: DropdownProps) {
-    const [open, setOpen] = useState(false);
+type DropdownProps = ComponentProps<'div'>;
 
-    const handleChangeOpen = useCallback(
-        (value: boolean) => {
-            setOpen(value);
-        },
-        [open],
-    );
-
-    return (
-        <DropdownContext.Provider value={{ open, handleChangeOpen }}>
-            <div className="dropdown">{children}</div>
-        </DropdownContext.Provider>
-    );
+interface IDropdownComponent
+    extends React.ForwardRefExoticComponent<
+        DropdownProps & React.RefAttributes<Ref>
+    > {
+    Trigger: typeof DropdownTrigger;
+    Content: typeof DropdownContent;
 }
+
+const Dropdown = forwardRef<Ref, DropdownProps>(
+    ({ className, children, ...props }, ref) => {
+        const [open, setOpen] = useState(false);
+
+        const handleChangeOpen = useCallback(
+            (value: boolean) => {
+                setOpen(value);
+            },
+            [open],
+        );
+
+        return (
+            <DropdownContext.Provider value={{ open, handleChangeOpen }}>
+                <div
+                    {...props}
+                    className={twMerge('dropdown', className)}
+                    ref={ref}
+                >
+                    {children}
+                </div>
+            </DropdownContext.Provider>
+        );
+    },
+) as IDropdownComponent;
+
+Dropdown.displayName = 'Dropdown';
 
 Dropdown.Trigger = DropdownTrigger;
 Dropdown.Content = DropdownContent;

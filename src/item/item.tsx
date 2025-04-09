@@ -1,12 +1,9 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react';
-import { VariantProps } from 'tailwind-variants';
-import { itemVariants } from './variants';
+import { ItemVariants, itemVariants } from './variants';
 
 type ItemProps<T extends ElementType = 'div'> = ComponentPropsWithoutRef<T> & {
-    className?: string;
-    children: React.ReactNode;
     as?: T;
-} & VariantProps<typeof itemVariants>;
+} & ItemVariants;
 
 function Item<T extends ElementType = 'div'>({
     className,
@@ -29,4 +26,4 @@ function Item<T extends ElementType = 'div'>({
     );
 }
 
-export { ItemProps, Item };
+export { Item, type ItemProps };
