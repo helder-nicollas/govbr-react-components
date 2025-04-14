@@ -20,6 +20,10 @@ const DropdownContext = createContext<IDropdownContext>({} as IDropdownContext);
 
 const useDropdown = () => {
     const context = useContext(DropdownContext);
+    if (!context)
+        throw new Error(
+            'O hook useDropdown deve ser utilizado em um componente filho de Dropdown.',
+        );
     return context;
 };
 

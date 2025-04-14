@@ -1,11 +1,10 @@
 import { KeyboardEvent } from 'react';
 import { Checkbox } from '../checkbox';
 import { Item } from '../item';
-import { Label } from '../label';
 import { useMultiSelect } from './contexts/multi-select-context';
 
 export function MultiSelectAllItems() {
-    const { handleChangeAll, handleChangeAllWithKeyboard, allSelected } =
+    const { handleChangeAll, handleChangeAllWithKeyboard, allSelected, id } =
         useMultiSelect();
 
     return (
@@ -23,13 +22,13 @@ export function MultiSelectAllItems() {
         >
             <Checkbox>
                 <Checkbox.Field
-                    id="all-items"
-                    name="all-items"
+                    id={`${id}-data-all`}
+                    name={`${id}-data-all`}
                     checked={allSelected}
                     onChange={() => {}}
                 />
-                <Label
-                    htmlFor="all-items"
+                <label
+                    htmlFor={`${id}-data-all`}
                     onClickCapture={event => {
                         handleChangeAll();
                         event.preventDefault();
@@ -38,7 +37,7 @@ export function MultiSelectAllItems() {
                     }}
                 >
                     {allSelected ? 'Deselecionar todos' : 'Selecionar todos'}
-                </Label>
+                </label>
             </Checkbox>
         </Item>
     );

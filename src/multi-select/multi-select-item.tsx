@@ -2,7 +2,6 @@ import { ComponentProps, KeyboardEvent, useEffect } from 'react';
 import { Checkbox } from '../checkbox';
 import { Item } from '../item';
 import { useMultiSelect } from './contexts/multi-select-context';
-import { Label } from '../label';
 
 type MultiSelectItemProps = ComponentProps<'div'> & {
     defaultSelected?: boolean;
@@ -56,7 +55,7 @@ export function MultiSelectItem({
                     checked={selectedItems.includes(value)}
                     onChange={() => {}}
                 />
-                <Label
+                <label
                     htmlFor={`${id}-${value}`}
                     onClickCapture={event => {
                         handleChange(value);
@@ -66,7 +65,7 @@ export function MultiSelectItem({
                     }}
                 >
                     {children}
-                </Label>
+                </label>
             </Checkbox>
         </Item>
     );
