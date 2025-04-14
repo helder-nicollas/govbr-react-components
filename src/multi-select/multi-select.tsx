@@ -17,15 +17,16 @@ import { twMerge } from 'tailwind-merge';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
 
 interface IMultiSelectProps {
+    id: string | number;
+    children: ReactNode;
     className?: string;
     onChangeValue?(items: string[]): void;
-    reset?: boolean;
-    children: ReactNode;
 }
 
 function MultiSelect({
     children,
     className,
+    id,
     onChangeValue,
 }: IMultiSelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
@@ -169,14 +170,15 @@ function MultiSelect({
     return (
         <MultiSelectContext.Provider
             value={{
+                id,
+                selectedItems,
+                select,
+                allSelected,
                 handleChange,
                 handleChangeWithKeyboard,
                 handleChangeAll,
                 handleChangeAllWithKeyboard,
                 addDefaultValue,
-                selectedItems,
-                select,
-                allSelected,
             }}
         >
             <div ref={selectRef} className={twMerge('br-select', className)}>
