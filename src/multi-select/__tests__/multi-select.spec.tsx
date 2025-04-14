@@ -35,6 +35,7 @@ describe('MultiSelect', () => {
 
         render(
             <MultiSelect
+                id="multi-select"
                 data-testid="multi-select"
                 onChangeValue={onChangeValue}
             >
@@ -66,7 +67,11 @@ describe('MultiSelect', () => {
         const onChange = jest.fn();
 
         render(
-            <MultiSelect data-testid="select" onChangeValue={onChange}>
+            <MultiSelect
+                id="multi-select"
+                data-testid="select"
+                onChangeValue={onChange}
+            >
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" />
                 </SelectTrigger>
@@ -96,7 +101,11 @@ describe('MultiSelect', () => {
         const onChangeValue = jest.fn();
 
         const { container } = render(
-            <MultiSelect data-testid="select" onChangeValue={onChangeValue}>
+            <MultiSelect
+                id="multi-select"
+                data-testid="select"
+                onChangeValue={onChangeValue}
+            >
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" />
                 </SelectTrigger>
@@ -129,7 +138,7 @@ describe('MultiSelect', () => {
 
     it('should add expanded attribute to select on label click', () => {
         render(
-            <MultiSelect>
+            <MultiSelect id="multi-select">
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" data-testid="trigger" />
                 </SelectTrigger>
@@ -157,7 +166,7 @@ describe('MultiSelect', () => {
 
     it('should show not found image on filter item that is not in list', async () => {
         render(
-            <MultiSelect>
+            <MultiSelect id="multi-select">
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" data-testid="trigger" />
                 </SelectTrigger>
@@ -192,7 +201,7 @@ describe('MultiSelect', () => {
     it('should select default values', () => {
         const onChangeValue = jest.fn();
         const { container } = render(
-            <MultiSelect onChangeValue={onChangeValue}>
+            <MultiSelect id="multi-select" onChangeValue={onChangeValue}>
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" data-testid="trigger" />
                 </SelectTrigger>

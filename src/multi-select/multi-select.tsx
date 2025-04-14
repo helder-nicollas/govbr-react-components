@@ -16,19 +16,19 @@ import { MultiSelectAllItems } from './multi-select-all-items';
 import { twMerge } from 'tailwind-merge';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
 
-interface IMultiSelectProps {
+type MultiSelectProps = {
     id: string | number;
     children: ReactNode;
     className?: string;
     onChangeValue?(items: string[]): void;
-}
+};
 
 function MultiSelect({
     children,
     className,
     id,
     onChangeValue,
-}: IMultiSelectProps) {
+}: MultiSelectProps) {
     const selectRef = useRef<HTMLDivElement | null>(null);
     const [select, setSelect] = useState<ISelectGovBr | null>(null);
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -192,4 +192,4 @@ MultiSelect.Item = MultiSelectItem;
 MultiSelect.List = MultiSelectList;
 MultiSelect.SelectAll = MultiSelectAllItems;
 
-export { MultiSelect, IMultiSelectProps };
+export { MultiSelect, type MultiSelectProps };
