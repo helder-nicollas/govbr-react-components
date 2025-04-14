@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import {
-    IMultiSelectProps,
     MultiSelect,
     MultiSelectAllItems,
     MultiSelectItem,
@@ -28,9 +27,9 @@ export default {
         },
     },
     tags: ['autodocs'],
-} as Meta;
+} as Meta<typeof MultiSelect>;
 
-export const Default: StoryObj<IMultiSelectProps> = {
+export const Default: StoryObj<typeof MultiSelect> = {
     args: {
         onChangeValue: fn(),
     },
