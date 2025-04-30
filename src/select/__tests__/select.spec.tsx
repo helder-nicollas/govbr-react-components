@@ -23,7 +23,11 @@ describe('Select', () => {
         const onChangeValue = jest.fn();
 
         render(
-            <Select data-testid="select" onChangeValue={onChangeValue}>
+            <Select
+                data-testid="select"
+                onChangeValue={onChangeValue}
+                id="select"
+            >
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" />
                 </SelectTrigger>
@@ -51,7 +55,11 @@ describe('Select', () => {
         const onChangeValue = jest.fn();
 
         render(
-            <Select data-testid="select" onChangeValue={onChangeValue}>
+            <Select
+                data-testid="select"
+                onChangeValue={onChangeValue}
+                id="select"
+            >
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" />
                 </SelectTrigger>
@@ -78,7 +86,7 @@ describe('Select', () => {
 
     it('should add expanded attribute to select on input click', () => {
         render(
-            <Select>
+            <Select id="select">
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" data-testid="trigger" />
                 </SelectTrigger>
@@ -104,7 +112,7 @@ describe('Select', () => {
 
     it('should show not found image on filter item that is not in list', async () => {
         render(
-            <Select>
+            <Select id="select">
                 <SelectTrigger>
                     <SelectTrigger.Field id="name" data-testid="trigger" />
                 </SelectTrigger>

@@ -15,6 +15,10 @@ export interface IOptionObject {
 }
 
 export interface IMultiSelectContext {
+    id: string | number;
+    selectedItems: string[];
+    select: ISelectGovBr | null;
+    allSelected: boolean;
     handleChange(value: string): void;
     handleChangeWithKeyboard: (
         event: KeyboardEvent<HTMLDivElement>,
@@ -23,9 +27,6 @@ export interface IMultiSelectContext {
     handleChangeAll(): void;
     handleChangeAllWithKeyboard(event: KeyboardEvent<HTMLDivElement>): void;
     addDefaultValue(value: string, index: number): void;
-    selectedItems: string[];
-    select: ISelectGovBr | null;
-    allSelected: boolean;
 }
 
 export interface ISelectGovBr {

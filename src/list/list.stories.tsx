@@ -29,6 +29,9 @@ export const Default: StoryObj<typeof List> = {
 
 export const Horizontal: StoryObj<typeof List> = {
     name: 'Horizontal',
+    args: {
+        horizontal: true,
+    },
     render: args => (
         <List {...args}>
             <List.Header>

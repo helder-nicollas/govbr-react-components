@@ -1,6 +1,5 @@
 import { Button } from '../button';
 import { Divider } from '../divider';
-import { Label } from '../label';
 import { Select } from '../select';
 import { SelectTrigger } from '../select-trigger';
 
@@ -14,7 +13,7 @@ export function TestingPagination() {
             data-per-page="20"
         >
             <div className="pagination-per-page">
-                <Select>
+                <Select id="size">
                     <SelectTrigger>
                         <label htmlFor="pagination-per-page">Exibir</label>
                         <SelectTrigger.Field id="pagination-per-page" />
@@ -39,7 +38,7 @@ export function TestingPagination() {
                 <span className="total">50</span>&nbsp;itens
             </div>
             <div className="pagination-go-to-page d-none d-sm-flex ml-auto">
-                <Select>
+                <Select id="page">
                     <SelectTrigger>
                         <label htmlFor="pagination-go-to-page">Página</label>
                         <SelectTrigger.Field id="pagination-go-to-page" />

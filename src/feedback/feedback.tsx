@@ -10,13 +10,13 @@ type FeedbackProps = VariantProps<typeof feedbackVariants> &
     };
 
 const Feedback = forwardRef<Ref, FeedbackProps>(
-    ({ className, message, variant, ...props }: FeedbackProps) => {
+    ({ className, message, variant, ...props }, ref) => {
         if (!message) return null;
 
         const { base, icon } = feedbackVariants({ className, variant });
 
         return (
-            <span {...props} className={base()} role="alert">
+            <span {...props} className={base()} ref={ref} role="alert">
                 <i className={icon()} aria-hidden="true" />
                 {message}
             </span>
@@ -26,4 +26,4 @@ const Feedback = forwardRef<Ref, FeedbackProps>(
 
 Feedback.displayName = 'Feedback';
 
-export { Feedback, FeedbackProps };
+export { Feedback, type FeedbackProps };

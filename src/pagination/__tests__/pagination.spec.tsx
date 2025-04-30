@@ -17,19 +17,13 @@ describe('Pagination', () => {
                     </li>
 
                     <li>
-                        <Pagination.Page href="javascript:void(0)">
-                            1
-                        </Pagination.Page>
+                        <Pagination.Page href="#">1</Pagination.Page>
                     </li>
                     <li>
-                        <Pagination.Page href="javascript:void(0)">
-                            2
-                        </Pagination.Page>
+                        <Pagination.Page href="#">2</Pagination.Page>
                     </li>
                     <li>
-                        <Pagination.Page href="javascript:void(0)">
-                            3
-                        </Pagination.Page>
+                        <Pagination.Page href="#">3</Pagination.Page>
                     </li>
                     <li>
                         <Button
@@ -66,19 +60,15 @@ describe('Pagination', () => {
                     </li>
 
                     <li>
-                        <Pagination.Page href="javascript:void(0)" active>
+                        <Pagination.Page href="#" active>
                             1
                         </Pagination.Page>
                     </li>
                     <li>
-                        <Pagination.Page href="javascript:void(0)">
-                            2
-                        </Pagination.Page>
+                        <Pagination.Page href="#">2</Pagination.Page>
                     </li>
                     <li>
-                        <Pagination.Page href="javascript:void(0)">
-                            3
-                        </Pagination.Page>
+                        <Pagination.Page href="#">3</Pagination.Page>
                     </li>
                     <li>
                         <Button

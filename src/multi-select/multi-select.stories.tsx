@@ -1,5 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { IMultiSelectProps, MultiSelect } from '.';
+import {
+    MultiSelect,
+    MultiSelectAllItems,
+    MultiSelectItem,
+    MultiSelectList,
+} from '.';
 import { fn } from '@storybook/test';
 import { SelectTrigger } from '../select-trigger';
 
@@ -7,19 +12,24 @@ export default {
     title: 'Components/MultiSelect',
     decorators: s => <div className="h-80">{s()}</div>,
     component: MultiSelect,
+    subcomponents: {
+        MultiSelectAllItems,
+        MultiSelectItem,
+        MultiSelectList,
+    },
     argTypes: {
         onChangeValue: {
             description: 'Função a ser executada com a modificação do valor.',
         },
-        reset: {
+        id: {
             description:
-                'Deve ser utilizado quando houver a necessidade de resetar as opções do select. Geralmente, é passado o array de opções',
+                'Identificador único que será utilizado para os items do multi-select',
         },
     },
     tags: ['autodocs'],
-} as Meta;
+} as Meta<typeof MultiSelect>;
 
-export const Default: StoryObj<IMultiSelectProps> = {
+export const Default: StoryObj<typeof MultiSelect> = {
     args: {
         onChangeValue: fn(),
     },
