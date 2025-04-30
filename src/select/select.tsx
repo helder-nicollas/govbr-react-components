@@ -15,9 +15,10 @@ import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import { twMerge } from 'tailwind-merge';
 
 type SelectProps = {
+    id: string | number;
+    children: React.ReactNode;
     className?: string;
     reset?: unknown;
-    children: React.ReactNode;
     onChangeValue?(value: string): void;
 };
 
@@ -25,6 +26,7 @@ function Select({
     reset,
     children,
     className,
+    id,
     onChangeValue,
     ...props
 }: SelectProps) {
@@ -133,10 +135,11 @@ function Select({
     return (
         <SelectContext.Provider
             value={{
+                id,
+                selected,
                 handleChange,
                 handleChangeWithKeyboard,
                 addDefaultValue,
-                selected,
             }}
         >
             <div

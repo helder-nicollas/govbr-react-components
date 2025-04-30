@@ -14,6 +14,7 @@ export interface ISelectContext {
     ) => void;
     addDefaultValue(value: string, index: number): void;
     selected: string;
+    id: string | number;
 }
 
 export interface IOptionObject {

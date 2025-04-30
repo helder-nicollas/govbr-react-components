@@ -22,16 +22,20 @@ export default {
             description:
                 'Deve ser utilizado quando houver a necessidade de resetar as opções do select. Geralmente, é passado o array de opções',
         },
+        id: {
+            description:
+                'Identificador único que será utilizado para os items do select',
+        },
     },
     id: 'Select',
     tags: ['autodocs'],
-} as Meta;
+} as Meta<typeof Select>;
 
 export const Default: StoryObj<typeof Select> = {
     args: {
         onChangeValue: fn(),
     },
-    render: args => {
+    render: ({ id, ...args }) => {
         const array = [
             {
                 label: 'Maçã',
@@ -47,9 +51,9 @@ export const Default: StoryObj<typeof Select> = {
             },
         ];
         return (
-            <Select {...args}>
+            <Select {...args} id={id}>
                 <SelectTrigger {...args}>
-                    <SelectTrigger.Field />
+                    <SelectTrigger.Field placeholder="Selecione uma fruta" />
                 </SelectTrigger>
                 <Select.List>
                     {array.map((item, index) => (

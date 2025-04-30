@@ -1,6 +1,7 @@
 import { useSelect } from './contexts/select-context';
 import { ComponentProps, useEffect } from 'react';
 import { Item } from '../item';
+import { Radio } from '../radio';
 
 interface IProps extends ComponentProps<'div'> {
     defaultSelected?: boolean;
@@ -16,10 +17,11 @@ export function SelectItem({
     ...props
 }: IProps) {
     const {
+        selected,
+        id,
         handleChangeWithKeyboard,
         addDefaultValue,
         handleChange,
-        selected,
     } = useSelect();
 
     useEffect(() => {
@@ -28,11 +30,10 @@ export function SelectItem({
 
     return (
         <Item selected={selected === value} tabIndex={-1} {...props}>
-            <div className="br-radio">
-                <input
-                    id={String(value)}
-                    type="radio"
-                    name={String(value)}
+            <Radio className="br-radio">
+                <Radio.Field
+                    id={`${id}-${value}`}
+                    name={`${id}-${value}`}
                     value={String(value)}
                     checked={selected === value}
                     onChange={() => {}}
@@ -47,8 +48,8 @@ export function SelectItem({
                         event.preventDefault();
                     }}
                 />
-                <label htmlFor={String(value)}>{children}</label>
-            </div>
+                <label htmlFor={`${id}-${value}`}>{children}</label>
+            </Radio>
         </Item>
     );
 }
