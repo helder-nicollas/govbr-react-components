@@ -10,7 +10,7 @@ type FeedbackProps = VariantProps<typeof feedbackVariants> &
     };
 
 const Feedback = forwardRef<Ref, FeedbackProps>(
-    ({ className, message, variant, ref, ...props }: FeedbackProps) => {
+    ({ className, message, variant, ...props }, ref) => {
         if (!message) return null;
 
         const { base, icon } = feedbackVariants({ className, variant });

@@ -53,7 +53,7 @@ export const Default: StoryObj<typeof Select> = {
         return (
             <Select {...args} id={id}>
                 <SelectTrigger {...args}>
-                    <SelectTrigger.Field />
+                    <SelectTrigger.Field placeholder="Selecione uma fruta" />
                 </SelectTrigger>
                 <Select.List>
                     {array.map((item, index) => (
