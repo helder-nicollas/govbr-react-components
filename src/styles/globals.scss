@@ -7,6 +7,8 @@
 @import '~@govbr-ds/core/src/partial/scss/utilities/_icons.scss';
 @import '~@govbr-ds/core/src/partial/scss/utilities/_motion.scss';
 @import '~@govbr-ds/core/src/partial/scss/utilities/_dropdown.scss';
+@import '~@govbr-ds/core/src/partial/scss/utilities/_colors.scss';
+@import '~@govbr-ds/core/src/partial/scss/utilities/_spacing.scss';
 
 @import '~@govbr-ds/core/src/components/breadcrumb/_breadcrumb.scss';
 @import '~@govbr-ds/core/src/components/breadcrumb/_mixins.scss';
@@ -67,6 +69,12 @@
 
 @import '~@govbr-ds/core/src/components/table/_table.scss';
 @import '~@govbr-ds/core/src/components/table/_mixins.scss';
+
+@import '~@govbr-ds/core/src/components/tooltip/_tooltip.scss';
+@import '~@govbr-ds/core/src/components/tooltip/_mixins.scss';
+
+@import '~@govbr-ds/core/src/components/upload/_upload.scss';
+@import '~@govbr-ds/core/src/components/upload/_mixins.scss';
 
 @import '~@govbr-ds/core/src/components/textarea/_textarea.scss';
 @import '~@govbr-ds/core/src/components/textarea/_mixins.scss';
