@@ -78,15 +78,13 @@ export const WithButton: StoryObj<InputProps> = {
     name: 'Input com botão',
     render: args => {
         return (
-            <div className="space-y-1">
+            <Input {...args} withButton>
                 <Label htmlFor="input">Nome de usuário:</Label>
-                <Input {...args} withButton>
-                    <Input.Field placeholder="Ex. joaogovbr" id="input" />
-                    <Input.Button>
-                        <i className="fas fa-eye" aria-hidden="true" />
-                    </Input.Button>
-                </Input>
-            </div>
+                <Input.Field placeholder="Ex. joaogovbr" id="input" />
+                <Input.Button>
+                    <i className="fas fa-eye" aria-hidden="true" />
+                </Input.Button>
+            </Input>
         );
     },
 };
@@ -99,17 +97,15 @@ export const WithIcon: StoryObj<InputProps> = {
     name: 'Input com ícone',
     render: args => {
         return (
-            <div className="space-y-1">
+            <Input {...args}>
                 <Label htmlFor="input">Nome de usuário:</Label>
-                <Input {...args}>
-                    <Input.Group>
-                        <Input.Icon>
-                            <i className="fas fa-eye" aria-hidden="true" />
-                        </Input.Icon>
-                        <Input.Field placeholder="Ex. joaogovbr" id="input" />
-                    </Input.Group>
-                </Input>
-            </div>
+                <Input.Group>
+                    <Input.Icon>
+                        <i className="fas fa-eye" aria-hidden="true" />
+                    </Input.Icon>
+                    <Input.Field placeholder="Ex. joaogovbr" id="input" />
+                </Input.Group>
+            </Input>
         );
     },
 };
