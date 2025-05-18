@@ -33,7 +33,7 @@ export const Default: StoryObj<typeof MultiSelect> = {
     args: {
         onChangeValue: fn(),
     },
-    render: args => {
+    render: ({ id, ...args }) => {
         const array = [
             {
                 label: 'Maçã',
@@ -50,7 +50,7 @@ export const Default: StoryObj<typeof MultiSelect> = {
         ];
 
         return (
-            <MultiSelect {...args}>
+            <MultiSelect {...args} id={id}>
                 <SelectTrigger>
                     <SelectTrigger.Field />
                 </SelectTrigger>

@@ -4,6 +4,7 @@ import { SelectTrigger } from '../select-trigger';
 import { SelectList } from './select-list';
 import { SelectItem } from './select-item';
 import { fn } from '@storybook/test';
+import { Label } from '../label';
 
 export default {
     title: 'Components/Select',
@@ -52,8 +53,12 @@ export const Default: StoryObj<typeof Select> = {
         ];
         return (
             <Select {...args} id={id}>
+                <Label htmlFor={String(id)}>Fruta:</Label>
                 <SelectTrigger {...args}>
-                    <SelectTrigger.Field placeholder="Selecione uma fruta" />
+                    <SelectTrigger.Field
+                        placeholder="Selecione uma fruta"
+                        id={String(id)}
+                    />
                 </SelectTrigger>
                 <Select.List>
                     {array.map((item, index) => (

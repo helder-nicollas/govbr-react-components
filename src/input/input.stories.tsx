@@ -61,12 +61,10 @@ export default {
 export const Default: StoryObj<InputProps> = {
     render: args => {
         return (
-            <div className="space-y-1">
-                <Input {...args}>
-                    <Label htmlFor="input">Nome de usuário:</Label>
-                    <Input.Field placeholder="Ex. joaogovbr" id="input" />
-                </Input>
-            </div>
+            <Input {...args}>
+                <Label htmlFor="input">Nome de usuário:</Label>
+                <Input.Field placeholder="Ex. joaogovbr" id="input" />
+            </Input>
         );
     },
 };
