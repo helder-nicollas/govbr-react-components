@@ -11,6 +11,19 @@ export default {
         UploadField,
         UploadList,
     },
+    argTypes: {
+        defaultFile: {
+            control: { disable: true },
+        },
+        disabled: {
+            description: 'Aplica o estado de desabilitado ao componente.',
+        },
+        multiple: {
+            description:
+                'Utilizado para informar se o componente aceita vários arquivos.',
+            type: 'boolean',
+        },
+    },
     tags: ['autodocs'],
 } as Meta<typeof Upload>;
 

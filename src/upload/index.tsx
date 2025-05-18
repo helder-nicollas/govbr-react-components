@@ -9,8 +9,8 @@ import BRUpload from '@govbr-ds/core/dist/components/upload/upload';
 type UploadProps = ComponentPropsWithoutRef<'div'> & {
     disabled: boolean;
     defaultFile?: File | null;
-    onChange?(file: File | null): void;
-    multiple: boolean;
+    onChange?(file: File[] | null): void;
+    multiple?: boolean;
 };
 
 function Upload({
@@ -42,10 +42,8 @@ function Upload({
                 ) as HTMLDivElement;
 
                 const observer = new MutationObserver(() => {
-                    const file = brUpload._fileArray?.[0]
-                        ? brUpload._fileArray[0]
-                        : null;
-                    props.onChange?.(file);
+                    const files = brUpload._fileArray ?? [];
+                    props.onChange?.(files);
                 });
 
                 observer.observe(target, { childList: true });
@@ -75,7 +73,6 @@ function Upload({
     );
 }
 
-Upload.displayName = 'Upload';
 Upload.Field = UploadField;
 Upload.List = UploadList;
 
