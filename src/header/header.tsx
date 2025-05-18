@@ -39,8 +39,7 @@ function Header({
 
     useEffect(() => {
         if (!headerRef.current) return;
-        const header = new BRHeader('br-header', headerRef.current);
-        console.log(header);
+        new BRHeader('br-header', headerRef.current);
     }, [headerRef]);
 
     return (

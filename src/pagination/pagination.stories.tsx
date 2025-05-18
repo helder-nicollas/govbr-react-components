@@ -150,7 +150,6 @@ export const Context: StoryObj = {
 
         useEffect(() => {
             if (ref.current) new BRPagination('br-pagination', ref.current);
-            console.log('nees');
         }, [ref]);
         return <TestingPagination />;
     },
