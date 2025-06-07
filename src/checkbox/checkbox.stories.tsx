@@ -3,7 +3,7 @@ import { Checkbox, CheckboxProps } from '.';
 import { checkboxVariants } from './variants';
 import { fn } from '@storybook/test';
 import { Label } from '../label';
-import { CheckboxFieldProps } from './checkbox-field';
+import { CheckboxField, CheckboxFieldProps } from './checkbox-field';
 
 export default {
     title: 'Components/Checkbox',
@@ -32,7 +32,7 @@ export const Default: StoryObj<CheckboxProps & CheckboxFieldProps> = {
     render: ({ variant, withoutLabel, ...args }) => {
         return (
             <Checkbox withoutLabel={withoutLabel} variant={variant}>
-                <Checkbox.Field
+                <CheckboxField
                     {...args}
                     withoutLabel={withoutLabel}
                     id="checkbox"
@@ -52,7 +52,7 @@ export const WithoutLabel: StoryObj<CheckboxProps & CheckboxFieldProps> = {
     render: ({ variant, withoutLabel, ...args }) => {
         return (
             <Checkbox withoutLabel={withoutLabel} variant={variant}>
-                <Checkbox.Field
+                <CheckboxField
                     {...args}
                     withoutLabel={withoutLabel}
                     id="checkbox"

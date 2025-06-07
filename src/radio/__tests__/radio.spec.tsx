@@ -2,12 +2,13 @@ import { render, screen } from '@testing-library/react';
 import { Radio } from '../radio';
 import { Label } from '../../label';
 import userEvent from '@testing-library/user-event';
+import { RadioField } from '../radio-field';
 
 describe('Radio', () => {
     it('should render component with correct variants', () => {
         render(
             <Radio variant="valid" disabled data-testid="radio">
-                <Radio.Field id="radio" disabled />
+                <RadioField id="radio" disabled />
                 <Label htmlFor="radio">Opção 01</Label>
             </Radio>,
         );
@@ -26,7 +27,7 @@ describe('Radio', () => {
 
         render(
             <Radio data-testid="radio">
-                <Radio.Field id="radio" onChange={onChange} />
+                <RadioField id="radio" onChange={onChange} />
                 <Label htmlFor="radio">Opção 01</Label>
             </Radio>,
         );

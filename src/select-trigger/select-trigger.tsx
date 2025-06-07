@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { selectTriggerVariants } from './variants';
-import { Input } from '../input';
+import { Input, InputButton } from '../input';
 
 type SelectTriggerProps = ComponentProps<'div'> &
     VariantProps<typeof selectTriggerVariants>;
@@ -26,13 +26,13 @@ function SelectTrigger({
             withButton
         >
             {children}
-            <Input.Button
+            <InputButton
                 aria-label="Exibir lista"
                 data-trigger="data-trigger"
                 tabIndex={-1}
             >
                 <i className="fas fa-angle-down" aria-hidden="true" />
-            </Input.Button>
+            </InputButton>
         </Input>
     );
 }

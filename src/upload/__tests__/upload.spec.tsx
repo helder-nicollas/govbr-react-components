@@ -1,8 +1,10 @@
 import { render } from '@testing-library/react';
-import { Upload } from '.';
-import { Label } from '../label';
+import { Upload } from '../upload';
+import { Label } from '../../label';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { UploadField } from '../upload-field';
+import { UploadList } from '../upload-list';
 
 describe('Upload Component', () => {
     it('should call onChange function on upload one file', async () => {
@@ -10,8 +12,8 @@ describe('Upload Component', () => {
         render(
             <Upload onChange={onChange}>
                 <Label htmlFor="upload">Enviar aquivo</Label>
-                <Upload.Field id="upload" />
-                <Upload.List />
+                <UploadField id="upload" />
+                <UploadList />
             </Upload>,
         );
 
@@ -29,8 +31,8 @@ describe('Upload Component', () => {
         render(
             <Upload onChange={onChange} multiple>
                 <Label htmlFor="upload">Enviar aquivo</Label>
-                <Upload.Field id="upload" />
-                <Upload.List />
+                <UploadField id="upload" />
+                <UploadList />
             </Upload>,
         );
 
@@ -54,8 +56,8 @@ describe('Upload Component', () => {
         render(
             <Upload onChange={onChange}>
                 <Label htmlFor="upload">Enviar aquivo</Label>
-                <Upload.Field id="upload" />
-                <Upload.List />
+                <UploadField id="upload" />
+                <UploadList />
             </Upload>,
         );
 

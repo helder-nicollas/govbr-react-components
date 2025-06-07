@@ -63,7 +63,7 @@ export const Default: StoryObj<InputProps> = {
         return (
             <Input {...args}>
                 <Label htmlFor="input">Nome de usuário:</Label>
-                <Input.Field placeholder="Ex. joaogovbr" id="input" />
+                <InputField placeholder="Ex. joaogovbr" id="input" />
             </Input>
         );
     },
@@ -80,10 +80,10 @@ export const WithButton: StoryObj<InputProps> = {
         return (
             <Input {...args} withButton>
                 <Label htmlFor="input">Nome de usuário:</Label>
-                <Input.Field placeholder="Ex. joaogovbr" id="input" />
-                <Input.Button>
+                <InputField placeholder="Ex. joaogovbr" id="input" />
+                <InputButton>
                     <i className="fas fa-eye" aria-hidden="true" />
-                </Input.Button>
+                </InputButton>
             </Input>
         );
     },
@@ -99,12 +99,12 @@ export const WithIcon: StoryObj<InputProps> = {
         return (
             <Input {...args}>
                 <Label htmlFor="input">Nome de usuário:</Label>
-                <Input.Group>
-                    <Input.Icon>
+                <InputGroup>
+                    <InputIcon>
                         <i className="fas fa-eye" aria-hidden="true" />
-                    </Input.Icon>
-                    <Input.Field placeholder="Ex. joaogovbr" id="input" />
-                </Input.Group>
+                    </InputIcon>
+                    <InputField placeholder="Ex. joaogovbr" id="input" />
+                </InputGroup>
             </Input>
         );
     },

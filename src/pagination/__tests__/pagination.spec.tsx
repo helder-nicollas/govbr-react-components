@@ -1,4 +1,4 @@
-import { Pagination } from '..';
+import { Pagination, PaginationPage } from '..';
 import { Button } from '../../button';
 import { render, screen } from '@testing-library/react';
 
@@ -17,13 +17,13 @@ describe('Pagination', () => {
                     </li>
 
                     <li>
-                        <Pagination.Page href="#">1</Pagination.Page>
+                        <PaginationPage href="#">1</PaginationPage>
                     </li>
                     <li>
-                        <Pagination.Page href="#">2</Pagination.Page>
+                        <PaginationPage href="#">2</PaginationPage>
                     </li>
                     <li>
-                        <Pagination.Page href="#">3</Pagination.Page>
+                        <PaginationPage href="#">3</PaginationPage>
                     </li>
                     <li>
                         <Button
@@ -60,15 +60,15 @@ describe('Pagination', () => {
                     </li>
 
                     <li>
-                        <Pagination.Page href="#" active>
+                        <PaginationPage href="#" active>
                             1
-                        </Pagination.Page>
+                        </PaginationPage>
                     </li>
                     <li>
-                        <Pagination.Page href="#">2</Pagination.Page>
+                        <PaginationPage href="#">2</PaginationPage>
                     </li>
                     <li>
-                        <Pagination.Page href="#">3</Pagination.Page>
+                        <PaginationPage href="#">3</PaginationPage>
                     </li>
                     <li>
                         <Button

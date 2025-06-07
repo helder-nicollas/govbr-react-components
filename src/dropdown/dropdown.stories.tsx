@@ -19,18 +19,18 @@ export const Default: StoryObj<typeof Dropdown> = {
     render: () => {
         return (
             <Dropdown>
-                <Dropdown.Trigger>
+                <DropdownTrigger>
                     <Button circle type="button">
                         <i className="fas fa-ellipsis-v" aria-hidden="true" />
                     </Button>
-                </Dropdown.Trigger>
-                <Dropdown.Content>
+                </DropdownTrigger>
+                <DropdownContent>
                     <List>
                         <Item>Item 01</Item>
                         <Item>Item 02</Item>
                         <Item>Item 03</Item>
                     </List>
-                </Dropdown.Content>
+                </DropdownContent>
             </Dropdown>
         );
     },

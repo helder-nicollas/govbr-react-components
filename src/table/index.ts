@@ -1,15 +1,6 @@
-import { TableActions } from './table-actions';
-import { TableHeader } from './table-header';
-import { TableRoot } from './table-root';
-import { TableSearchBar } from './table-search-bar';
-import { TableTitle } from './table-title';
-import { TableTopBar } from './table-top-bar';
-
-export const Table = {
-    Root: TableRoot,
-    Header: TableHeader,
-    Title: TableTitle,
-    TopBar: TableTopBar,
-    SearchBar: TableSearchBar,
-    Actions: TableActions,
-};
+export * from './table-root';
+export * from './table-header';
+export * from './table-actions';
+export * from './table-search-bar';
+export * from './table-title';
+export * from './table-top-bar';

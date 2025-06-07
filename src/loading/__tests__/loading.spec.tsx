@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Loading } from '../loading';
+import { LoadingFill } from '../loading-fill';
+import { LoadingMask } from '../loading-mask';
 
 describe('Loading', () => {
     it('should render component with correct variants', () => {
@@ -15,12 +17,12 @@ describe('Loading', () => {
 
         render(
             <Loading progressValue={progressValue} data-testid="loading">
-                <Loading.Mask full>
-                    <Loading.Fill />
-                </Loading.Mask>
-                <Loading.Mask>
-                    <Loading.Fill />
-                </Loading.Mask>
+                <LoadingMask full>
+                    <LoadingFill />
+                </LoadingMask>
+                <LoadingMask>
+                    <LoadingFill />
+                </LoadingMask>
             </Loading>,
         );
 

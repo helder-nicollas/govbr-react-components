@@ -29,4 +29,4 @@ function Input({
     );
 }
 
-export { Input, InputProps };
+export { Input, type InputProps };

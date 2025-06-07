@@ -2,18 +2,20 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { Dropdown } from '../dropdown';
 import { Button } from '../../button';
 import userEvent from '@testing-library/user-event';
+import { DropdownContent } from '../dropdown-content';
+import { DropdownTrigger } from '../drowdown-trigger';
 
 describe('', () => {
     it('should render dropdown component', () => {
         render(
             <Dropdown>
-                <Dropdown.Trigger>
+                <DropdownTrigger>
                     <Button>Abrir</Button>
-                </Dropdown.Trigger>
-                <Dropdown.Content>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </DropdownTrigger>
+                <DropdownContent>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit
                     Facere, dolor ipsam?
-                </Dropdown.Content>
+                </DropdownContent>
             </Dropdown>,
         );
     });
@@ -21,13 +23,13 @@ describe('', () => {
     it('should not show the dropdown when state is false', () => {
         render(
             <Dropdown>
-                <Dropdown.Trigger>
+                <DropdownTrigger>
                     <Button>Open</Button>
-                </Dropdown.Trigger>
-                <Dropdown.Content data-testid="dropdown">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </DropdownTrigger>
+                <DropdownContent data-testid="dropdown">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit
                     Facere, dolor ipsam?
-                </Dropdown.Content>
+                </DropdownContent>
             </Dropdown>,
         );
 
@@ -37,13 +39,13 @@ describe('', () => {
     it('should show the dropdown when state is true', async () => {
         render(
             <Dropdown>
-                <Dropdown.Trigger>
+                <DropdownTrigger>
                     <Button>Open</Button>
-                </Dropdown.Trigger>
-                <Dropdown.Content data-testid="dropdown">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                </DropdownTrigger>
+                <DropdownContent data-testid="dropdown">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit
                     Facere, dolor ipsam?
-                </Dropdown.Content>
+                </DropdownContent>
             </Dropdown>,
         );
 

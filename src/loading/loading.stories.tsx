@@ -46,12 +46,12 @@ export const WithPercentage: StoryObj<typeof Loading> = {
                 aria-valuenow={args.progressValue}
                 aria-valuemax={100}
             >
-                <Loading.Mask full>
-                    <Loading.Fill />
-                </Loading.Mask>
-                <Loading.Mask>
-                    <Loading.Fill />
-                </Loading.Mask>
+                <LoadingMask full>
+                    <LoadingFill />
+                </LoadingMask>
+                <LoadingMask>
+                    <LoadingFill />
+                </LoadingMask>
             </Loading>
         );
     },

@@ -5,6 +5,7 @@ import { Button } from '../button';
 import { useEffect, useRef, useState } from 'react';
 import BRPagination from '@govbr-ds/core/dist/components/pagination/pagination';
 import { TestingPagination } from './testing-pagination';
+import { PaginationPage } from './pagination-page';
 
 export default {
     title: 'Components/Pagination',
@@ -98,31 +99,31 @@ export const Default: StoryObj<typeof Pagination> = {
                     </li>
 
                     <li>
-                        <Pagination.Page
+                        <PaginationPage
                             href="javascript:void(0)"
                             active={pagination.page === 1}
                             onClick={() => handleChangePage(1, 2, null)}
                         >
                             1
-                        </Pagination.Page>
+                        </PaginationPage>
                     </li>
                     <li>
-                        <Pagination.Page
+                        <PaginationPage
                             href="javascript:void(0)"
                             active={pagination.page === 2}
                             onClick={() => handleChangePage(2, 3, 1)}
                         >
                             2
-                        </Pagination.Page>
+                        </PaginationPage>
                     </li>
                     <li>
-                        <Pagination.Page
+                        <PaginationPage
                             href="javascript:void(0)"
                             active={pagination.page === 3}
                             onClick={() => handleChangePage(3, null, 2)}
                         >
                             3
-                        </Pagination.Page>
+                        </PaginationPage>
                     </li>
                     <li>
                         <Button
