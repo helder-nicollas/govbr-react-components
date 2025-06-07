@@ -17,6 +17,7 @@ export default {
         },
         disabled: {
             description: 'Aplica o estado de desabilitado ao componente.',
+            control: 'boolean',
         },
         multiple: {
             description:
@@ -28,6 +29,28 @@ export default {
 } as Meta<typeof Upload>;
 
 export const Default: StoryObj<typeof Upload> = {
+    args: {
+        disabled: false,
+        multiple: false,
+    },
+
+    render: args => {
+        return (
+            <Upload {...args}>
+                <Label htmlFor="upload">Enviar aquivo</Label>
+                <Upload.Field id="upload" />
+                <Upload.List />
+            </Upload>
+        );
+    },
+};
+
+export const Multiple: StoryObj<typeof Upload> = {
+    name: 'Múltiplo',
+    args: {
+        multiple: true,
+        disabled: false,
+    },
     render: args => {
         return (
             <Upload {...args}>
