@@ -7,7 +7,7 @@ import { UploadField } from './upload-field';
 import BRUpload from '@govbr-ds/core/dist/components/upload/upload';
 
 type UploadProps = ComponentPropsWithoutRef<'div'> & {
-    disabled: boolean;
+    disabled?: boolean;
     defaultFile?: File | null;
     onChange?(file: File[] | null): void;
     multiple?: boolean;

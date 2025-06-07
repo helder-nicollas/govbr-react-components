@@ -11,6 +11,7 @@ const UploadField = forwardRef<Ref, UploadFieldProps>(
                 {...props}
                 ref={ref}
                 type="file"
+                data-testid="upload"
                 className={twMerge('upload-input', className)}
             />
         );
