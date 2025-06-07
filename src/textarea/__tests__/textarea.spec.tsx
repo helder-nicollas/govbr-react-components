@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { Textarea } from '..';
+import { Textarea, TextareaField } from '..';
 import userEvent from '@testing-library/user-event';
 
 describe('Textarea', () => {
     it('should render applying variants from textarea', () => {
         render(
             <Textarea variant="success" size="large">
-                <Textarea.Field data-testid="textarea" />
+                <TextareaField data-testid="textarea" />
             </Textarea>,
         );
 
@@ -20,7 +20,7 @@ describe('Textarea', () => {
 
         render(
             <Textarea>
-                <Textarea.Field onChange={onChange} placeholder="testing" />
+                <TextareaField onChange={onChange} placeholder="testing" />
             </Textarea>,
         );
 

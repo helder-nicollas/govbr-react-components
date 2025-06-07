@@ -1,7 +1,7 @@
 import { Button } from '../button';
 import { Divider } from '../divider';
-import { Select } from '../select';
-import { SelectTrigger } from '../select-trigger';
+import { Select, SelectItem, SelectList } from '../select';
+import { SelectTrigger, SelectTriggerField } from '../select-trigger';
 
 export function TestingPagination() {
     return (
@@ -16,19 +16,19 @@ export function TestingPagination() {
                 <Select id="size">
                     <SelectTrigger>
                         <label htmlFor="pagination-per-page">Exibir</label>
-                        <SelectTrigger.Field id="pagination-per-page" />
+                        <SelectTriggerField id="pagination-per-page" />
                     </SelectTrigger>
-                    <Select.List>
-                        <Select.Item index={0} value="10">
+                    <SelectList>
+                        <SelectItem index={0} value="10">
                             10
-                        </Select.Item>
-                        <Select.Item index={1} value="20">
+                        </SelectItem>
+                        <SelectItem index={1} value="20">
                             20
-                        </Select.Item>
-                        <Select.Item index={2} value="30">
+                        </SelectItem>
+                        <SelectItem index={2} value="30">
                             30
-                        </Select.Item>
-                    </Select.List>
+                        </SelectItem>
+                    </SelectList>
                 </Select>
             </div>
             <Divider className="mx-3" vertical />
@@ -41,19 +41,19 @@ export function TestingPagination() {
                 <Select id="page">
                     <SelectTrigger>
                         <label htmlFor="pagination-go-to-page">Página</label>
-                        <SelectTrigger.Field id="pagination-go-to-page" />
+                        <SelectTriggerField id="pagination-go-to-page" />
                     </SelectTrigger>
-                    <Select.List>
-                        <Select.Item index={0} value="1">
+                    <SelectList>
+                        <SelectItem index={0} value="1">
                             1
-                        </Select.Item>
-                        <Select.Item index={1} value="2">
+                        </SelectItem>
+                        <SelectItem index={1} value="2">
                             2
-                        </Select.Item>
-                        <Select.Item index={2} value="3">
+                        </SelectItem>
+                        <SelectItem index={2} value="3">
                             3
-                        </Select.Item>
-                    </Select.List>
+                        </SelectItem>
+                    </SelectList>
                 </Select>
             </div>
             <span className="br-divider d-none d-sm-block mx-3"></span>

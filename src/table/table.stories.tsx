@@ -1,11 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Table } from '.';
 import { Button } from '../button';
-import { Input } from '../input';
+import { Input, InputField } from '../input';
 import { useState } from 'react';
-import { Dropdown } from '../dropdown';
+import { Dropdown, DropdownContent, DropdownTrigger } from '../dropdown';
 import { List } from '../list';
 import { Item } from '../item';
+import { TableActions } from './table-actions';
+import { TableHeader } from './table-header';
+import { TableRoot } from './table-root';
+import { TableSearchBar } from './table-search-bar';
+import { TableTitle } from './table-title';
+import { TableTopBar } from './table-top-bar';
 
 export default {
     title: 'Components/Table',
@@ -20,21 +25,21 @@ export const Default: StoryObj = {
         );
 
         return (
-            <Table.Root size={size}>
-                <Table.Header hiddenSearchIcon={searchIsOpen}>
-                    <Table.TopBar>
-                        <Table.Title>Tabela padrão</Table.Title>
-                        <Table.Actions>
+            <TableRoot size={size}>
+                <TableHeader hiddenSearchIcon={searchIsOpen}>
+                    <TableTopBar>
+                        <TableTitle>Tabela padrão</TableTitle>
+                        <TableActions>
                             <Dropdown>
-                                <Dropdown.Trigger>
+                                <DropdownTrigger>
                                     <Button circle>
                                         <i
                                             className="fas fa-ellipsis-v"
                                             aria-hidden="true"
                                         />
                                     </Button>
-                                </Dropdown.Trigger>
-                                <Dropdown.Content>
+                                </DropdownTrigger>
+                                <DropdownContent>
                                     <List>
                                         <Item
                                             as="button"
@@ -55,9 +60,9 @@ export const Default: StoryObj = {
                                             Densidade Baixa
                                         </Item>
                                     </List>
-                                </Dropdown.Content>
+                                </DropdownContent>
                             </Dropdown>
-                        </Table.Actions>
+                        </TableActions>
                         <Button
                             circle
                             onClick={() => setSearchIsOpen(true)}
@@ -65,13 +70,10 @@ export const Default: StoryObj = {
                         >
                             <i className="fas fa-search" aria-hidden="true"></i>
                         </Button>
-                    </Table.TopBar>
-                    <Table.SearchBar show={searchIsOpen}>
+                    </TableTopBar>
+                    <TableSearchBar show={searchIsOpen}>
                         <Input withButton className="max-w-full">
-                            <Input.Field
-                                placeholder="Buscar..."
-                                name="search"
-                            />
+                            <InputField placeholder="Buscar..." name="search" />
                             <Button circle type="button" aria-label="Buscar">
                                 <i
                                     className="fas fa-search"
@@ -86,8 +88,8 @@ export const Default: StoryObj = {
                         >
                             <i className="fas fa-times" aria-hidden="true"></i>
                         </Button>
-                    </Table.SearchBar>
-                </Table.Header>
+                    </TableSearchBar>
+                </TableHeader>
                 <table>
                     <thead>
                         <tr>
@@ -114,7 +116,7 @@ export const Default: StoryObj = {
                         </tr>
                     </tbody>
                 </table>
-            </Table.Root>
+            </TableRoot>
         );
     },
 };

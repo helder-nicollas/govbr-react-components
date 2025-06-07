@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { List } from './list';
 import { Item } from '../item';
 import { Divider } from '../divider';
+import { ListHeader } from './list-header';
+import { ListTitle } from './list-title';
 
 export default {
     title: 'Components/List',
@@ -34,9 +36,9 @@ export const Horizontal: StoryObj<typeof List> = {
     },
     render: args => (
         <List {...args}>
-            <List.Header>
-                <List.Title>Título da lista</List.Title>
-            </List.Header>
+            <ListHeader>
+                <ListTitle>Título da lista</ListTitle>
+            </ListHeader>
             <Divider />
             <Item>Maçã</Item>
             <Item>Pera</Item>
@@ -49,9 +51,9 @@ export const WithHeader: StoryObj<typeof List> = {
     name: 'Lista com título',
     render: args => (
         <List {...args}>
-            <List.Header>
-                <List.Title>Título da lista</List.Title>
-            </List.Header>
+            <ListHeader>
+                <ListTitle>Título da lista</ListTitle>
+            </ListHeader>
             <Divider />
             <Item>Maçã</Item>
             <Item>Pera</Item>

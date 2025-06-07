@@ -46,7 +46,7 @@ export const Default: StoryObj<RadioProps & RadioFieldProps> = {
     render: ({ variant, id, disabled, ...args }) => {
         return (
             <Radio variant={variant} disabled={disabled}>
-                <Radio.Field {...args} id={id} disabled={disabled} />
+                <RadioField {...args} id={id} disabled={disabled} />
                 <Label htmlFor={id}>Opção 01</Label>
             </Radio>
         );
@@ -73,19 +73,19 @@ export const Group: StoryObj<RadioProps & RadioFieldProps> = {
         return (
             <div>
                 <Radio variant="valid">
-                    <Radio.Field id="radio-01" name="radio" />
+                    <RadioField id="radio-01" name="radio" />
                     <Label htmlFor="radio-01">Válido</Label>
                 </Radio>
                 <Radio variant="invalid">
-                    <Radio.Field id="radio-02" name="radio" />
+                    <RadioField id="radio-02" name="radio" />
                     <Label htmlFor="radio-02">Inválido</Label>
                 </Radio>
                 <Radio>
-                    <Radio.Field id="radio-03" name="radio" />
+                    <RadioField id="radio-03" name="radio" />
                     <Label htmlFor="radio-03">Normal</Label>
                 </Radio>
                 <Radio disabled>
-                    <Radio.Field id="radio-03" name="radio" disabled />
+                    <RadioField id="radio-03" name="radio" disabled />
                     <Label htmlFor="radio-03">Desabilitado</Label>
                 </Radio>
             </div>

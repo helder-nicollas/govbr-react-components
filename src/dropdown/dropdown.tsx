@@ -7,8 +7,6 @@ import {
     useContext,
     useState,
 } from 'react';
-import { DropdownTrigger } from './drowdown-trigger';
-import { DropdownContent } from './dropdown-content';
 import { twMerge } from 'tailwind-merge';
 
 interface IDropdownContext {
@@ -30,14 +28,6 @@ const useDropdown = () => {
 type Ref = HTMLDivElement;
 
 type DropdownProps = ComponentProps<'div'>;
-
-interface IDropdownComponent
-    extends React.ForwardRefExoticComponent<
-        DropdownProps & React.RefAttributes<Ref>
-    > {
-    Trigger: typeof DropdownTrigger;
-    Content: typeof DropdownContent;
-}
 
 const Dropdown = forwardRef<Ref, DropdownProps>(
     ({ className, children, ...props }, ref) => {
@@ -62,11 +52,8 @@ const Dropdown = forwardRef<Ref, DropdownProps>(
             </DropdownContext.Provider>
         );
     },
-) as IDropdownComponent;
+);
 
 Dropdown.displayName = 'Dropdown';
-
-Dropdown.Trigger = DropdownTrigger;
-Dropdown.Content = DropdownContent;
 
 export { Dropdown, useDropdown, type DropdownProps };

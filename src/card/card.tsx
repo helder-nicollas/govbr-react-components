@@ -1,8 +1,5 @@
 import { ComponentProps, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { CardHeader } from './card-header';
-import { CardContent } from './card-content';
-import { CardFooter } from './card-footer';
 
 type CardProps = ComponentProps<'div'> & {
     disabled?: boolean;
@@ -19,9 +16,5 @@ function Card({ className, disabled, children, ...props }: CardProps) {
         </div>
     );
 }
-
-Card.Header = CardHeader;
-Card.Content = CardContent;
-Card.Footer = CardFooter;
 
 export { Card, type CardProps };

@@ -25,19 +25,19 @@ export const Default: StoryObj<typeof Card> = {
     render: args => {
         return (
             <Card {...args} className="max-w-96">
-                <Card.Header>
+                <CardHeader>
                     <h1 className="text-xl font-bold">Componente card</h1>
-                </Card.Header>
-                <Card.Content>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </CardHeader>
+                <CardContent>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                     Dolorem expedita, perferendis consequuntur aspernatur,
                     laboriosam consectetur pariatur, nemo unde voluptate aperiam
                     similique quis incidunt perspiciatis! Saepe odit earum
-                    mollitia quis corrupti.
-                </Card.Content>
-                <Card.Footer>
+                    mollitia quis corrupti
+                </CardContent>
+                <CardFooter>
                     <Button variant="primary">Abrir</Button>
-                </Card.Footer>
+                </CardFooter>
             </Card>
         );
     },
@@ -50,19 +50,19 @@ export const Disabled: StoryObj<typeof Card> = {
     render: args => {
         return (
             <Card {...args}>
-                <Card.Header>
+                <CardHeader>
                     <h1 className="text-xl font-bold">Componente card</h1>
-                </Card.Header>
-                <Card.Content>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </CardHeader>
+                <CardContent>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                     Dolorem expedita, perferendis consequuntur aspernatur,
                     laboriosam consectetur pariatur, nemo unde voluptate aperiam
                     similique quis incidunt perspiciatis! Saepe odit earum
-                    mollitia quis corrupti.
-                </Card.Content>
-                <Card.Footer>
+                    mollitia quis corrupti
+                </CardContent>
+                <CardFooter>
                     <Button disabled>Abrir</Button>
-                </Card.Footer>
+                </CardFooter>
             </Card>
         );
     },

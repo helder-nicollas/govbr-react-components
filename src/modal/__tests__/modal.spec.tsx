@@ -1,5 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Modal } from '..';
+import {
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalTitle,
+} from '..';
 import { Button } from '../../button';
 import userEvent from '@testing-library/user-event';
 
@@ -8,24 +15,24 @@ describe('Modal', () => {
         render(
             <Modal open>
                 {/* Variants */}
-                <Modal.Content width="large">
-                    <Modal.Header withCloseButton>
-                        <Modal.Title>Título do modal</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+                <ModalContent width="large">
+                    <ModalHeader withCloseButton>
+                        <ModalTitle>Título do modal</ModalTitle>
+                    </ModalHeader>
+                    <ModalBody>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Nobis aut doloribus veritatis? Quam placeat
+                            elit Nobis aut doloribus veritatis? Quam placeat
                             delectus repudiandae consectetur accusantium atque
                             recusandae corrupti quaerat, velit fugiat voluptas
-                            distinctio cumque itaque. Laborum, quis.
+                            distinctio cumque itaque Laborum, quis
                         </p>
-                    </Modal.Body>
-                    <Modal.Footer>
+                    </ModalBody>
+                    <ModalFooter>
                         <Button variant="outline">Sair</Button>
                         <Button>Salvar</Button>
-                    </Modal.Footer>
-                </Modal.Content>
+                    </ModalFooter>
+                </ModalContent>
             </Modal>,
         );
         const modalContent = screen.getByRole('dialog');
@@ -38,24 +45,24 @@ describe('Modal', () => {
 
         render(
             <Modal open onOpenChange={onOpenChange}>
-                <Modal.Content>
-                    <Modal.Header data-testid="header" withCloseButton>
-                        <Modal.Title>Título do modal</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+                <ModalContent>
+                    <ModalHeader data-testid="header" withCloseButton>
+                        <ModalTitle>Título do modal</ModalTitle>
+                    </ModalHeader>
+                    <ModalBody>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Nobis aut doloribus veritatis? Quam placeat
+                            elit Nobis aut doloribus veritatis? Quam placeat
                             delectus repudiandae consectetur accusantium atque
                             recusandae corrupti quaerat, velit fugiat voluptas
-                            distinctio cumque itaque. Laborum, quis.
+                            distinctio cumque itaque Laborum, quis
                         </p>
-                    </Modal.Body>
-                    <Modal.Footer>
+                    </ModalBody>
+                    <ModalFooter>
                         <Button variant="outline">Sair</Button>
                         <Button>Salvar</Button>
-                    </Modal.Footer>
-                </Modal.Content>
+                    </ModalFooter>
+                </ModalContent>
             </Modal>,
         );
         const closeButton = screen
@@ -71,24 +78,24 @@ describe('Modal', () => {
 
         const { container } = render(
             <Modal open onOpenChange={onOpenChange}>
-                <Modal.Content>
-                    <Modal.Header>
-                        <Modal.Title>Título do modal</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
+                <ModalContent>
+                    <ModalHeader>
+                        <ModalTitle>Título do modal</ModalTitle>
+                    </ModalHeader>
+                    <ModalBody>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Nobis aut doloribus veritatis? Quam placeat
+                            elit Nobis aut doloribus veritatis? Quam placeat
                             delectus repudiandae consectetur accusantium atque
                             recusandae corrupti quaerat, velit fugiat voluptas
-                            distinctio cumque itaque. Laborum, quis.
+                            distinctio cumque itaque Laborum, quis
                         </p>
-                    </Modal.Body>
-                    <Modal.Footer>
+                    </ModalBody>
+                    <ModalFooter>
                         <Button variant="outline">Sair</Button>
                         <Button>Salvar</Button>
-                    </Modal.Footer>
-                </Modal.Content>
+                    </ModalFooter>
+                </ModalContent>
             </Modal>,
         );
 

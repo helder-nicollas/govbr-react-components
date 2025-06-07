@@ -36,7 +36,7 @@ export const Default: StoryObj<TextareaProps> = {
     render: args => {
         return (
             <Textarea {...args}>
-                <Textarea.Field placeholder="Digite aqui..." />
+                <TextareaField placeholder="Digite aqui..." />
             </Textarea>
         );
     },

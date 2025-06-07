@@ -1,12 +1,5 @@
 import { ComponentPropsWithoutRef, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { MenuHeader } from './menu-header';
-import { MenuFooter } from './menu-footer';
-import { MenuBody } from './menu-body';
-import { MenuPanel } from './menu-panel';
-import { MenuTitle } from './menu-title';
-import { MenuItem } from './menu-item/menu-item';
-import { MenuFolder } from './menu-folder';
 import { MenuContext } from './context/menu-context';
 import BRMenu from '@govbr-ds/core/dist/components/menu/menu';
 
@@ -61,13 +54,5 @@ function Menu({
         </MenuContext.Provider>
     );
 }
-
-Menu.Header = MenuHeader;
-Menu.Body = MenuBody;
-Menu.Footer = MenuFooter;
-Menu.Folder = MenuFolder;
-Menu.Panel = MenuPanel;
-Menu.Title = MenuTitle;
-Menu.Item = MenuItem;
 
 export { Menu, type MenuProps };
