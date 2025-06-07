@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { ComponentPropsWithoutRef, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { UploadList } from './upload-list';
-import { UploadField } from './upload-field';
 
 import BRUpload from '@govbr-ds/core/dist/components/upload/upload';
 
@@ -72,8 +70,5 @@ function Upload({
         </div>
     );
 }
-
-Upload.Field = UploadField;
-Upload.List = UploadList;
 
 export { Upload, type UploadProps };

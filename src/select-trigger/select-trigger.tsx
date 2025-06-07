@@ -2,7 +2,6 @@ import { ComponentProps } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { selectTriggerVariants } from './variants';
 import { Input } from '../input';
-import { SelectTriggerField } from './select-trigger-field';
 
 type SelectTriggerProps = ComponentProps<'div'> &
     VariantProps<typeof selectTriggerVariants>;
@@ -37,7 +36,5 @@ function SelectTrigger({
         </Input>
     );
 }
-
-SelectTrigger.Field = SelectTriggerField;
 
 export { SelectTrigger, SelectTriggerProps };

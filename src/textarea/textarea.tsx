@@ -1,5 +1,4 @@
 import { ComponentProps } from 'react';
-import { TextareaField } from './textarea-field';
 import { VariantProps } from 'tailwind-variants';
 import { textareaVariants } from './variants';
 
@@ -22,7 +21,5 @@ function Textarea({
         </div>
     );
 }
-
-Textarea.Field = TextareaField;
 
 export { Textarea, TextareaProps };

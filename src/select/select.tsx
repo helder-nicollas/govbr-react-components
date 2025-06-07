@@ -9,8 +9,6 @@ import React, {
 } from 'react';
 import { SelectContext } from './contexts/select-context';
 import { SelectGovBr } from './types';
-import { SelectItem } from './select-item';
-import { SelectList } from './select-list';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
 import { twMerge } from 'tailwind-merge';
 
@@ -152,8 +150,5 @@ function Select({
         </SelectContext.Provider>
     );
 }
-
-Select.Item = SelectItem;
-Select.List = SelectList;
 
 export { Select, type SelectProps };

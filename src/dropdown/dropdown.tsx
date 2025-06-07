@@ -66,7 +66,4 @@ const Dropdown = forwardRef<Ref, DropdownProps>(
 
 Dropdown.displayName = 'Dropdown';
 
-Dropdown.Trigger = DropdownTrigger;
-Dropdown.Content = DropdownContent;
-
 export { Dropdown, useDropdown, type DropdownProps };

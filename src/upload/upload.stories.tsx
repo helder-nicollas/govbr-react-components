@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Upload } from '.';
 import { UploadField } from './upload-field';
 import { UploadList } from './upload-list';
 import { Label } from '../label';
+import { Upload } from './upload';
 
 export default {
     title: 'Components/Upload',
@@ -38,8 +38,8 @@ export const Default: StoryObj<typeof Upload> = {
         return (
             <Upload {...args}>
                 <Label htmlFor="upload">Enviar aquivo</Label>
-                <Upload.Field id="upload" />
-                <Upload.List />
+                <UploadField id="upload" />
+                <UploadList />
             </Upload>
         );
     },
@@ -55,8 +55,8 @@ export const Multiple: StoryObj<typeof Upload> = {
         return (
             <Upload {...args}>
                 <Label htmlFor="upload">Enviar aquivo</Label>
-                <Upload.Field id="upload" />
-                <Upload.List />
+                <UploadField id="upload" />
+                <UploadList />
             </Upload>
         );
     },
