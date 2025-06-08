@@ -1,4 +1,3 @@
-
 # Govbr React Components
 
 Biblioteca de componentes desenvolvida com as especificações do Design System Govbr.
@@ -109,17 +108,17 @@ export function Form() {
     return (
         <Select onChangeValue={onChangeValue}>
             <SelectTrigger>
-                <SelectTrigger.Field />
+                <SelectTriggerField />
             </SelectTrigger>
-            <Select.List>
+            <SelectList>
                 {array.map((item, index) => (
-                    <Select.Item
+                    <SelectItem
                         index={index}
                         value={item.value}
                         key={item.value}
                     >
                         {item.label}
-                    </Select.Item>
+                    </SelectItem>
                 ))}
             </Select.List>
         </Select>
@@ -137,11 +136,11 @@ return (
     <>
         <Button onClick={() => setOpen(true)}>Abrir modal</Button>
         <Modal open={open} onOpenChange={() => setOpen(false)}>
-            <Modal.Content className="rounded">
-                <Modal.Header withCloseButton className="bg-gray-300">
-                    <Modal.Title>Título do modal</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+            <ModalContent className="rounded">
+                <ModalHeader withCloseButton className="bg-gray-300">
+                    <ModalTitle>Título do modal</ModalTitle>
+                </ModalHeader>
+                <ModalBody>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing
                         elit. Nobis aut doloribus veritatis? Quam placeat
@@ -149,32 +148,33 @@ return (
                         recusandae corrupti quaerat, velit fugiat voluptas
                         distinctio cumque itaque. Laborum, quis.
                     </p>
-                </Modal.Body>
-                <Modal.Footer className="bg-gray-300">
+                </ModalBody>
+                <ModalFooter className="bg-gray-300">
                     <Button variant="outline">Sair</Button>
                     <Button>Salvar</Button>
-                </Modal.Footer>
-            </Modal.Content>
+                </ModalFooter>
+            </ModalContent>
         </Modal>
     </>
 );
 ```
+
 ### Resultado:
 
 ![alt text](./public/component-example.png)
 
 **Nota**: Todos os padrões de acessibilidade e as funcionalidades que o **core** do govbr oferece continuam sendo utilizados nos componentes.
 
-
 ## 📝 Componentes que necessitam de hidratação javascript
+
 Alguns componentes devem ser utilizados obrigatoriamente como **client components**, pois o javascript se torna essencial para seu funcionamento. São eles:
+
 1. Select
 2. Modal
 3. MultiSelect
 4. Menu
 5. Dropdown
 6. Header
-
 
 ## ⚙️ Tecnologias
 
