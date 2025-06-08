@@ -1,7 +1,7 @@
 import { useSelect } from './contexts/select-context';
 import { ComponentProps, useEffect } from 'react';
 import { Item } from '../item';
-import { Radio } from '../radio';
+import { Radio, RadioField } from '../radio';
 
 interface IProps extends ComponentProps<'div'> {
     defaultSelected?: boolean;
@@ -31,7 +31,7 @@ export function SelectItem({
     return (
         <Item selected={selected === value} tabIndex={-1} {...props}>
             <Radio className="br-radio">
-                <Radio.Field
+                <RadioField
                     id={`${id}-${value}`}
                     name={`${id}-${value}`}
                     value={String(value)}

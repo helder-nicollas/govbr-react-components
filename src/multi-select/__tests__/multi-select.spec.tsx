@@ -6,8 +6,13 @@ import {
     waitFor,
 } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { MultiSelect } from '..';
-import { SelectTrigger } from '../../select-trigger';
+import {
+    MultiSelect,
+    MultiSelectAllItems,
+    MultiSelectItem,
+    MultiSelectList,
+} from '..';
+import { SelectTrigger, SelectTriggerField } from '../../select-trigger';
 
 describe('MultiSelect', () => {
     Object.defineProperty(HTMLElement.prototype, 'innerText', {
@@ -40,21 +45,21 @@ describe('MultiSelect', () => {
                 onChangeValue={onChangeValue}
             >
                 <SelectTrigger>
-                    <SelectTrigger.Field id="fruits" />
+                    <SelectTriggerField id="fruits" />
                 </SelectTrigger>
-                <MultiSelect.List>
-                    <MultiSelect.SelectAll />
+                <MultiSelectList>
+                    <MultiSelectAllItems />
                     {options.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>,
         );
 
@@ -73,21 +78,21 @@ describe('MultiSelect', () => {
                 onChangeValue={onChange}
             >
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" />
+                    <SelectTriggerField id="name" />
                 </SelectTrigger>
-                <MultiSelect.List>
-                    <MultiSelect.SelectAll />
+                <MultiSelectList>
+                    <MultiSelectAllItems />
                     {options.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>,
         );
 
@@ -107,20 +112,20 @@ describe('MultiSelect', () => {
                 onChangeValue={onChangeValue}
             >
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" />
+                    <SelectTriggerField id="name" />
                 </SelectTrigger>
-                <MultiSelect.List data-testid="list">
-                    <MultiSelect.SelectAll />
+                <MultiSelectList data-testid="list">
+                    <MultiSelectAllItems />
                     {options.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>,
         );
 
@@ -140,21 +145,21 @@ describe('MultiSelect', () => {
         render(
             <MultiSelect id="multi-select">
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTriggerField id="name" data-testid="trigger" />
                 </SelectTrigger>
-                <MultiSelect.List data-testid="list">
-                    <MultiSelect.SelectAll />
+                <MultiSelectList data-testid="list">
+                    <MultiSelectAllItems />
                     {options.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>,
         );
 
@@ -168,20 +173,20 @@ describe('MultiSelect', () => {
         render(
             <MultiSelect id="multi-select">
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTriggerField id="name" data-testid="trigger" />
                 </SelectTrigger>
-                <MultiSelect.List data-testid="list">
-                    <MultiSelect.SelectAll />
+                <MultiSelectList data-testid="list">
+                    <MultiSelectAllItems />
                     {options.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>,
         );
 
@@ -203,21 +208,21 @@ describe('MultiSelect', () => {
         const { container } = render(
             <MultiSelect id="multi-select" onChangeValue={onChangeValue}>
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTriggerField id="name" data-testid="trigger" />
                 </SelectTrigger>
-                <MultiSelect.List data-testid="list">
-                    <MultiSelect.SelectAll />
+                <MultiSelectList data-testid="list">
+                    <MultiSelectAllItems />
                     {options.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             defaultSelected={['1', '2'].includes(item.value)}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>,
         );
 

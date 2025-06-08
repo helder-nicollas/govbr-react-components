@@ -6,7 +6,7 @@ import {
     MultiSelectList,
 } from '.';
 import { fn } from '@storybook/test';
-import { SelectTrigger } from '../select-trigger';
+import { SelectTrigger, SelectTriggerField } from '../select-trigger';
 
 export default {
     title: 'Components/MultiSelect',
@@ -33,7 +33,7 @@ export const Default: StoryObj<typeof MultiSelect> = {
     args: {
         onChangeValue: fn(),
     },
-    render: args => {
+    render: ({ id, ...args }) => {
         const array = [
             {
                 label: 'Maçã',
@@ -50,23 +50,23 @@ export const Default: StoryObj<typeof MultiSelect> = {
         ];
 
         return (
-            <MultiSelect {...args}>
+            <MultiSelect {...args} id={id}>
                 <SelectTrigger>
-                    <SelectTrigger.Field />
+                    <SelectTriggerField />
                 </SelectTrigger>
-                <MultiSelect.List>
-                    <MultiSelect.SelectAll />
+                <MultiSelectList>
+                    <MultiSelectAllItems />
                     {array.map((item, index) => (
-                        <MultiSelect.Item
+                        <MultiSelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             defaultSelected={['1', '2'].includes(item.value)}
                         >
                             {item.label}
-                        </MultiSelect.Item>
+                        </MultiSelectItem>
                     ))}
-                </MultiSelect.List>
+                </MultiSelectList>
             </MultiSelect>
         );
     },

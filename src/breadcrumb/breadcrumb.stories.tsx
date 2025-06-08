@@ -21,27 +21,25 @@ export const Default: StoryObj<typeof Breadcrumb> = {
     render: args => {
         return (
             <Breadcrumb {...args}>
-                <Breadcrumb.List>
-                    <Breadcrumb.Home />
-                    <Breadcrumb.Item>
+                <BreadcrumbList>
+                    <BreadcrumbHome />
+                    <BreadcrumbItem>
                         <a href="#">Link 01</a>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
                         <a href="#">Link 02</a>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
                         <a href="#">Link 03</a>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
                         <a href="#">Link 04</a>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
                         <a href="#">Link 05</a>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.CurrentPage>
-                        Página Atual
-                    </Breadcrumb.CurrentPage>
-                </Breadcrumb.List>
+                    </BreadcrumbItem>
+                    <BreadcrumbCurrentPage>Página Atual</BreadcrumbCurrentPage>
+                </BreadcrumbList>
             </Breadcrumb>
         );
     },

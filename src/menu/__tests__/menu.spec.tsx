@@ -1,31 +1,34 @@
 import { render, screen } from '@testing-library/react';
 import { Menu } from '../menu';
 import userEvent from '@testing-library/user-event';
+import { MenuBody } from '../menu-body';
+import { MenuHeader } from '../menu-header';
+import { MenuItem, MenuItemIcon, MenuItemContent } from '../menu-item';
+import { MenuPanel } from '../menu-panel';
+import { MenuTitle } from '../menu-title';
 
 describe('Menu', () => {
     it('should render component and menu-item with correct variants', () => {
         render(
             <Menu open type="push" size="small" data-testid="menu">
-                <Menu.Panel className="max-w-72">
-                    <Menu.Header withCloseButton>
-                        <Menu.Title>
+                <MenuPanel className="max-w-72">
+                    <MenuHeader withCloseButton>
+                        <MenuTitle>
                             <span>Identificação do site ou Sistema</span>
-                        </Menu.Title>
-                    </Menu.Header>
-                    <Menu.Body>
-                        <Menu.Item divider>
-                            <Menu.Item.Icon>
+                        </MenuTitle>
+                    </MenuHeader>
+                    <MenuBody>
+                        <MenuItem divider>
+                            <MenuItemIcon>
                                 <i
                                     className="fas fa-bell"
                                     aria-hidden="true"
                                 ></i>
-                            </Menu.Item.Icon>
-                            <Menu.Item.Content>
-                                Item de Camada 1
-                            </Menu.Item.Content>
-                        </Menu.Item>
-                    </Menu.Body>
-                </Menu.Panel>
+                            </MenuItemIcon>
+                            <MenuItemContent>Item de Camada 1</MenuItemContent>
+                        </MenuItem>
+                    </MenuBody>
+                </MenuPanel>
             </Menu>,
         );
 
@@ -42,26 +45,24 @@ describe('Menu', () => {
         const onOpenChange = jest.fn();
         render(
             <Menu open onOpenChange={onOpenChange} data-testid="menu">
-                <Menu.Panel className="max-w-72">
-                    <Menu.Header withCloseButton>
-                        <Menu.Title>
+                <MenuPanel className="max-w-72">
+                    <MenuHeader withCloseButton>
+                        <MenuTitle>
                             <span>Identificação do site ou Sistema</span>
-                        </Menu.Title>
-                    </Menu.Header>
-                    <Menu.Body>
-                        <Menu.Item divider>
-                            <Menu.Item.Icon>
+                        </MenuTitle>
+                    </MenuHeader>
+                    <MenuBody>
+                        <MenuItem divider>
+                            <MenuItemIcon>
                                 <i
                                     className="fas fa-bell"
                                     aria-hidden="true"
                                 ></i>
-                            </Menu.Item.Icon>
-                            <Menu.Item.Content>
-                                Item de Camada 1
-                            </Menu.Item.Content>
-                        </Menu.Item>
-                    </Menu.Body>
-                </Menu.Panel>
+                            </MenuItemIcon>
+                            <MenuItemContent>Item de Camada 1</MenuItemContent>
+                        </MenuItem>
+                    </MenuBody>
+                </MenuPanel>
             </Menu>,
         );
 
@@ -76,26 +77,24 @@ describe('Menu', () => {
         const onOpenChange = jest.fn();
         render(
             <Menu open onOpenChange={onOpenChange} data-testid="menu">
-                <Menu.Panel className="max-w-72">
-                    <Menu.Header withCloseButton>
-                        <Menu.Title>
+                <MenuPanel className="max-w-72">
+                    <MenuHeader withCloseButton>
+                        <MenuTitle>
                             <span>Identificação do site ou Sistema</span>
-                        </Menu.Title>
-                    </Menu.Header>
-                    <Menu.Body>
-                        <Menu.Item divider>
-                            <Menu.Item.Icon>
+                        </MenuTitle>
+                    </MenuHeader>
+                    <MenuBody>
+                        <MenuItem divider>
+                            <MenuItemIcon>
                                 <i
                                     className="fas fa-bell"
                                     aria-hidden="true"
                                 ></i>
-                            </Menu.Item.Icon>
-                            <Menu.Item.Content>
-                                Item de Camada 1
-                            </Menu.Item.Content>
-                        </Menu.Item>
-                    </Menu.Body>
-                </Menu.Panel>
+                            </MenuItemIcon>
+                            <MenuItemContent>Item de Camada 1</MenuItemContent>
+                        </MenuItem>
+                    </MenuBody>
+                </MenuPanel>
             </Menu>,
         );
 

@@ -1,5 +1,5 @@
 import { ComponentProps, KeyboardEvent, useEffect } from 'react';
-import { Checkbox } from '../checkbox';
+import { Checkbox, CheckboxField } from '../checkbox';
 import { Item } from '../item';
 import { useMultiSelect } from './contexts/multi-select-context';
 
@@ -49,7 +49,7 @@ export function MultiSelectItem({
             }}
         >
             <Checkbox>
-                <Checkbox.Field
+                <CheckboxField
                     id={`${id}-${value}`}
                     name={`${id}-${value}`}
                     checked={selectedItems.includes(value)}

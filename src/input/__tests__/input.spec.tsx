@@ -1,20 +1,20 @@
 import { render, screen } from '@testing-library/react';
-import { Input } from '..';
+import { Input, InputButton, InputField, InputGroup, InputIcon } from '..';
 import userEvent from '@testing-library/user-event';
 
 describe('Input', () => {
     it('should render applying variants from input', () => {
         render(
             <Input variant="success" withButton highlight data-testid="input">
-                <Input.Group>
-                    <Input.Icon>
+                <InputGroup>
+                    <InputIcon>
                         <i className="fas fa-user-tie" aria-hidden="true" />
-                    </Input.Icon>
-                    <Input.Field placeholder="Usuário" />
-                    <Input.Button>
+                    </InputIcon>
+                    <InputField placeholder="Usuário" />
+                    <InputButton>
                         <i className="fas fa-user-tie" aria-hidden="true" />
-                    </Input.Button>
-                </Input.Group>
+                    </InputButton>
+                </InputGroup>
             </Input>,
         );
 
@@ -29,7 +29,7 @@ describe('Input', () => {
 
         render(
             <Input>
-                <Input.Field onChange={onChange} placeholder="testing" />
+                <InputField onChange={onChange} placeholder="testing" />
             </Input>,
         );
 

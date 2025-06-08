@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from '.';
-import { SelectTrigger } from '../select-trigger';
+import { SelectTrigger, SelectTriggerField } from '../select-trigger';
 import { SelectList } from './select-list';
 import { SelectItem } from './select-item';
 import { fn } from '@storybook/test';
+import { Label } from '../label';
 
 export default {
     title: 'Components/Select',
@@ -52,20 +53,24 @@ export const Default: StoryObj<typeof Select> = {
         ];
         return (
             <Select {...args} id={id}>
+                <Label htmlFor={String(id)}>Fruta:</Label>
                 <SelectTrigger {...args}>
-                    <SelectTrigger.Field placeholder="Selecione uma fruta" />
+                    <SelectTriggerField
+                        placeholder="Selecione uma fruta"
+                        id={String(id)}
+                    />
                 </SelectTrigger>
-                <Select.List>
+                <SelectList>
                     {array.map((item, index) => (
-                        <Select.Item
+                        <SelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                         >
                             {item.label}
-                        </Select.Item>
+                        </SelectItem>
                     ))}
-                </Select.List>
+                </SelectList>
             </Select>
         );
     },

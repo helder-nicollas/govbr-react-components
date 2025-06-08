@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Modal, ModalProps } from '.';
+import { Modal, ModalBody, ModalProps } from '.';
 import { ModalHeader } from './modal-header';
 import { ModalTitle } from './modal-title';
 import { ModalFooter } from './modal-footer';
@@ -29,25 +29,25 @@ export const Default: StoryObj<ModalProps> = {
                     Abrir modal
                 </Button>
                 <Modal open={open} onOpenChange={() => setOpen(false)}>
-                    <Modal.Content>
-                        <Modal.Header withCloseButton>
-                            <Modal.Title>Título do modal</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
+                    <ModalContent>
+                        <ModalHeader withCloseButton>
+                            <ModalTitle>Título do modal</ModalTitle>
+                        </ModalHeader>
+                        <ModalBody>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Nobis aut doloribus veritatis?
+                                adipisicing elit Nobis aut doloribus veritatis?
                                 Quam placeat delectus repudiandae consectetur
                                 accusantium atque recusandae corrupti quaerat,
-                                velit fugiat voluptas distinctio cumque itaque.
-                                Laborum, quis.
+                                velit fugiat voluptas distinctio cumque itaque
+                                Laborum, quis
                             </p>
-                        </Modal.Body>
-                        <Modal.Footer>
+                        </ModalBody>
+                        <ModalFooter>
                             <Button variant="outline">Sair</Button>
                             <Button variant="primary">Salvar</Button>
-                        </Modal.Footer>
-                    </Modal.Content>
+                        </ModalFooter>
+                    </ModalContent>
                 </Modal>
             </>
         );

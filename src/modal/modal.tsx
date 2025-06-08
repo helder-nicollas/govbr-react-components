@@ -1,11 +1,6 @@
 import { MouseEvent, ReactNode, useCallback, useEffect, useRef } from 'react';
 import { ModalContext } from './context/modal-context';
 import { twMerge } from 'tailwind-merge';
-import { ModalHeader } from './modal-header';
-import { ModalFooter } from './modal-footer';
-import { ModalTitle } from './modal-title';
-import { ModalContent } from './modal-content';
-import { ModalBody } from './modal-body';
 
 type ModalProps = {
     children: ReactNode;
@@ -64,11 +59,5 @@ function Modal({ children, open, onOpenChange }: ModalProps) {
         </>
     );
 }
-
-Modal.Header = ModalHeader;
-Modal.Footer = ModalFooter;
-Modal.Title = ModalTitle;
-Modal.Content = ModalContent;
-Modal.Body = ModalBody;
 
 export { Modal, ModalProps };

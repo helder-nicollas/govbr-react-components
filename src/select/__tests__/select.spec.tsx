@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { Select } from '..';
-import { SelectTrigger } from '../../select-trigger';
+import { Select, SelectItem, SelectList } from '..';
+import { SelectTrigger, SelectTriggerField } from '../../select-trigger';
 
 describe('Select', () => {
     const options = [
@@ -29,20 +29,20 @@ describe('Select', () => {
                 id="select"
             >
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" />
+                    <SelectTriggerField id="name" />
                 </SelectTrigger>
-                <Select.List>
+                <SelectList>
                     {options.map((item, index) => (
-                        <Select.Item
+                        <SelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </Select.Item>
+                        </SelectItem>
                     ))}
-                </Select.List>
+                </SelectList>
             </Select>,
         );
 
@@ -61,20 +61,20 @@ describe('Select', () => {
                 id="select"
             >
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" />
+                    <SelectTriggerField id="name" />
                 </SelectTrigger>
-                <Select.List>
+                <SelectList>
                     {options.map((item, index) => (
-                        <Select.Item
+                        <SelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                             data-testid={String(item.value)}
                         >
                             {item.label}
-                        </Select.Item>
+                        </SelectItem>
                     ))}
-                </Select.List>
+                </SelectList>
             </Select>,
         );
 
@@ -88,19 +88,19 @@ describe('Select', () => {
         render(
             <Select id="select">
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTriggerField id="name" data-testid="trigger" />
                 </SelectTrigger>
-                <Select.List data-testid="list">
+                <SelectList data-testid="list">
                     {options.map((item, index) => (
-                        <Select.Item
+                        <SelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                         >
                             {item.label}
-                        </Select.Item>
+                        </SelectItem>
                     ))}
-                </Select.List>
+                </SelectList>
             </Select>,
         );
 
@@ -114,19 +114,19 @@ describe('Select', () => {
         render(
             <Select id="select">
                 <SelectTrigger>
-                    <SelectTrigger.Field id="name" data-testid="trigger" />
+                    <SelectTriggerField id="name" data-testid="trigger" />
                 </SelectTrigger>
-                <Select.List data-testid="list">
+                <SelectList data-testid="list">
                     {options.map((item, index) => (
-                        <Select.Item
+                        <SelectItem
                             index={index}
                             value={item.value}
                             key={item.value}
                         >
                             {item.label}
-                        </Select.Item>
+                        </SelectItem>
                     ))}
-                </Select.List>
+                </SelectList>
             </Select>,
         );
 

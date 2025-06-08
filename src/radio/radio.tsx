@@ -1,7 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { radioVariants } from './variants';
-import { RadioField } from './radio-field';
 import { twMerge } from 'tailwind-merge';
 
 type RadioProps = ComponentPropsWithoutRef<'div'> &
@@ -27,7 +26,5 @@ function Radio({
         </div>
     );
 }
-
-Radio.Field = RadioField;
 
 export { Radio, type RadioProps };

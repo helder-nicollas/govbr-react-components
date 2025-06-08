@@ -10,9 +10,6 @@ import {
 } from 'react';
 import { ISelectGovBr } from './types';
 import { MultiSelectContext } from './contexts/multi-select-context';
-import { MultiSelectItem } from './multi-select-item';
-import { MultiSelectList } from './multi-select-list';
-import { MultiSelectAllItems } from './multi-select-all-items';
 import { twMerge } from 'tailwind-merge';
 import BRSelect from '@govbr-ds/core/dist/components/select/select';
 
@@ -187,9 +184,5 @@ function MultiSelect({
         </MultiSelectContext.Provider>
     );
 }
-
-MultiSelect.Item = MultiSelectItem;
-MultiSelect.List = MultiSelectList;
-MultiSelect.SelectAll = MultiSelectAllItems;
 
 export { MultiSelect, type MultiSelectProps };

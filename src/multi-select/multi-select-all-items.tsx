@@ -1,5 +1,5 @@
 import { KeyboardEvent } from 'react';
-import { Checkbox } from '../checkbox';
+import { Checkbox, CheckboxField } from '../checkbox';
 import { Item } from '../item';
 import { useMultiSelect } from './contexts/multi-select-context';
 
@@ -21,7 +21,7 @@ export function MultiSelectAllItems() {
             }}
         >
             <Checkbox>
-                <Checkbox.Field
+                <CheckboxField
                     id={`${id}-data-all`}
                     name={`${id}-data-all`}
                     checked={allSelected}
