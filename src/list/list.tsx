@@ -1,24 +1,30 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface ListProps extends ComponentProps<'div'> {
+type ListProps = ComponentProps<'div'> & {
     horizontal?: boolean;
-}
+};
+type Ref = HTMLDivElement;
 
-function List({ horizontal, children, className, ...props }: ListProps) {
-    return (
-        <div
-            {...props}
-            role="list"
-            className={twMerge(
-                'br-list',
-                className,
-                horizontal && 'horizontal',
-            )}
-        >
-            {children}
-        </div>
-    );
-}
+const List = forwardRef<Ref, ListProps>(
+    ({ horizontal, children, className, ...props }, ref) => {
+        return (
+            <div
+                {...props}
+                ref={ref}
+                role="list"
+                className={twMerge(
+                    'br-list',
+                    className,
+                    horizontal && 'horizontal',
+                )}
+            >
+                {children}
+            </div>
+        );
+    },
+);
+
+List.displayName = 'List';
 
 export { List, type ListProps };
