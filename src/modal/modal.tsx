@@ -45,18 +45,16 @@ function Modal({ children, open, onOpenChange }: ModalProps) {
     if (!open) return null;
 
     return (
-        <>
-            <div
-                className={twMerge('br-scrim-util foco', open && 'active')}
-                ref={modalRef}
-                onClick={handleCloseModalWithClick}
-                id={`modal-${modalId.current}`}
-            >
-                <ModalContext.Provider value={{ handleClose }}>
-                    {children}
-                </ModalContext.Provider>
-            </div>
-        </>
+        <div
+            className={twMerge('br-scrim-util foco', open && 'active')}
+            ref={modalRef}
+            onClick={handleCloseModalWithClick}
+            id={`modal-${modalId.current}`}
+        >
+            <ModalContext.Provider value={{ handleClose }}>
+                {children}
+            </ModalContext.Provider>
+        </div>
     );
 }
 

@@ -1,14 +1,23 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export function ModalTitle({
-    children,
-    className,
-    ...props
-}: { children: string } & ComponentProps<'div'>) {
-    return (
-        <div className={twMerge('modal-title', className)} {...props}>
-            {children}
-        </div>
-    );
-}
+type Ref = HTMLDivElement;
+type ModalTitleProps = ComponentProps<'div'>;
+
+const ModalTitle = forwardRef<Ref, ModalTitleProps>(
+    ({ children, className, ...props }, ref) => {
+        return (
+            <div
+                {...props}
+                className={twMerge('modal-title', className)}
+                ref={ref}
+            >
+                {children}
+            </div>
+        );
+    },
+);
+
+ModalTitle.displayName = 'ModalTitle';
+
+export { ModalTitle, type ModalTitleProps };
