@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode } from 'react';
+import { ComponentProps, forwardRef, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type CardProps = ComponentProps<'div'> & {
@@ -6,15 +6,26 @@ type CardProps = ComponentProps<'div'> & {
     children: ReactNode;
 };
 
-function Card({ className, disabled, children, ...props }: CardProps) {
-    return (
-        <div
-            {...props}
-            className={twMerge('br-card', className, disabled && 'disabled')}
-        >
-            {children}
-        </div>
-    );
-}
+type Ref = HTMLDivElement;
+
+const Card = forwardRef<Ref, CardProps>(
+    ({ className, disabled, children, ...props }, ref) => {
+        return (
+            <div
+                {...props}
+                ref={ref}
+                className={twMerge(
+                    'br-card',
+                    className,
+                    disabled && 'disabled',
+                )}
+            >
+                {children}
+            </div>
+        );
+    },
+);
+
+Card.displayName = 'Card';
 
 export { Card, type CardProps };
