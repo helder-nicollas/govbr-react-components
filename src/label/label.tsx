@@ -16,4 +16,4 @@ const Label = forwardRef<Ref, LabelProps>(
 
 Label.displayName = 'Label';
 
-export { Label, LabelProps };
+export { Label, type LabelProps };
