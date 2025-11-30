@@ -2,7 +2,7 @@ import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type Ref = HTMLLabelElement;
-type LabelProps = ComponentProps<'div'>;
+type LabelProps = ComponentProps<'label'>;
 
 const Label = forwardRef<Ref, LabelProps>(
     ({ className, children, ...props }, ref) => {
