@@ -1,23 +1,26 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { dividerVariants } from './variants';
 
 type DividerProps = ComponentProps<'hr'> & VariantProps<typeof dividerVariants>;
+type Ref = HTMLHRElement;
 
-function Divider({
-    className,
-    vertical,
-    dashed,
-    size,
-    ...props
-}: DividerProps) {
-    return (
+const Divider = forwardRef<Ref, DividerProps>(
+    ({ className, vertical, dashed, size, ...props }, ref) => (
         <hr
             {...props}
-            className={dividerVariants({ className, dashed, size, vertical })}
+            className={dividerVariants({
+                className,
+                dashed,
+                size,
+                vertical,
+            })}
             role="separator"
+            ref={ref}
         />
-    );
-}
+    ),
+);
 
-export { Divider, DividerProps };
+Divider.displayName = 'Divider';
+
+export { Divider, type DividerProps };

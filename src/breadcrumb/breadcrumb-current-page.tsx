@@ -1,12 +1,11 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export function BreadcrumbCurrentPage({
-    className,
-    children,
-    ...props
-}: ComponentProps<'li'>) {
-    return (
+type Ref = HTMLLIElement;
+type BreadcrumbCurrentPageProps = ComponentProps<'li'>;
+
+const BreadcrumbCurrentPage = forwardRef<Ref, BreadcrumbCurrentPageProps>(
+    ({ className, children, ...props }) => (
         <li
             {...props}
             className={twMerge('crumb', className)}
@@ -17,5 +16,9 @@ export function BreadcrumbCurrentPage({
                 {children}
             </span>
         </li>
-    );
-}
+    ),
+);
+
+BreadcrumbCurrentPage.displayName = 'BreadcrumbCurrentPage';
+
+export { BreadcrumbCurrentPage, type BreadcrumbCurrentPageProps };

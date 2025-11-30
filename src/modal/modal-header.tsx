@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { useModal } from './context/modal-context';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../button';
@@ -6,33 +6,37 @@ import { Button } from '../button';
 type ModalHeaderProps = ComponentProps<'div'> & {
     withCloseButton?: boolean;
 };
+type Ref = HTMLDivElement;
 
-function ModalHeader({
-    className,
-    children,
-    withCloseButton,
-    ...props
-}: ModalHeaderProps) {
-    const { handleClose } = useModal();
-    return (
-        <div className={twMerge('br-modal-header', className)} {...props}>
-            {children}
-            {withCloseButton && (
-                <Button
-                    className="close top-1"
-                    circle
-                    type="button"
-                    onClick={handleClose}
-                    aria-label="Fechar"
-                >
-                    <i
-                        className="fas fa-times text-secondary-foreground"
-                        aria-hidden="true"
-                    />
-                </Button>
-            )}
-        </div>
-    );
-}
+const ModalHeader = forwardRef<Ref, ModalHeaderProps>(
+    ({ className, children, withCloseButton, ...props }, ref) => {
+        const { handleClose } = useModal();
+        return (
+            <div
+                {...props}
+                className={twMerge('br-modal-header', className)}
+                ref={ref}
+            >
+                {children}
+                {withCloseButton && (
+                    <Button
+                        className="close top-1"
+                        circle
+                        type="button"
+                        onClick={handleClose}
+                        aria-label="Fechar"
+                    >
+                        <i
+                            className="fas fa-times text-secondary-foreground"
+                            aria-hidden="true"
+                        />
+                    </Button>
+                )}
+            </div>
+        );
+    },
+);
 
-export { ModalHeaderProps, ModalHeader };
+ModalHeader.displayName = 'ModalHeader';
+
+export { ModalHeader, type ModalHeaderProps };

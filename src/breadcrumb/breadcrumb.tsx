@@ -1,16 +1,22 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-function Breadcrumb({ className, children, ...props }: ComponentProps<'nav'>) {
-    return (
+type Ref = HTMLDivElement;
+type BreadcrumbProps = ComponentProps<'nav'>;
+
+const Breadcrumb = forwardRef<Ref, BreadcrumbProps>(
+    ({ className, children, ...props }, ref) => (
         <nav
             {...props}
             className={twMerge('br-breadcrumb', className)}
             aria-label="Breadcrumbs"
+            ref={ref}
         >
             {children}
         </nav>
-    );
-}
+    ),
+);
 
-export { Breadcrumb };
+Breadcrumb.displayName = 'Breadcrumb';
+
+export { Breadcrumb, type BreadcrumbProps };
