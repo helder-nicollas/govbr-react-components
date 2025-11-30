@@ -1,22 +1,29 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import { VariantProps } from 'tailwind-variants';
 import { modalVariants } from './variants';
+
+type Ref = HTMLDivElement;
 
 type ModalContentProps = VariantProps<typeof modalVariants> &
     ComponentProps<'div'>;
 
-function ModalContent({ children, width, className }: ModalContentProps) {
-    return (
-        <div
-            className={modalVariants({
-                className,
-                width,
-            })}
-            role="dialog"
-        >
-            {children}
-        </div>
-    );
-}
+const ModalContent = forwardRef<Ref, ModalContentProps>(
+    ({ className, width, children, ...props }) => {
+        return (
+            <div
+                {...props}
+                className={modalVariants({
+                    className,
+                    width,
+                })}
+                role="dialog"
+            >
+                {children}
+            </div>
+        );
+    },
+);
 
-export { ModalContentProps, ModalContent };
+ModalContent.displayName = 'ModalContent';
+
+export { ModalContent, type ModalContentProps };
