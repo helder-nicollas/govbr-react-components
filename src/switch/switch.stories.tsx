@@ -1,12 +1,25 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Switch, SwitchInput, SwitchProps } from '.';
-import { Label } from '../label';
+import { Switch, SwitchProps } from '.';
 import { switchVariants } from './variants';
+import { fn } from '@storybook/test';
+import { useState } from 'react';
 
 export default {
     title: 'Components/Switch',
     component: Switch,
+    args: {
+        id: 'switch',
+        align: 'left',
+        label: 'Label',
+        size: 'md',
+        icon: false,
+        onSwitch: fn(),
+        checked: false,
+    },
     argTypes: {
+        id: {
+            description: 'Id do switch. (obrigatório)',
+        },
         align: {
             description: 'Alinhamento do label.',
             control: {
@@ -30,20 +43,22 @@ export default {
         icon: {
             description: 'Ícone do componente.',
         },
+        checked: {
+            control: false,
+        },
     },
     tags: ['autodocs'],
 } as Meta<SwitchProps>;
 
 export const Default: StoryObj<SwitchProps> = {
-    args: {
-        align: 'left',
-        size: 'md',
-        icon: false,
+    render: args => {
+        const [checked, setChecked] = useState(false);
+        return (
+            <Switch
+                {...args}
+                checked={checked}
+                onSwitch={() => setChecked(!checked)}
+            />
+        );
     },
-    render: args => (
-        <Switch {...args}>
-            <SwitchInput name="switch-icon" id="switch-icon" />
-            <Label htmlFor="switch-icon">Label</Label>
-        </Switch>
-    ),
 };
