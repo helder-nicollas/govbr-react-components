@@ -7,8 +7,8 @@ type SwitchProps = ComponentProps<'div'> &
     SwitchVariants & {
         id: string;
         label: string;
-        onSwitch(): void;
-        checked: boolean;
+        onSwitch?(): void;
+        checked?: boolean;
     };
 
 const Switch = forwardRef<Ref, SwitchProps>(
