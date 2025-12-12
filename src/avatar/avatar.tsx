@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 type Ref = HTMLSpanElement;
 type AvatarProps = ComponentProps<'span'> &
     AvatarVariants & {
-        contentProps: ComponentProps<'span'>;
+        contentProps?: ComponentProps<'span'>;
     };
 
 const Avatar = forwardRef<Ref, AvatarProps>(
