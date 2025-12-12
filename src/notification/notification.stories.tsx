@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Notification } from './notification';
-import { NotificationBody } from './notification-body';
-import { NotificationHeader } from './notification-header';
+import { Notification } from '.';
+import { NotificationBody } from '.';
+import { NotificationHeader } from '.';
 import { Tab, TabContent, TabItem, TabNav, TabPanel } from '../tab';
 import { useState } from 'react';
 import { List } from '../list';
@@ -10,6 +10,10 @@ import { Item } from '../item';
 export default {
     title: 'Components/Notification',
     component: Notification,
+    subcomponents: {
+        NotificationHeader,
+        NotificationBody,
+    },
     tags: ['autodocs'],
 } as Meta<typeof Notification>;
 
