@@ -1,15 +1,15 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "declaration": false,
-    "noEmit": false,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "ESNext",
-    "jsx": "react-jsx",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "compilerOptions": {
+        "outDir": "dist",
+        "declaration": false,
+        "noEmit": false,
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "target": "ESNext",
+        "jsx": "react-jsx",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    }
 }
