@@ -21,3 +21,5 @@ export * from './sign-in';
 export * from './tab';
 export * from './table';
 export * from './pagination';
+export * from './radio';
+export * from './switch';
